@@ -967,8 +967,8 @@
 
                 <div class="form-group">
                     <label>Base URL (invitation file path)</label>
-                    <input type="text" id="baseUrl" value="https://sunilkumar999-a.github.io/whatsapp-tracker/index.html"
-                        placeholder="https://sunilkumar999-a.github.io/whatsapp-tracker/index.html" />
+                    <input type="text" id="baseUrl" value="https://sunil-abburi.github.io/HouseWarming-Invitation/index.html"
+                        placeholder="https://sunil-abburi.github.io/HouseWarming-Invitation/index.html" />
                 </div>
 
                 <div class="form-group">
@@ -1568,6 +1568,17 @@ ${_currentUrl}${self}`
                 }
             }
         }
+
+        /* ── Auto-detect baseUrl on load ── */
+        window.addEventListener('DOMContentLoaded', () => {
+            const baseUrlInput = document.getElementById('baseUrl');
+            if (baseUrlInput && window.location.protocol.startsWith('http')) {
+                const current = window.location.href.split('?')[0].split('#')[0];
+                const basePath = current.substring(0, current.lastIndexOf('/') + 1);
+                baseUrlInput.value = basePath + 'index.html';
+                baseUrlInput.placeholder = basePath + 'index.html';
+            }
+        });
 
         /* ── Enter key shortcuts ── */
         document.getElementById('guestName').addEventListener('keydown', e => { if (e.key === 'Enter') generateSingle(); });
