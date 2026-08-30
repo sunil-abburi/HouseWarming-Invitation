@@ -1292,10 +1292,10 @@
           <div class="moment-card-caption t" data-key="m2_cap">Bhoj and Blessings</div>
         </div>
 
-        <!-- Story Panel 3 -->
+        <!-- Story Panel 3 (Dedicated Gifts & Sweets Art) -->
         <div class="moment-art-card">
           <div class="moment-img-wrap">
-            <img src="./Images/housewarming4.png" alt="Sharing Joy and Gifts" loading="lazy">
+            <img src="./Images/housewarming_gifts.jpg" alt="Sharing Joy and Gifts" loading="lazy">
           </div>
           <div class="moment-card-caption t" data-key="m3_cap">Sharing Joy and Gifts</div>
         </div>
@@ -1556,6 +1556,7 @@
         const key = el.getAttribute('data-key');
         if (dict[key]) el.textContent = dict[key];
       });
+      updatePersonalClosingCard(lang);
     }
 
     // Audio Music Control
@@ -1611,28 +1612,54 @@
       }
     }
 
+    let _decodedGuestName = '';
+
+    function updatePersonalClosingCard(lang) {
+      const gGreeting = document.getElementById('personalGuestGreeting');
+      const gBody = document.getElementById('personalGuestBody');
+      if (!gGreeting || !gBody) return;
+
+      if (_decodedGuestName) {
+        if (lang === 'te') {
+          gGreeting.textContent = `ఆత్మీయులైన ${_decodedGuestName} గారికి,`;
+          gBody.textContent = `మా నూతన గృహప్రవేశ మహోత్సవ వేడుకకు మీ రాక మాకెంతో సంతోషాన్ని, శుభాన్ని చేకూరుస్తుంది. మీ సకుటుంబ రాకకై సాదరంగా ఎదురుచూస్తున్నాము.`;
+        } else {
+          gGreeting.textContent = `Dear ${_decodedGuestName},`;
+          gBody.textContent = `We eagerly look forward to your gracious presence and heartfelt blessings with your family as we celebrate our new home!`;
+        }
+      } else {
+        if (lang === 'te') {
+          gGreeting.textContent = `ఆత్మీయులైన మిత్రులు మరియు బంధువులకు,`;
+          gBody.textContent = `మా నూతన గృహప్రవేశ మహోత్సవ వేడుకకు మీ రాక మాకెంతో సంతోషాన్ని, శుభాన్ని చేకూరుస్తుంది. మీ సకుటుంబ రాకకై సాదరంగా ఎదురుచూస్తున్నాము.`;
+        } else {
+          gGreeting.textContent = `Dear Beloved Family & Friends,`;
+          gBody.textContent = `We eagerly look forward to your gracious presence and heartfelt blessings with your family as we celebrate our new home!`;
+        }
+      }
+    }
+
     function initGuestFromURL() {
       const p = new URLSearchParams(window.location.search);
       const rawGuest = p.get('guest');
-      const lang = p.get('lang');
-      if (lang) setLanguage(lang);
+      const lang = p.get('lang') || 'te';
 
-      let guestName = '';
       if (rawGuest) {
-        guestName = b64decode(rawGuest);
+        _decodedGuestName = b64decode(rawGuest);
       }
 
-      if (guestName) {
+      setLanguage(lang);
+
+      if (_decodedGuestName) {
         const gLabel = document.getElementById('guestEnvLabel');
         const gNameEl = document.getElementById('guestEnvName');
         if (gLabel && gNameEl) {
-          gNameEl.textContent = guestName;
+          gNameEl.textContent = _decodedGuestName;
           gLabel.style.display = 'block';
         }
 
         const btnWa = document.getElementById('btnWa');
         if (btnWa) {
-          const msg = encodeURIComponent(`Namaste Sunil & Bharath, I/We (${guestName}) received your Gruhapravesam invitation. Congratulations and we will be attending on 5th & 6th Nov!`);
+          const msg = encodeURIComponent(`Namaste Sunil & Bharath, I/We (${_decodedGuestName}) received your Gruhapravesam invitation. Congratulations and we will be attending on 5th & 6th Nov!`);
           btnWa.href = `https://wa.me/918142654776?text=${msg}`;
         }
       } else {
