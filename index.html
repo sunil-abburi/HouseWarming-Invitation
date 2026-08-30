@@ -952,70 +952,82 @@
        SECTION: PERSONALIZED CLOSING NOTE
     ══════════════════════════════════════ */
     .personal-note-section {
-      padding: 70px 20px 40px;
-      background: radial-gradient(circle at 50% 50%, #155E57 0%, #0D3E3A 60%, #062320 100%);
+      padding: 80px 20px 60px;
+      background: radial-gradient(circle at 50% 50%, #176B65 0%, #0D3E3A 60%, #051A18 100%);
       text-align: center;
       position: relative;
       overflow: hidden;
+      border-top: 2px solid var(--gold-primary);
+      border-bottom: 2px solid var(--gold-primary);
     }
 
     .personal-note-card {
-      max-width: 720px;
+      max-width: 820px;
       margin: 0 auto;
-      background: rgba(10, 54, 51, 0.88);
-      border: 2px solid var(--gold-primary);
-      border-radius: 20px;
-      padding: 40px 30px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 35px rgba(226, 185, 97, 0.35);
+      background: rgba(10, 54, 51, 0.92);
+      border: 2.5px solid var(--gold-primary);
+      border-radius: 24px;
+      padding: 50px 35px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.85), 0 0 40px rgba(226, 185, 97, 0.5), inset 0 0 30px rgba(226, 185, 97, 0.15);
       position: relative;
       transform-style: preserve-3d;
       transition: transform 0.4s ease;
     }
 
-    .personal-note-card:hover {
-      transform: translateY(-5px) scale(1.02);
-    }
-
     .personal-note-seal {
-      width: 60px;
-      height: 60px;
+      width: 75px;
+      height: 75px;
       border-radius: 50%;
       background: radial-gradient(circle, #FFE17D 0%, #C48E33 70%, #522C05 100%);
-      border: 2px solid #FFF2B2;
+      border: 3px solid #FFF2B2;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 18px;
-      box-shadow: 0 0 20px rgba(226, 185, 97, 0.7);
+      margin: 0 auto 22px;
+      box-shadow: 0 0 30px rgba(226, 185, 97, 0.8), 0 8px 25px rgba(0,0,0,0.6);
+      animation: sealPulse 2.5s infinite;
+    }
+
+    .personal-eyebrow {
+      font-family: var(--font-royal);
+      font-size: clamp(0.75rem, 2.2vw, 0.95rem);
+      letter-spacing: 4px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 700;
     }
 
     .personal-guest-greeting {
       font-family: var(--font-serif);
-      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 700;
       color: #FFFFFF;
-      margin-bottom: 14px;
-      text-shadow: 0 0 20px rgba(226, 185, 97, 0.5);
+      margin-bottom: 18px;
+      text-shadow: 0 0 25px rgba(226, 185, 97, 0.7);
+      line-height: 1.2;
     }
 
     .personal-guest-body {
       font-family: var(--font-serif);
-      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-size: clamp(1.2rem, 3vw, 1.55rem);
       color: var(--ivory-cream);
-      line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto 20px;
+      line-height: 1.8;
+      max-width: 680px;
+      margin: 0 auto 28px;
       font-style: italic;
     }
 
     .personal-guest-sign {
       font-family: var(--font-royal);
-      font-size: 0.85rem;
+      font-size: clamp(0.85rem, 2.2vw, 1.1rem);
       letter-spacing: 3px;
       color: var(--gold-light);
       text-transform: uppercase;
-      font-weight: bold;
+      font-weight: 800;
+      padding-top: 20px;
+      border-top: 1px solid rgba(226, 185, 97, 0.4);
     }
 
     /* ══════════════════════════════════════
@@ -1358,17 +1370,20 @@
       
     </section>
 
-        <!-- 7.5 PERSONALIZED GUEST HONOUR CARD -->
-    <section class="personal-note-section">
+    <!-- 7.5 PERSONALIZED GUEST HONOUR CARD -->
+    <section class="personal-note-section" id="guestHonourSection">
       <div class="personal-note-card">
         <div class="personal-note-seal">
-          <span style="font-family: var(--font-script); font-size: 2rem; color: #240C04; font-weight: bold;">A</span>
+          <span style="font-family: var(--font-script); font-size: 2.4rem; color: #240C04; font-weight: bold;">A</span>
         </div>
-        <div class="personal-guest-greeting" id="personalGuestGreeting">ఆత్మీయులైన మిత్రులు మరియు బంధువులకు,</div>
+        <div class="personal-eyebrow t" data-key="personal_eyebrow">A Special Heartfelt Invitation For</div>
+        <div class="personal-guest-greeting" id="personalGuestGreeting">ఆత్మీయులైన బంధుమిత్రులకు,</div>
         <div class="personal-guest-body" id="personalGuestBody">
-          మా నూతన గృహప్రవేశ మహోత్సవ వేడుకకు మీ రాక మాకెంతో సంతోషాన్ని, శుభాన్ని చేకూరుస్తుంది. మీ సకుటుంబ రాకకై ఆత్మీయంగా ఎదురుచూస్తున్నాము.
+          మా నూతన గృహప్రవేశ మహోత్సవ వేడుకకు మీ రాక మాకెంతో సంతోషాన్ని, ఆశీర్వాదాన్ని మరియు శుభాన్ని చేకూరుస్తుంది. మీ సకుటుంబ రాకకై ఆత్మీయంగా ఎదురుచూస్తున్నాము.
         </div>
-        <div class="personal-guest-sign t" data-key="guest_note_sign">— అబ్బూరి కుటుంబ సభ్యులు</div>
+        <div class="personal-guest-sign" id="personalGuestSign">
+          — Abburi Family (Veerabhadra Rao, Venkatarao, Bharath &amp; Sunil)
+        </div>
       </div>
     </section>
 
@@ -1640,11 +1655,36 @@
     function updatePersonalClosingCard(lang) {
       const gGreeting = document.getElementById('personalGuestGreeting');
       const gBody = document.getElementById('personalGuestBody');
+      const gSign = document.getElementById('personalGuestSign');
+      const eyebrow = document.querySelector('.personal-eyebrow');
       if (!gGreeting || !gBody) return;
 
       if (_decodedGuestName) {
         if (lang === 'te') {
+          if (eyebrow) eyebrow.textContent = "ప్రత్యేక ఆత్మీయ ఆహ్వానం";
           gGreeting.textContent = `ఆత్మీయులైన ${_decodedGuestName} గారికి,`;
+          gBody.textContent = `మా నూతన గృహప్రవేశ మహోత్సవ వేడుకకు మీ రాక మాకెంతో సంతోషాన్ని, ఆశీర్వాదాన్ని చేకూరుస్తుంది. మీ సకుటుంబ రాకకై ఆత్మీయంగా ఎదురుచూస్తున్నాము.`;
+          if (gSign) gSign.textContent = "— అబ్బూరి కుటుంబ సభ్యులు (వీరభద్రరావు, వెంకట్రావు, భరత్ & సునీల్)";
+        } else {
+          if (eyebrow) eyebrow.textContent = "A Special Heartfelt Invitation For";
+          gGreeting.textContent = `Dear ${_decodedGuestName},`;
+          gBody.textContent = `We warmly look forward to your gracious presence and heartfelt blessings with your family as we step into our new home!`;
+          if (gSign) gSign.textContent = "— Abburi Family (Veerabhadra Rao, Venkatarao, Bharath & Sunil)";
+        }
+      } else {
+        if (lang === 'te') {
+          if (eyebrow) eyebrow.textContent = "ప్రత్యేక ఆత్మీయ ఆహ్వానం";
+          gGreeting.textContent = `ఆత్మీయులైన బంధుమిత్రులకు,`;
+          gBody.textContent = `మా నూతన గృహప్రవేశ మహోత్సవ వేడుకకు మీ రాక మాకెంతో సంతోషాన్ని, ఆశీర్వాదాన్ని చేకూరుస్తుంది. మీ సకుటుంబ రాకకై ఆత్మీయంగా ఎదురుచూస్తున్నాము.`;
+          if (gSign) gSign.textContent = "— అబ్బూరి కుటుంబ సభ్యులు (వీరభద్రరావు, వెంకట్రావు, భరత్ & సునీల్)";
+        } else {
+          if (eyebrow) eyebrow.textContent = "A Special Heartfelt Invitation For";
+          gGreeting.textContent = `Dear Beloved Family & Friends,`;
+          gBody.textContent = `We warmly look forward to your gracious presence and heartfelt blessings with your family as we step into our new home!`;
+          if (gSign) gSign.textContent = "— Abburi Family (Veerabhadra Rao, Venkatarao, Bharath & Sunil)";
+        }
+      }
+    } గారికి,`;
           gBody.textContent = `మా నూతన గృహప్రవేశ మహోత్సవ వేడుకకు మీ రాక మాకెంతో సంతోషాన్ని, శుభాన్ని చేకూరుస్తుంది. మీ సకుటుంబ రాకకై సాదరంగా ఎదురుచూస్తున్నాము.`;
         } else {
           gGreeting.textContent = `Dear ${_decodedGuestName},`;
