@@ -913,6 +913,91 @@
       box-shadow: 0 -10px 40px rgba(226, 185, 97, 0.3);
     }
 
+    
+    #petalCanvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    #starsCanvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ══════════════════════════════════════
+       SECTION: PERSONALIZED CLOSING NOTE
+    ══════════════════════════════════════ */
+    .personal-note-section {
+      padding: 70px 20px 40px;
+      background: radial-gradient(circle at 50% 50%, #155E57 0%, #0D3E3A 60%, #062320 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .personal-note-card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: rgba(10, 54, 51, 0.88);
+      border: 2px solid var(--gold-primary);
+      border-radius: 20px;
+      padding: 40px 30px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 35px rgba(226, 185, 97, 0.35);
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+    }
+
+    .personal-note-card:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    .personal-note-seal {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFE17D 0%, #C48E33 70%, #522C05 100%);
+      border: 2px solid #FFF2B2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      box-shadow: 0 0 20px rgba(226, 185, 97, 0.7);
+    }
+
+    .personal-guest-greeting {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+      text-shadow: 0 0 20px rgba(226, 185, 97, 0.5);
+    }
+
+    .personal-guest-body {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: var(--ivory-cream);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 20px;
+      font-style: italic;
+    }
+
+    .personal-guest-sign {
+      font-family: var(--font-royal);
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
     /* ══════════════════════════════════════
        SECTION 8: VENUE & 1-TAP GPS / RSVP
     ══════════════════════════════════ */
@@ -1102,6 +1187,7 @@
 
     <!-- 2. SILK INVITATION SECTION (Screenshot 2 Inspiration) -->
     <section class="silk-invite-section">
+      <canvas id="petalCanvas"></canvas>
       <div class="silk-card-container">
         <div class="ribbon-corner"></div>
 
@@ -1214,10 +1300,10 @@
           <div class="moment-card-caption t" data-key="m3_cap">Sharing Joy and Gifts</div>
         </div>
 
-        <!-- Story Panel 4 -->
+        <!-- Story Panel 4 (Unique Toast & Celebration Art) -->
         <div class="moment-art-card">
           <div class="moment-img-wrap">
-            <img src="./Images/housewarming4.png" alt="A Sweet Toast to the Future" loading="lazy">
+            <img src="./Images/housewarming_toast.jpg" alt="A Sweet Toast to the Future" loading="lazy">
           </div>
           <div class="moment-card-caption t" data-key="m4_cap">A Sweet Toast to the Future</div>
         </div>
@@ -1232,6 +1318,7 @@
 
     <!-- 7. NIGHT SKY COUNTDOWN (Screenshot 5 Match) -->
     <section class="night-countdown-section">
+      <canvas id="starsCanvas"></canvas>
       <h2 class="night-sky-title t" data-key="night_cd_title">The countdown begins</h2>
       
       <div class="night-cd-boxes">
@@ -1246,6 +1333,20 @@
       </p>
 
       
+    </section>
+
+        <!-- 7.5 PERSONALIZED GUEST HONOUR CARD -->
+    <section class="personal-note-section">
+      <div class="personal-note-card">
+        <div class="personal-note-seal">
+          <span style="font-family: var(--font-script); font-size: 2rem; color: #240C04; font-weight: bold;">A</span>
+        </div>
+        <div class="personal-guest-greeting" id="personalGuestGreeting">ఆత్మీయులైన మిత్రులు మరియు బంధువులకు,</div>
+        <div class="personal-guest-body" id="personalGuestBody">
+          మా నూతన గృహప్రవేశ మహోత్సవ వేడుకకు మీ రాక మాకెంతో సంతోషాన్ని, శుభాన్ని చేకూరుస్తుంది. మీ సకుటుంబ రాకకై ఆత్మీయంగా ఎదురుచూస్తున్నాము.
+        </div>
+        <div class="personal-guest-sign t" data-key="guest_note_sign">— అబ్బూరి కుటుంబ సభ్యులు</div>
+      </div>
     </section>
 
     <!-- 8. VENUE & 1-TAP GPS / RSVP -->
