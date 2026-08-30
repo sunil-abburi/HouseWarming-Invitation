@@ -508,11 +508,14 @@
       display: none;
     }
 
-    #lanternCanvas {
-      position: absolute;
-      inset: 0;
+    #globalLanternCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       pointer-events: none;
-      z-index: 2;
+      z-index: 1;
     }
 
     .hero-content {
@@ -1354,7 +1357,6 @@
 
     <!-- 1. HERO SECTION: TEMPLE GOPURAM & SKY LANTERNS (Screenshot 1) -->
     <section class="hero-meenaya">
-      <canvas id="lanternCanvas"></canvas>
       
       <div class="hero-content">
         <div class="hero-om">ॐ</div>
