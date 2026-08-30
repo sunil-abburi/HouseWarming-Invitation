@@ -1,406 +1,285 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <title>Abburi's Invitation</title>
-  <meta name="description" content="You are cordially invited to Abburi's Housewarming Celebration on 22-09-2026 at 10:00 AM in Kunduruvaripalem, Andhra Pradesh." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Abburi's Housewarming Invitation</title>
+  
+  <!-- Meta & Social Sharing -->
+  <meta name="description" content="You are warmly invited to join Abburi's Housewarming Celebration on 5th & 6th November 2026 at Kunduruvaripalem, Andhra Pradesh.">
+  <meta property="og:title" content="Abburi's Housewarming Invitation">
+  <meta property="og:description" content="Join us for the Gruhapravesam & Satyanarayana Vratham celebrations on 5th & 6th Nov 2026.">
+  <meta property="og:image" content="./Images/temple_gopuram_hero.jpg">
+  <meta name="theme-color" content="#135A55">
 
-  <!-- Open Graph / WhatsApp / Social Media -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sunil-abburi.github.io/HouseWarming-Invitation/" />
-  <meta property="og:title" content="Abburi's Housewarming Celebration" />
-  <meta property="og:description" content="You are warmly invited to join Abburi's Housewarming Celebration. Date: 22-09-2026, Time: 10:00 AM. Venue: Kunduruvaripalem, Andhra Pradesh." />
-  <meta property="og:image" content="https://sunil-abburi.github.io/HouseWarming-Invitation/Images/housewarming1.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <!-- Cache Buster and Service Worker Cleaner -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let r of registrations) { r.unregister(); }
+      });
+      if ('caches' in window) {
+        caches.keys().then(function(names) {
+          for (let name of names) caches.delete(name);
+        });
+      }
+    }
+  </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Great+Vibes&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,800;1,600;1,800&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- GSAP for Smooth Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
   <style>
-    /* ═══════════════════════════════════
-       ROOT — Madison · Calico · Amour
-    ═══════════════════════════════════ */
     :root {
-      --rg-dark: #4a1c1c;
-      /* Deep maroon - elegant Indian theme */
-      --rg-mid: #6b3d3d;
-      /* Mid burgundy for secondary text */
-      --rg-accent: #5e2a2a;
-      /* Maroon accent with depth */
-      --rg-gold: #d4a84b;
-      /* Rich golden - more vibrant */
-      --rg-gold2: #f0c674;
-      /* Bright gold - primary accent */
-      --rg-gold3: #f5e6c3;
-      /* Light gold for highlights */
-      --rg-bg: #5a2525;
-      /* Rich maroon bg */
-      --rg-bg2: #4a1e1e;
-      /* Deep maroon bg base */
-      --rg-bg3: #2e1414;
-      /* Darkest maroon for contrast sections */
-      --rg-light: #fff8f0;
-      /* Warm cream highlight */
-      --rg-cream: #faf0e6;
-      /* Soft cream for contrast */
-      --rg-white: #FFFFFF;
-      --section-pad: clamp(70px, 10vw, 140px);
-      --font-ta: 'Noto Sans Tamil', serif;
-      --font-te: 'Noto Sans Telugu', serif;
-      --font-hi: 'Noto Sans Devanagari', serif;
+      --primary-teal: #135A55;
+      --teal-dark: #0A3633;
+      --teal-light: #1E827B;
+      --gold-primary: #E2B961;
+      --gold-light: #FFF2C6;
+      --gold-dark: #A67C2E;
+      --ruby-accent: #7E1925;
+      --maroon-dark: #3A0C16;
+      --lavender-bg: #EAE0F0;
+      --ivory-cream: #FAF7F0;
+      --font-serif: 'Cormorant Garamond', 'Playfair Display', serif;
+      --font-royal: 'Cinzel', serif;
+      --font-script: 'Great Vibes', cursive;
     }
 
-    *,
-    *::before,
-    *::after {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    html {
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background-color: var(--teal-dark);
+      color: var(--ivory-cream);
+      font-family: var(--font-serif);
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
-    body {
-      font-family: 'Cormorant Garamond', serif;
-      background: #2E3551;
-      color: var(--rg-dark);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Language-specific font override */
-    html[data-lang="ta"] .t {
-      font-family: var(--font-ta);
-    }
-
-    html[data-lang="te"] .t {
-      font-family: var(--font-te);
-    }
-
-    html[data-lang="hi"] .t {
-      font-family: var(--font-hi);
-    }
-
-    /* ─── CUSTOM CURSOR ─── */
-    #cur-dot {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: var(--rg-gold2);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 12px 4px rgba(216, 173, 131, 0.5);
-      transition: width .2s, height .2s;
-    }
-
-    #cur-ring {
-      position: fixed;
-      width: 40px;
-      height: 40px;
-      border: 1.5px solid var(--rg-gold2);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 99998;
-      transform: translate(-50%, -50%);
-      opacity: .5;
-    }
-
-    @media(max-width:768px) {
-      body {
-        cursor: auto;
-      }
-
-      #cur-dot,
-      #cur-ring {
-        display: none;
-      }
-    }
-
-    /* ─── CANVAS ─── */
-    #threeCanvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      width: 100% !important;
-      height: 100% !important;
-    }
-
-    #rippleCanvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9997;
-      width: 100%;
-      height: 100%;
-    }
-
-    /* ═══════════════════════════════════
-       ENVELOPE COVER
-    ═══════════════════════════════════ */
+    /* ══════════════════════════════════════
+       3D ENVELOPE OPENING COVER
+    ══════════════════════════════════════ */
     #envelopeCover {
       position: fixed;
       inset: 0;
-      z-index: 5000;
+      z-index: 9000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 50%, #16645E 0%, #0D3E3A 60%, #051A18 100%);
+      perspective: 1200px;
       overflow: hidden;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(236, 182, 95, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 80% 20%, rgba(236, 182, 95, 0.1) 0%, transparent 35%),
-        radial-gradient(ellipse at 50% 40%, #541922 0%, #381018 50%, #220d14 100%);
     }
 
-    .env-video {
+    .envelope-container {
+      position: relative;
+      width: 90vw;
+      max-width: 440px;
+      height: 280px;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+    }
+
+    .envelope-container:hover {
+      transform: scale(1.02);
+    }
+
+    .envelope-pocket {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      z-index: 1;
-      /* Above the fallback image */
+      border-radius: 16px;
+      background: url('./Images/teal_silk_damask.jpg') center/cover, #0F4A45;
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9), inset 0 0 30px rgba(0,0,0,0.8);
+      z-index: 5;
+      overflow: hidden;
     }
 
-    /* CSS Wax Seal with Abburi's */
-    .css-wax-seal {
+    .envelope-pocket-fold {
       position: absolute;
-      top: 50%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 170px;
+      background: linear-gradient(0deg, #0A3633 0%, rgba(19, 90, 85, 0.9) 100%);
+      clip-path: polygon(0 100%, 50% 30%, 100% 100%);
+      border-top: 1.5px solid rgba(226, 185, 97, 0.5);
+      z-index: 8;
+    }
+
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: url('./Images/teal_silk_damask.jpg') top center/cover, #135A55;
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      transform-origin: top center;
+      transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 12;
+      border-bottom: 2px solid var(--gold-primary);
+    }
+
+    .envelope-container.opened .envelope-flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .wax-seal {
+      position: absolute;
+      top: 92px;
       left: 50%;
-      transform: translate(-50%, -58%);
-      width: min(45vw, 45vh, 320px);
-      height: min(45vw, 45vh, 320px);
+      transform: translateX(-50%);
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
-      background: linear-gradient(145deg, #D4AF37 0%, #B8860B 50%, #8B6914 100%);
-      box-shadow: 
-        0 15px 35px rgba(0, 0, 0, 0.4),
-        inset 0 -5px 15px rgba(0, 0, 0, 0.3),
-        inset 0 5px 15px rgba(255, 255, 255, 0.3);
-      z-index: 0;
-      pointer-events: none;
+      background: radial-gradient(circle, #FFE17D 0%, #C48E33 70%, #522C05 100%);
+      border: 2px solid #FFF2B2;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.7), 0 0 25px rgba(226, 185, 97, 0.6);
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 15;
+      color: #3C1204;
+      animation: sealPulse 2.5s infinite;
+    }
+
+    @keyframes sealPulse {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.05); }
+    }
+
+    .envelope-container.opened .wax-seal {
+      transform: translateX(-50%) scale(0.1);
+      opacity: 0;
+    }
+
+    .seal-monogram {
+      font-family: var(--font-script);
+      font-size: 2.3rem;
+      line-height: 1;
+    }
+
+    .seal-text {
+      font-family: var(--font-royal);
+      font-size: 0.48rem;
+      letter-spacing: 1.5px;
+      font-weight: 800;
+    }
+
+    .letter-card {
+      position: absolute;
+      top: 15px;
+      left: 5%;
+      width: 90%;
+      height: 250px;
+      background: linear-gradient(135deg, #FFFDF7 0%, #F5EDE0 100%);
+      border: 2px solid var(--gold-primary);
+      border-radius: 10px;
+      color: #0A3633;
+      padding: 10px 14px 14px 14px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      z-index: 6;
+      transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.25, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .letter-card-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
     }
 
-    .css-wax-seal::before {
-      content: '';
-      position: absolute;
-      inset: 15px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #E5C100 0%, #D4AF37 100%);
-      box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.2);
+    .envelope-container.opened .letter-card {
+      transform: translateY(-170px) scale(1.08);
+      z-index: 20;
     }
 
-    .wax-seal-inner {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      color: #4A3728;
+    .tap-hint-wrap {
+      margin-top: 25px;
+      z-index: 20;
     }
 
-    .wax-seal-initial {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(3rem, 12vw, 5rem);
-      line-height: 1;
-      margin-bottom: -10px;
-      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-    }
-
-    .wax-seal-text {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.6rem, 2.5vw, 0.9rem);
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: none;
-      white-space: nowrap;
-    }
-
-    #envelopeCover::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 5;
-      background: radial-gradient(ellipse at center, transparent 40%, rgba(34, 13, 20, 0.7) 100%);
-      pointer-events: none;
-    }
-
-    /* ─── SEAL CLICK ZONE ───
-       Invisible transparent circle over the wax seal */
-    .seal-zone {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -58%);
-      /* seal is slightly above center */
-      width: min(55vw, 55vh, 340px);
-      height: min(55vw, 55vh, 340px);
-      border-radius: 50%;
-      z-index: 25;
+    .tap-envelope-btn {
+      background: linear-gradient(135deg, #FFE793 0%, #D8AD83 50%, #996F33 100%);
+      color: #240C04;
+      padding: 13px 32px;
+      border-radius: 30px;
+      font-family: var(--font-royal);
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      border: 1.5px solid #FFF3BE;
       cursor: pointer;
-      background: transparent;
+      box-shadow: 0 0 25px rgba(226, 185, 97, 0.6);
+      animation: pulseBtn 2s infinite ease-in-out;
     }
 
-    /* ─── HINT LABEL (non-interactive) ─── */
-    .tap-hint {
-      position: absolute;
-      z-index: 21;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
     }
 
-    .tap-hint-label {
-      font-family: 'Cinzel', serif;
+    .guest-env-label {
+      margin-top: 18px;
+      text-align: center;
+      z-index: 20;
+      background: rgba(10, 54, 51, 0.8);
+      padding: 8px 24px;
+      border-radius: 30px;
+      border: 1px solid rgba(226, 185, 97, 0.4);
+    }
+
+    .guest-env-eyebrow {
+      font-family: var(--font-royal);
       font-size: 0.58rem;
       letter-spacing: 3px;
+      color: var(--gold-primary);
       text-transform: uppercase;
-      font-weight: bold;
-      color: var(--rg-gold2);
-      background: rgba(46, 20, 20, 0.88);
-      backdrop-filter: blur(6px);
-      padding: 6px 14px;
-      border-radius: 5px;
-      border: 1px solid rgba(216, 173, 131, 0.5);
-      white-space: nowrap;
     }
 
-    .tap-hint-arrow {
-      font-size: 2rem;
-      color: rgba(216, 173, 131, 0.95);
-      filter: drop-shadow(0 0 6px rgba(216, 173, 131, 0.7));
-      line-height: 1;
+    .guest-env-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      font-style: italic;
     }
 
-    /* Mobile: bottom, above the guest label, pointing UP */
-    .tap-hint.mobile-hint {
-      bottom: clamp(155px, 24vh, 220px);
-      left: 50%;
-      margin-bottom: 20px;
-      transform: translateX(-50%);
-      flex-direction: column;
-    }
-
-    .tap-hint.mobile-hint .tap-hint-arrow {
-      animation: hintBounceUp 1.4s ease-in-out infinite;
-      order: 1;
-    }
-
-    .tap-hint.mobile-hint .tap-hint-label {
-      order: 2;
-    }
-
-    @keyframes hintBounceUp {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-7px);
-      }
-    }
-
-    /* Desktop: LEFT side, pointing RIGHT toward seal */
-    .tap-hint.desktop-hint {
-      display: none;
-      /* hidden on mobile */
-    }
-
-    @media (min-width: 769px) {
-
-      /* Hide mobile hint, show desktop hint */
-      .tap-hint.mobile-hint {
-        display: none;
-      }
-
-      .tap-hint.desktop-hint {
-        display: flex;
-        flex-direction: row;
-        top: 50%;
-        left: clamp(20px, 5vw, 60px);
-        transform: translateY(-50%);
-      }
-
-      .tap-hint.desktop-hint .tap-hint-label {
-        order: 1;
-      }
-
-      .tap-hint.desktop-hint .tap-hint-arrow {
-        order: 2;
-        animation: hintBounceRight 1.4s ease-in-out infinite;
-        font-size: 2rem;
-      }
-
-      @keyframes hintBounceRight {
-
-        0%,
-        100% {
-          transform: translateX(0);
-        }
-
-        50% {
-          transform: translateX(9px);
-        }
-      }
-
-      /* Scale seal zone for desktop (seal fills more space) */
-      .seal-zone {
-        width: min(42vw, 42vh, 360px);
-        height: min(42vw, 42vh, 360px);
-      }
-    }
-
-    @keyframes floatPulse {
-
-      /* kept to avoid reference errors but no longer applied */
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 1;
-      }
-    }
-
-    /* ringPulse removed — ring element replaced by text cue */
-
-    /* Bloom overlay — navy-to-lavender cinematic fade */
-    #openBloom {
-      position: fixed;
-      inset: 0;
-      z-index: 4999;
-      background: radial-gradient(ellipse at center, #F5EBF6 0%, #D8AD83 50%, #2E3551 100%);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.6s ease;
-    }
-
-    /* ═══════════════════════════════════
-       INVITATION PAGE
-    ═══════════════════════════════════ */
+    /* ══════════════════════════════════════
+       MAIN INVITATION WRAPPER
+    ══════════════════════════════════════ */
     #invitationPage {
       display: block;
       opacity: 0;
       visibility: hidden;
+      transition: opacity 1.5s ease;
       position: relative;
-      z-index: 2;
-      transition: opacity 1.8s ease;
     }
 
     #invitationPage.visible {
@@ -408,3362 +287,1360 @@
       visibility: visible;
     }
 
-    /* ─── FLOATING PARTICLES CANVAS ─── */
-    #particlesCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* ─── HERO CORNER DECOR (HOUSEWARMING STYLE) ─── */
-    .mandala-corner {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      opacity: 0.38;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .mandala-corner svg {
-      display: none;
-    }
-
-    .mandala-corner::before,
-    .mandala-corner::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-    }
-
-    .mandala-corner::before {
-      background:
-        linear-gradient(var(--rg-gold2), var(--rg-gold2)) 0 0 / 74% 1.5px no-repeat,
-        linear-gradient(var(--rg-gold2), var(--rg-gold2)) 0 0 / 1.5px 74% no-repeat,
-        linear-gradient(135deg, transparent 0 46%, rgba(242, 220, 184, 0.58) 47% 53%, transparent 54%) center / 100% 100% no-repeat;
-      filter: drop-shadow(0 0 8px rgba(216, 173, 131, 0.2));
-    }
-
-    .mandala-corner::after {
-      content: '🪔';
-      color: var(--rg-gold2);
-      font-size: 1.15rem;
-      opacity: 0.85;
-      left: 4px;
-      top: 4px;
-      inset: auto;
-    }
-
-    .mandala-top-left {
-      top: 20px;
-      left: 20px;
-      transform: rotate(0deg);
-    }
-
-    .mandala-top-right {
-      top: 20px;
-      right: 20px;
-      transform: rotate(90deg);
-    }
-
-    .mandala-bottom-left {
-      bottom: 20px;
-      left: 20px;
-      transform: rotate(-90deg);
-    }
-
-    .mandala-bottom-right {
-      bottom: 20px;
-      right: 20px;
-      transform: rotate(180deg);
-    }
-
-    .mandala-center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 260px;
-      height: 260px;
-      opacity: 0.16;
-      pointer-events: none;
-      z-index: 0;
-      display: grid;
-      place-items: center;
-    }
-
-    .mandala-center svg {
-      display: none;
-    }
-
-    .mandala-center::before {
-      content: '';
-      width: 170px;
-      height: 170px;
-      border: 1.5px solid rgba(242, 220, 184, 0.48);
-      transform: rotate(45deg);
-      box-shadow: 0 0 25px rgba(216, 173, 131, 0.18);
-    }
-
-    .mandala-center::after {
-      content: 'ॐ';
-      position: absolute;
-      font-family: 'Cinzel', serif;
-      font-size: 2.4rem;
-      color: var(--rg-gold2);
-      text-shadow: 0 0 16px rgba(216, 173, 131, 0.35);
-    }
-
-    @keyframes slowRotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* Decorative border pattern */
-    .decorative-border {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      right: 10px;
-      bottom: 10px;
-      border: 1px solid rgba(240, 198, 116, 0.2);
-      border-radius: 20px;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .decorative-border::before {
-      content: '';
-      position: absolute;
-      top: 4px;
-      left: 4px;
-      right: 4px;
-      bottom: 4px;
-      border: 1px dashed rgba(240, 198, 116, 0.15);
-      border-radius: 16px;
-    }
-
-    /* ─── LANGUAGE SWITCHER ─── */
-    .lang-switcher {
-      position: fixed;
-      top: 14px;
-      right: 14px;
-      z-index: 9000;
-      display: flex;
-      gap: 5px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .lang-btn {
-      background: rgba(30, 36, 56, 0.82);
-      backdrop-filter: blur(10px);
-      border: 1.5px solid var(--rg-gold);
-      color: var(--rg-light);
-      font-family: 'Cinzel', serif;
-      font-size: 0.6rem;
-      letter-spacing: 1px;
-      padding: 5px 10px;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: all 0.25s;
-      white-space: nowrap;
-      font-weight: 600;
-    }
-
-    .lang-btn:hover,
-    .lang-btn.active {
-      background: var(--rg-gold);
-      color: var(--rg-dark);
-      border-color: var(--rg-gold2);
-    }
-
-    /* ═══════════════════════════════════
-       HERO
-    ═══════════════════════════════════ */
-    .hero {
-      min-height: 100vh;
-      min-height: 100svh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(60px, 12vh, 100px) 20px clamp(120px, 20vh, 160px);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(236, 182, 95, 0.14), transparent 35%),
-        radial-gradient(circle at 82% 22%, rgba(236, 182, 95, 0.12), transparent 34%),
-        linear-gradient(160deg, #220d14 0%, #381018 30%, #541922 58%, #6f1f26 100%);
-    }
-
-    #hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      z-index: 0;
-      opacity: 0.35;
-      transform: scale(1.08);
-      will-change: transform;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(180deg,
-          rgba(46, 20, 20, 0.75) 0%,
-          rgba(74, 30, 30, 0.55) 40%,
-          rgba(46, 20, 20, 0.95) 100%);
-    }
-
-    .hero-arc {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(700px, 90vw);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .hero-arc svg {
-      width: 100%;
-      height: auto;
-      overflow: visible;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      width: 100%;
-      max-width: 900px;
-    }
-
-    .blessing {
-      font-family: 'Amiri', serif;
-      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
-      font-weight: 700;
-      color: var(--rg-gold2);
-      text-shadow: 0 0 40px rgba(212, 148, 58, 0.5), 0 4px 20px rgba(0, 0, 0, 0.7);
-      margin-bottom: 18px;
-      letter-spacing: 2px;
-    }
-
-    .sub-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.9rem, 2vw, 1.2rem);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--rg-light);
-      margin-bottom: clamp(15px, 3vh, 50px);
-      font-weight: 600;
-    }
-
-    .host-names {
-      margin: clamp(10px, 2vh, 20px) 0 clamp(20px, 4vh, 50px);
-    }
-
-    .n-host-primary,
-    .n-host-secondary {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(3rem, 7vw, 4.8rem);
-      color: var(--rg-light);
-      line-height: 1.05;
-      display: block;
-      text-shadow: 0 4px 40px rgba(0, 0, 0, 0.6), 0 0 80px rgba(212, 148, 58, 0.3);
-    }
-
-    .degrees {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.95rem, 2.5vw, 1.3rem);
-      letter-spacing: 3px;
-      display: block;
-      margin-top: 8px;
-      color: var(--rg-gold2);
-      font-weight: 900;
-    }
-
-    .n-joiner {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
-      display: block;
-      margin: clamp(5px, 1.5vh, 18px) 0;
-      font-style: italic;
-      color: var(--rg-light);
-      opacity: 0.75;
-    }
-
-    .gold-rule {
-      width: 140px;
-      height: 1.5px;
-      background: linear-gradient(90deg, transparent, var(--rg-gold2), transparent);
-      margin: 30px auto;
-    }
-
-    .hero-date {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.82rem, 2vw, 1.05rem);
-      letter-spacing: 3px;
-      color: var(--rg-light);
-      line-height: 1.6;
-      font-weight: 600;
-    }
-
-    .scroll-cue {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding-bottom: clamp(20px, 4vh, 40px);
-      padding-top: 40px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      z-index: 9000;
-      pointer-events: none;
-      background: linear-gradient(to top, rgba(34, 13, 20, 0.95) 0%, transparent 100%);
-      transition: opacity 0.4s ease;
-    }
-
-    .swipe-hand-indicator {
-      font-size: 2rem;
-      color: var(--rg-gold2);
-      animation: handSwipe 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-      filter: drop-shadow(0 0 12px rgba(216, 173, 131, 0.6));
-    }
-
-    @keyframes handSwipe {
-      0% {
-        opacity: 0;
-        transform: translateY(20px) scale(0.9);
-      }
-
-      20% {
-        opacity: 1;
-        transform: translateY(10px) scale(1);
-        filter: drop-shadow(0 0 20px var(--rg-gold2));
-      }
-
-      60% {
-        opacity: 1;
-        transform: translateY(-25px) scale(1.05);
-        filter: drop-shadow(0 0 8px rgba(216, 173, 131, 0.5));
-      }
-
-      80%,
-      100% {
-        opacity: 0;
-        transform: translateY(-35px) scale(0.9);
-      }
-    }
-
-    /* ═══════════════════════════════════
-       SHARED SECTION STYLES
-    ═══════════════════════════════════ */
-    section {
-      padding: var(--section-pad) clamp(20px, 6vw, 80px);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .gold-separator {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin: 0 auto 25px;
-      width: fit-content;
-    }
-
-    .gold-separator-line {
-      width: clamp(60px, 8vw, 120px);
-      height: 1.5px;
-      background: linear-gradient(90deg, transparent, var(--rg-gold));
-    }
-
-    .gold-separator-line.rev {
-      background: linear-gradient(90deg, var(--rg-gold), transparent);
-    }
-
-    .gold-separator i,
-    .gold-separator .om-icon {
-      color: var(--rg-gold);
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .sec-title {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      margin-bottom: 12px;
-      font-weight: normal;
-    }
-
-    .sec-subtitle {
-      font-family: 'Cinzel', serif;
-      font-size: 0.78rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      margin-bottom: 65px;
-      font-weight: 700;
-    }
-
-    /* ═══════════════════════════════════
-       COUNTDOWN — Deep Maroon
-    ═══════════════════════════════════ */
-    .countdown-section {
-      background: linear-gradient(135deg, #2e1414 0%, #4a1e1e 25%, #3d1414 50%, #5a2525 75%, #2e1414 100%);
-      background-size: 300% 300%;
-      animation: bgShift 12s ease infinite;
-      position: relative;
-      z-index: 2;
-    }
-
-    @keyframes bgShift {
-
-      0%,
-      100% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-    }
-
-    .countdown-section .sec-subtitle {
-      color: var(--rg-light);
-    }
-
-    .countdown-section .gold-separator i,
-    .countdown-section .gold-separator .om-icon {
-      color: var(--rg-gold2);
-    }
-
-    /* ═══════════════════════════════════
-       TIMING & VENUE SECTION
-    ═══════════════════════════════════ */
-    .timing-section {
-      padding-top: clamp(40px, 5vw, 60px);
-      /* Tighter top spacing */
-    }
-
-    /* ─── 3D FLIP CARDS ─── */
-    .flip-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      max-width: 800px;
-      margin: 0 auto;
-      perspective: 1000px;
-    }
-
-    @media (max-width: 640px) {
-      .flip-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 20px;
-      }
-    }
-
-    .flip-card-container {
-      height: 280px;
-      cursor: pointer;
-      perspective: 1000px;
-    }
-
-    .flip-card {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .flip-card-container.flipped .flip-card {
-      transform: rotateY(180deg);
-    }
-
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .flip-card-front {
-      background: linear-gradient(135deg, rgba(212, 168, 75, 0.15) 0%, rgba(74, 28, 28, 0.9) 100%);
-      border: 2px solid rgba(240, 198, 116, 0.3);
-    }
-
-    .flip-card-back {
-      background: linear-gradient(135deg, rgba(74, 28, 28, 0.95) 0%, rgba(90, 37, 37, 0.9) 100%);
-      border: 2px solid rgba(240, 198, 116, 0.5);
-      transform: rotateY(180deg);
-    }
-
-    .flip-card-icon {
-      font-size: 3rem;
-      margin-bottom: 12px;
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-    }
-
-    .flip-card-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
-      color: var(--rg-gold2);
-      text-align: center;
-      margin-bottom: 8px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .flip-card-time {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--rg-light);
-      opacity: 0.9;
-    }
-
-    .flip-card-hint {
-      font-size: 0.7rem;
-      color: var(--rg-gold);
-      opacity: 0.7;
-      margin-top: 12px;
-      font-style: italic;
-    }
-
-    .flip-card-back-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      color: var(--rg-gold2);
-      margin-bottom: 16px;
-      text-align: center;
-      border-bottom: 1px solid rgba(240, 198, 116, 0.3);
-      padding-bottom: 8px;
-    }
-
-    .flip-card-back-content {
-      text-align: center;
-      color: var(--rg-light);
-    }
-
-    .flip-card-back-content p {
-      margin: 8px 0;
-      font-size: 0.95rem;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .flip-card-note {
-      font-size: 0.8rem !important;
-      color: var(--rg-gold);
-      font-style: italic;
-      margin-top: 12px !important;
-      opacity: 0.8;
-    }
-
-    .countdown-section .gold-separator-line {
-      background: linear-gradient(90deg, transparent, var(--rg-gold2));
-    }
-
-    .countdown-section .gold-separator-line.rev {
-      background: linear-gradient(90deg, var(--rg-gold2), transparent);
-    }
-
-    .cd-grid {
-      display: flex;
-      justify-content: center;
-      gap: clamp(16px, 4vw, 50px);
-      flex-wrap: wrap;
-    }
-
-    .cd-item {
-      text-align: center;
-      padding: 28px 32px;
-      border: 1.5px solid rgba(216, 173, 131, 0.5);
-      border-radius: 6px;
-      min-width: 120px;
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(216, 173, 131, 0.2);
-    }
-
-    .cd-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 9vw, 5.5rem);
-      font-style: italic;
-      line-height: 1;
-      color: var(--rg-gold2);
-      display: block;
-      font-weight: 600;
-      text-shadow: 0 0 30px rgba(216, 173, 131, 0.6);
-    }
-
-    .cd-lbl {
-      font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      letter-spacing: 4px;
-      color: var(--rg-light);
-      text-transform: uppercase;
-      margin-top: 12px;
-      display: block;
-      font-weight: 600;
-    }
-
-    /* ═══════════════════════════════════
-       DETAILS SECTION — Maroon bg for contrast
-    ═══════════════════════════════════ */
-    .details-section {
-      background: linear-gradient(180deg, rgba(46, 20, 20, 0.95) 0%, rgba(74, 30, 30, 0.90) 50%, rgba(46, 20, 20, 0.95) 100%);
-    }
-
-    .details-section .sec-title {
-      color: var(--rg-gold2);
-    }
-
-    .details-section .sec-subtitle {
-      color: var(--rg-light);
-    }
-
-    .details-section .gold-separator i {
-      color: var(--rg-gold);
-    }
-
-    .details-text {
-      font-size: clamp(1.15rem, 2.5vw, 1.55rem);
-      line-height: 2.2;
-      color: var(--rg-white);
-      max-width: 780px;
-      margin: 0 auto;
-      font-style: italic;
-      font-weight: 500;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    /* ─────────────────────────────────────────
-       ELDERS PANEL — full-width top row
-    ───────────────────────────────────────── */
-    .elders-panel {
-      border-top: 1.5px solid rgba(184, 115, 42, 0.3);
-      padding: 35px 20px 25px;
-      /* Tighter padding */
-      text-align: center;
-      /* Seamless bg (no cream bar) */
-    }
-
-    .elders-eyebrow {
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--rg-gold);
-      font-weight: 700;
-      margin-bottom: 28px;
-    }
-
-    .elders-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px 36px;
-      /* Tighter gap */
-      margin-bottom: 0;
-    }
-
-    .elder-item {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: var(--rg-light);
-      text-align: center;
-    }
-
-    .elder-item strong {
-      display: block;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-    }
-
-    .elder-role {
-      font-size: 0.78rem;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 2px;
-      color: var(--rg-gold);
-      text-transform: uppercase;
-      font-weight: 600;
-      display: block;
-      margin-top: 4px;
-    }
-
-    /* Two-column parents grid — equal height */
-    .parents-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      margin-top: 0;
-      width: 100%;
-    }
-
-    @media(min-width:768px) {
-      .parents-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .parents-box {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      /* tighter line spacing */
-      color: var(--rg-light);
-      padding: 35px 20px 35px;
-      /* tighter padding */
-      border-top: 1.5px solid rgba(184, 115, 42, 0.3);
-    }
-
-    .parents-box strong {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-    }
-
-    .parents-box:nth-child(2) {
-      border-left: 1.5px solid rgba(184, 115, 42, 0.3);
-    }
-
-    .parents-box.full-width {
-      grid-column: 1 / -1;
-      border-left: none;
-      text-align: center;
-      padding: 25px 20px 35px;
-      /* tighter padding */
-      /* Seamless bg (no cream bar) */
-    }
-
-    @media(max-width:767px) {
-      .parents-box:nth-child(2) {
-        border-left: 0;
-      }
-    }
-
-    .parents-title {
-      font-family: 'Cinzel', serif;
-      font-size: 0.78rem;
-      letter-spacing: 4px;
-      color: var(--rg-gold);
-      margin-bottom: 22px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .parents-box strong {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--rg-gold2);
-    }
-
-    /* ═══════════════════════════════════
-       TIMING & VENUE
-    ═══════════════════════════════════ */
-    .timing-section {
-      background: linear-gradient(180deg, rgba(46, 20, 20, 0.95) 0%, rgba(74, 30, 30, 0.90) 50%, rgba(46, 20, 20, 0.95) 100%);
-    }
-
-    .timing-section .sec-title {
-      color: var(--rg-gold2);
-    }
-
-    .timing-section .sec-subtitle {
-      color: var(--rg-light);
-    }
-
-    .timing-section .gold-separator i {
-      color: var(--rg-gold);
-    }
-
-    .timing-section .gold-separator-line {
-      background: linear-gradient(90deg, transparent, var(--rg-gold));
-    }
-
-    .timing-section .gold-separator-line.rev {
-      background: linear-gradient(90deg, var(--rg-gold), transparent);
-    }
-
-    .timing-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0;
-      width: 100%;
-    }
-
-    .timing-card {
-      flex: 1;
-      min-width: 280px;
-      padding: 60px 40px;
-      border: 1.5px solid rgba(184, 115, 42, 0.4);
-      position: relative;
-    }
-
-    .timing-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--rg-gold), transparent);
-    }
-
-    .tc-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(2.8rem, 5vw, 3.8rem);
-      color: var(--rg-gold2);
-      margin-bottom: 14px;
-      line-height: 1.2;
-    }
-
-    .tc-time {
-      font-family: 'Cinzel', serif;
-      font-size: 0.95rem;
-      color: var(--rg-light);
-      letter-spacing: 2px;
-      font-weight: 700;
-    }
-
-    .venue-details {
-      margin-top: 80px;
-      font-size: 1.2rem;
-      color: var(--rg-light);
-      line-height: 2.3;
-    }
-
-    .venue-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.82rem;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--rg-gold);
-      font-weight: 700;
-    }
-
-    .venue-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      color: var(--rg-gold2);
-      margin: 18px 0;
-      font-style: italic;
-      font-weight: 700;
-    }
-
-    .map-wrapper {
-      margin-top: 40px;
-      margin-left: calc(-1 * clamp(20px, 6vw, 80px));
-      margin-right: calc(-1 * clamp(20px, 6vw, 80px));
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-      border-top: 1.5px solid rgba(184, 115, 42, 0.3);
-      border-bottom: 1.5px solid rgba(184, 115, 42, 0.3);
-      width: auto;
-    }
-
-    .map-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(180deg,
-          rgba(30, 36, 56, 0.55) 0%,
-          rgba(46, 53, 81, 0.35) 40%,
-          rgba(30, 36, 56, 0.5) 100%);
-    }
-
-    .bus-info {
-      font-family: 'Cinzel', serif;
-      font-size: 0.82rem;
-      letter-spacing: 2px;
-      color: var(--rg-light);
-      margin-top: 35px;
-      text-transform: uppercase;
-      line-height: 2.4;
-      font-weight: 600;
-    }
-
-    .bus-info strong {
-      color: var(--rg-gold);
-    }
-
-    /* ═══════════════════════════════════
-       ENHANCED REVEAL ANIMATIONS
-    ═══════════════════════════════════ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-scale {
-      opacity: 0;
-      transform: scale(0.85);
-      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .reveal-scale.active {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-60px);
-      transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .reveal-left.active {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(60px);
-      transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .reveal-right.active {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* Stagger delays for multiple elements */
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.25s; }
-    .reveal-delay-3 { transition-delay: 0.4s; }
-    .reveal-delay-4 { transition-delay: 0.55s; }
-    .reveal-delay-5 { transition-delay: 0.7s; }
-
-    /* ═══════════════════════════════════
-       GALLERY
-    ═══════════════════════════════════ */
-    .gallery-section {
-      background: linear-gradient(180deg, rgba(46, 20, 20, 0.95) 0%, rgba(74, 30, 30, 0.90) 50%, rgba(46, 20, 20, 0.95) 100%);
-      padding: 0;
-    }
-
-    .img-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(180deg,
-          rgba(46, 20, 20, 0.3) 0%,
-          rgba(74, 30, 30, 0.4) 40%,
-          rgba(46, 20, 20, 0.4) 60%);
-    }
-
-    .gallery-inner {
-      padding: var(--section-pad) clamp(20px, 6vw, 80px) 60px;
-    }
-
-    .gallery-section .sec-title {
-      color: var(--rg-gold2);
-    }
-
-    .gallery-section .sec-subtitle {
-      color: var(--rg-light);
-    }
-
-    .gallery-section .gold-separator i {
-      color: var(--rg-gold);
-    }
-
-    .gallery-section .gold-separator-line {
-      background: linear-gradient(90deg, transparent, var(--rg-gold));
-    }
-
-    .gallery-section .gold-separator-line.rev {
-      background: linear-gradient(90deg, var(--rg-gold), transparent);
-    }
-
-    .gal-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0;
-      width: 100%;
-    }
-
-    @media(max-width:768px) {
-      .gal-grid {
-        grid-template-columns: 1fr;
-      }
-      .gal-item img {
-        height: auto;
-        max-height: 60vh;
-      }
-    }
-
-    .gal-item {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .gal-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-      transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
-      filter: brightness(0.65) sepia(0.4) saturate(1.2);
-    }
-
-    .gal-item:hover img {
-      transform: scale(1.07);
-      filter: brightness(0.85) sepia(0.2);
-    }
-
-    .gal-item-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.75) 100%);
-    }
-
-    .gal-caption {
-      position: absolute;
-      bottom: 25px;
-      left: 0;
-      right: 0;
-      z-index: 2;
-      text-align: center;
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.85);
-      font-weight: 600;
-    }
-
-    /* ═══════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════ */
-    .footer-img-section {
-      background: linear-gradient(180deg, rgba(46, 20, 20, 0.95) 0%, rgba(74, 30, 30, 0.90) 50%, rgba(46, 20, 20, 0.95) 100%);
-      padding: 0;
-    }
-
-    .footer-compliments {
-      padding: var(--section-pad) clamp(20px, 6vw, 80px) 60px;
-      text-align: center;
-    }
-
-    .footer-compliments .gold-separator i {
-      color: var(--rg-gold);
-    }
-
-    .compliments {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      color: var(--rg-dark);
-      line-height: 1.5;
-    }
-
-    .compliments strong {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-      font-style: italic;
-      display: block;
-      margin-top: 18px;
-      color: var(--rg-mid);
-      font-weight: 700;
-    }
-
-    .compliments span {
-      font-family: 'Cinzel', serif;
-      font-size: 0.78rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      display: block;
-      margin-top: 12px;
-      color: var(--rg-gold);
-      font-weight: 600;
-    }
-
-    .footer-img-wrapper {
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .footer-img-wrapper {
-      background-image: url('./Images/housewarming4.png');
-      width: 100%;
-      display: block;
-      background-size: contain;
-      background-position: center top;
-      background-repeat: no-repeat;
-      height: auto;
-      min-height: 50vh;
-      filter: sepia(0.25) hue-rotate(-20deg) brightness(0.90) saturate(1.1);
-      transition: transform 8s ease;
-    }
-
-    .footer-img-wrapper:hover {
-      transform: scale(1.04);
-    }
-
-    /* ─── BLESSING BAR ─── */
-    .blessing-bar {
-      background: linear-gradient(135deg, rgba(46, 20, 20, 0.95) 0%, rgba(74, 30, 30, 0.90) 50%, rgba(46, 20, 20, 0.95) 100%);
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    .blessing-bar p {
-      font-family: 'Noto Sans Telugu', sans-serif;
-      font-size: clamp(1.3rem, 3vw, 1.8rem);
-      color: var(--rg-gold2);
-      letter-spacing: 1px;
-    }
-
-    .blessing-bar small {
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      color: var(--rg-light);
-      display: block;
-      margin-top: 14px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    /* ═══════════════════════════════════
-       SCROLL REVEAL (replaces WOW.js)
-    ═══════════════════════════════════ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(35px);
-      will-change: transform, opacity;
-      transition: opacity 1.1s cubic-bezier(0.2, 0.8, 0.2, 1),
-        transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    .reveal.reveal-up {
-      transform: translateY(50px);
-    }
-
-    .reveal.reveal-down {
-      transform: translateY(-50px);
-    }
-
-    .reveal.reveal-left {
-      transform: translateX(-50px);
-    }
-
-    .reveal.reveal-right {
-      transform: translateX(50px);
-    }
-
-    .reveal.reveal-scale {
-      transform: scale(0.92);
-    }
-
-    .reveal.revealed {
-      opacity: 1 !important;
-      transform: translate(0) scale(1) !important;
-    }
-
-    .reveal-delay-1 {
-      transition-delay: 0.1s;
-    }
-
-    .reveal-delay-2 {
-      transition-delay: 0.2s;
-    }
-
-    .reveal-delay-3 {
-      transition-delay: 0.3s;
-    }
-
-    .reveal-delay-4 {
-      transition-delay: 0.45s;
-    }
-
-    .reveal-delay-5 {
-      transition-delay: 0.6s;
-    }
-
-    /* ─── RESPONSIVE MOBILE ─── */
-    @media(max-width:768px) {
-      section {
-        padding: 40px 16px;
-      }
-
-      /* ── Ganesh Icon: ensure visibility on mobile with left alignment ── */
-      .ganesh-art-section {
-        justify-content: flex-start;
-        padding-left: 20px;
-        margin-bottom: 20px;
-      }
-
-      .ganesh-image {
-        width: 80px;
-        height: 80px;
-        border-width: 2px;
-      }
-
-      .ganesh-image i {
-        font-size: 2rem;
-      }
-
-      /* ── Countdown: single inline row ── */
-      .cd-grid {
-        flex-wrap: nowrap;
-        gap: 6px;
-        padding: 0 2px;
-      }
-
-      .cd-item {
-        flex: 1;
-        min-width: 0;
-        padding: 12px 4px;
-      }
-
-      .cd-num {
-        font-size: clamp(1.8rem, 7.5vw, 2.6rem);
-      }
-
-      .cd-lbl {
-        font-size: 0.45rem;
-        letter-spacing: 1px;
-        margin-top: 5px;
-      }
-
-      /* ── Celebration Details: side-by-side with gold left border ── */
-      .timing-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0;
-      }
-
-      .timing-card {
-        min-width: 0;
-        padding: 24px 14px;
-        border: none;
-        border-left: 4px solid var(--rg-gold2);
-        border-top: 1px solid rgba(184, 115, 42, 0.2);
-        border-bottom: 1px solid rgba(184, 115, 42, 0.2);
-        position: relative;
-        background: rgba(255, 255, 255, 0.05);
-      }
-
-      /* Gold top accent per card */
-      .timing-card::before {
-        display: none;
-      }
-
-      .timing-card:first-child {
-        border-right: 1px solid rgba(184, 115, 42, 0.2);
-        border-radius: 4px 0 0 4px;
-      }
-
-      .timing-card:last-child {
-        border-radius: 0 4px 4px 0;
-      }
-
-      .tc-title {
-        font-size: clamp(1.8rem, 5vw, 2.4rem);
-        margin-bottom: 8px;
-      }
-
-      .tc-time {
-        font-size: 0.72rem;
-        letter-spacing: 0.5px;
-      }
-
-      /* ── Tighten subtitle space everywhere ── */
-      .sec-subtitle {
-        margin-bottom: 24px;
-      }
-
-      /* ── Venue section ── */
-      .venue-details {
-        margin-top: 28px;
-        font-size: 1rem;
-        line-height: 1.9;
-      }
-
-      .venue-name {
-        font-size: clamp(1.3rem, 4vw, 1.8rem);
-        margin: 10px 0;
-      }
-
-      /* ── Parents & elders ── */
-      .parents-box {
-        padding: 28px 16px;
-      }
-
-      .elders-panel {
-        padding: 24px 16px 18px;
-      }
-
-      .elders-grid {
-        gap: 10px 20px;
-      }
-
-      /* ── Gallery ── */
-      .gal-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gal-item {
-        aspect-ratio: 4/3;
-      }
-
-      /* ── Footer tighter ── */
-      .footer-compliments {
-        padding: 40px 16px 36px;
-      }
-
-      .blessing-bar {
-        padding: 32px 16px;
-      }
-    }
-
-    @media(max-width:480px) {
-
-      .n-bride,
-      .n-groom {
-        font-size: clamp(2.6rem, 12vw, 4rem);
-      }
-    }
-
-    /* ═══════════════════════════════════
-       GUEST NAME — ENVELOPE
-       Full-width seamless strip — blends with envelope paper
-    ═══════════════════════════════════ */
-
-    /* Mobile: full-width seamless horizontal band */
-    .guest-env-label {
-      position: absolute;
-      bottom: clamp(60px, 10vh, 100px);
-      left: 0;
-      right: 0;
-      text-align: center;
-      z-index: 25;
-      display: none;
-      /* shown by JS */
-      /* Gradient that fades in/out at edges — matches envelope cream */
-      background: linear-gradient(90deg,
-          transparent 0%,
-          rgba(234, 222, 202, 0.92) 15%,
-          rgba(234, 222, 202, 0.98) 50%,
-          rgba(234, 222, 202, 0.92) 85%,
-          transparent 100%);
-      padding: 14px 0;
-      /* Hairline rules using gradient — fade at edges */
-      border-top: none;
-      border-bottom: none;
-    }
-
-    /* Hairline top & bottom using pseudo-elements */
-    .guest-env-label::before,
-    .guest-env-label::after {
-      content: '';
-      position: absolute;
-      left: 10%;
-      right: 10%;
-      height: 1px;
-      background: linear-gradient(90deg,
-          transparent 0%,
-          rgba(160, 98, 42, 0.35) 30%,
-          rgba(160, 98, 42, 0.35) 70%,
-          transparent 100%);
-    }
-
-    .guest-env-label::before {
-      top: 0;
-    }
-
-    .guest-env-label::after {
-      bottom: 0;
-    }
-
-    .guest-env-eyebrow {
-      font-family: 'Cinzel', serif;
-      font-size: 0.55rem;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: rgba(107, 45, 69, 0.7);
-      margin-bottom: 6px;
-    }
-
-    .guest-env-name {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-weight: 900;
-      font-size: clamp(1.5rem, 5vw, 2.4rem);
-      color: #2A0F1A;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-      line-height: 1.2;
-    }
-
-    .guest-env-name .letter {
-      display: inline-block;
-      opacity: 0;
-      animation: letterFadeIn 0.5s forwards;
-    }
-
-    @keyframes letterFadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(14px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Desktop: right-side vertical strip — fades top & bottom, right flush */
-    @media (min-width: 769px) {
-      .guest-env-label {
-        bottom: auto;
-        top: 50%;
-        left: auto;
-        right: 0;
-        transform: translateY(-50%);
-        white-space: nowrap;
-        width: auto;
-        text-align: right;
-        /* Vertical gradient blend matching envelope */
-        background: linear-gradient(180deg,
-            transparent 0%,
-            rgba(234, 222, 202, 0.95) 18%,
-            rgba(234, 222, 202, 0.98) 50%,
-            rgba(234, 222, 202, 0.95) 82%,
-            transparent 100%);
-        padding: 28px 32px 28px 26px;
-        border: none;
-      }
-
-      .guest-env-label::before,
-      .guest-env-label::after {
-        left: auto;
-        right: 12px;
-        width: 1px;
-        height: auto;
-        background: linear-gradient(180deg,
-            transparent 0%,
-            rgba(160, 98, 42, 0.35) 30%,
-            rgba(160, 98, 42, 0.35) 70%,
-            transparent 100%);
-      }
-
-      .guest-env-label::before {
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: auto;
-        width: 1px;
-        height: 100%;
-      }
-
-      .guest-env-label::after {
-        display: none;
-      }
-    }
-
-    /* ═══════════════════════════════════
-       GUEST GREETING — inside invite
-    ═══════════════════════════════════ */
-    .guest-greeting {
-      display: none;
-      margin-bottom: 28px;
-    }
-
-    .guest-greeting-inner {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      background: rgba(160, 98, 42, 0.08);
-      border: 1px solid rgba(160, 98, 42, 0.25);
-      border-radius: 50px;
-      padding: 10px 24px;
-    }
-
-    .guest-greeting-inner i {
-      color: var(--rg-gold);
-      font-size: 0.8rem;
-    }
-
-    .guest-greeting-inner span {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(1rem, 2.5vw, 1.35rem);
-      color: var(--rg-gold);
-      font-weight: 700;
-    }
-
-    /* ═══════════════════════════════════
-       GUEST FAREWELL — after dua bar
-    ═══════════════════════════════════ */
-    .guest-farewell {
-      display: none;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .guest-farewell-line {
-      width: 120px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--rg-gold), transparent);
-      margin: 0 auto 36px;
-    }
-
-    .guest-farewell-name {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(1.6rem, 4vw, 2.6rem);
-      color: var(--rg-gold);
-      text-shadow: 0 0 25px rgba(160, 98, 42, 0.35);
-      display: block;
-      margin-bottom: 16px;
-    }
-
-    .guest-farewell-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 2.5vw, 1.4rem);
-      font-style: italic;
-      color: var(--rg-dark);
-      opacity: 0.85;
-      line-height: 1.8;
-    }
-
-    /* ═══════════════════════════════════
-       MUSIC TOGGLE
-    ═══════════════════════════════════ */
+    /* Music Button */
     #musicToggle {
       position: fixed;
-      bottom: 28px;
+      bottom: 25px;
       left: 20px;
       z-index: 9500;
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: rgba(42, 15, 26, 0.85);
-      border: 1.5px solid rgba(212, 148, 58, 0.5);
-      color: var(--rg-gold2);
+      background: rgba(10, 54, 51, 0.9);
+      border: 2px solid var(--gold-primary);
+      color: var(--gold-light);
       font-size: 1.1rem;
       cursor: pointer;
-      display: none;
-      /* shown after envelope opens */
+      display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9500;
+      display: flex;
+      gap: 6px;
+      background: rgba(10, 54, 51, 0.85);
       backdrop-filter: blur(10px);
-      transition: background 0.3s, border-color 0.3s, transform 0.2s;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      padding: 5px 10px;
+      border-radius: 30px;
+      border: 1px solid rgba(226, 185, 97, 0.5);
     }
 
-    #musicToggle:hover {
-      background: rgba(160, 98, 42, 0.35);
-      border-color: var(--rg-gold);
-      transform: scale(1.1);
-    }
-
-    #musicToggle.muted {
-      opacity: 0.55;
-    }
-
-    /* ═══════════════════════════════════
-       ADD TO CALENDAR
-    ═══════════════════════════════════ */
-    .cal-buttons {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 32px;
-    }
-
-    @keyframes calShimmer {
-      0% {
-        background-position: 200% center;
-      }
-
-      100% {
-        background-position: -200% center;
-      }
-    }
-
-    .cal-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 13px 24px;
-      border-radius: 8px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.62rem;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      font-weight: 800;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      /* Gold gradient with shimmer */
-      background: linear-gradient(120deg,
-          #C8862A 0%,
-          #FFE58A 40%,
-          #D4943A 60%,
-          #FFE58A 80%,
-          #C8862A 100%);
-      background-size: 200% auto;
-      animation: calShimmer 3s linear infinite;
+    .lang-btn {
+      background: none;
       border: none;
-      color: #2A0F1A;
-      box-shadow: 0 4px 20px rgba(184, 115, 42, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      color: var(--ivory-cream);
+      font-family: var(--font-royal);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
     }
 
-    .cal-btn:hover {
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 8px 28px rgba(184, 115, 42, 0.6);
+    .lang-btn.active {
+      background: var(--gold-primary);
+      color: var(--teal-dark);
     }
 
-    .cal-btn i {
-      font-size: 1rem;
-    }
-
-    /* Lord Ganesh Art Section Styling */
-    .ganesh-art-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 30px;
-      margin-bottom: 30px;
+    /* ══════════════════════════════════════
+       SECTION 1: HERO (TEMPLE GOPURAM & SKY LANTERNS - Screenshot 1)
+    ══════════════════════════════════ */
+    .hero-meenaya {
       position: relative;
-    }
-
-    .ganesh-image {
-      position: relative;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid var(--rg-gold2);
-      box-shadow: 
-        0 0 30px rgba(216, 173, 131, 0.6),
-        0 0 60px rgba(216, 173, 131, 0.3),
-        inset 0 0 20px rgba(0, 0, 0, 0.3);
-      background: linear-gradient(135deg, #3d1f1f, #2a1414);
-    }
-
-    .ganesh-image img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.5s ease;
-    }
-
-    .ganesh-image:hover img {
-      transform: scale(1.1);
-    }
-
-    .om-symbol {
-      font-size: 3.5rem;
-      color: var(--rg-gold2);
-      text-shadow: 0 0 25px rgba(216, 173, 131, 0.8);
-      position: relative;
-      display: inline-block;
-      animation: omPulse 2s ease-in-out infinite;
-    }
-
-    @keyframes omPulse {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.1); opacity: 1; }
-    }
-
-    /* ═══════════════════════════════════
-       OM SYMBOL MAIN - Sanskrit Blessing
-    ═══════════════════════════════════ */
-    .om-symbol-main {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      margin-bottom: 25px;
+      justify-content: space-between;
+      padding: 90px 20px 40px 20px;
+      background: url('./Images/temple_gopuram_hero.jpg') center top / cover no-repeat;
+      overflow: hidden;
+    }
+
+    .hero-meenaya::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 54, 51, 0.6) 0%, rgba(10, 54, 51, 0.15) 50%, rgba(10, 54, 51, 0.95) 100%);
+      z-index: 1;
+    }
+
+    #lanternCanvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .hero-content {
       position: relative;
-      z-index: 5;
+      z-index: 3;
+      text-align: center;
+      max-width: 800px;
     }
 
-    .om-text {
-      font-family: 'Noto Sans Devanagari', serif;
-      font-size: clamp(3.5rem, 8vw, 5.5rem);
-      color: var(--rg-gold2);
-      text-shadow: 
-        0 0 20px rgba(216, 173, 131, 0.8),
-        0 0 40px rgba(216, 173, 131, 0.5),
-        0 4px 10px rgba(0, 0, 0, 0.5);
-      line-height: 1;
-      animation: omGlow 3s ease-in-out infinite;
+    .hero-om {
+      font-size: 3.5rem;
+      color: var(--gold-light);
+      text-shadow: 0 0 25px rgba(226, 185, 97, 0.9);
+      margin-bottom: 10px;
     }
 
-    .om-subtext {
-      font-family: 'Noto Sans Devanagari', serif;
-      font-size: clamp(1rem, 2.5vw, 1.4rem);
-      color: var(--rg-gold);
+    .hero-shloka {
+      font-size: clamp(1rem, 2.8vw, 1.4rem);
       letter-spacing: 3px;
-      margin-top: 8px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      color: var(--gold-primary);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+      font-weight: 600;
+      margin-bottom: 25px;
     }
 
-    @keyframes omGlow {
-      0%, 100% { 
-        text-shadow: 
-          0 0 20px rgba(216, 173, 131, 0.8),
-          0 0 40px rgba(216, 173, 131, 0.5),
-          0 4px 10px rgba(0, 0, 0, 0.5);
-        transform: scale(1);
-      }
-      50% { 
-        text-shadow: 
-          0 0 30px rgba(216, 173, 131, 1),
-          0 0 60px rgba(216, 173, 131, 0.7),
-          0 4px 10px rgba(0, 0, 0, 0.5);
-        transform: scale(1.05);
-      }
-    }
-
-    /* Housewarming Invitation Text Styling */
-    .invitation-text {
+    .hero-title-group {
+      background: rgba(10, 54, 51, 0.75);
+      backdrop-filter: blur(8px);
+      padding: 24px 30px;
+      border-radius: 16px;
+      border: 1.5px solid rgba(226, 185, 97, 0.6);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+      display: inline-block;
       margin-bottom: 20px;
     }
 
-    .housewarming-title {
-      font-family: 'Cinzel', serif;
-      font-size: 2.5rem;
-      color: var(--rg-gold2);
-      text-align: center;
+    .hero-subtitle {
+      font-family: var(--font-royal);
+      font-size: clamp(0.75rem, 2.2vw, 1.05rem);
+      letter-spacing: 5px;
+      color: var(--gold-light);
       text-transform: uppercase;
-      letter-spacing: 3px;
+      margin-bottom: 8px;
+    }
+
+    .hero-family-name {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 8vw, 5rem);
       font-weight: 700;
-      text-shadow: 0 0 20px rgba(216, 173, 131, 0.6);
-      margin: 0;
+      color: #FFFFFF;
+      line-height: 1.1;
+      text-shadow: 0 0 30px rgba(226, 185, 97, 0.6);
+    }
+
+    .hero-date-badge {
+      font-family: var(--font-royal);
+      font-size: clamp(0.85rem, 2.5vw, 1.15rem);
+      letter-spacing: 3px;
+      color: var(--gold-primary);
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    .hero-scroll-cue {
       position: relative;
-      line-height: 1.18;
-      max-width: 95vw;
-      margin-inline: auto;
-    }
-
-    .housewarming-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--rg-gold2), transparent);
-    }
-
-    @media (max-width: 768px) {
-      .housewarming-title {
-        font-size: clamp(1.5rem, 7.3vw, 2.15rem);
-        letter-spacing: 1.25px;
-      }
-    }
-
-    /* ─── VIDEO FALLBACK BUTTON ─── */
-    .video-fallback-btn {
-      position: absolute;
-      top: 78%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 15;
-      padding: 12px 28px;
-      background: linear-gradient(135deg, #2E3551 0%, #3D5080 100%);
-      border: 1.5px solid var(--rg-gold2);
-      color: var(--rg-gold2);
-      font-family: 'Cinzel', serif;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--gold-light);
+      font-family: var(--font-royal);
       font-size: 0.7rem;
       letter-spacing: 3px;
       text-transform: uppercase;
+      animation: bounceCue 2s infinite ease-in-out;
+    }
+
+    @keyframes bounceCue {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* ══════════════════════════════════════
+       SECTION 2: PEACOCK TEAL SILK INVITE (Screenshot 2 Match)
+    ══════════════════════════════════ */
+    .silk-invite-section {
+      position: relative;
+      width: 100%;
+      padding: 90px 20px;
+      background: url('./Images/teal_silk_damask.jpg') center/cover, #0F4A45;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .silk-card-container {
+      position: relative;
+      width: 100%;
+      max-width: 780px;
+      background: rgba(13, 62, 58, 0.88);
+      backdrop-filter: blur(12px);
+      border: 2.5px solid var(--gold-primary);
+      border-radius: 20px;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8), inset 0 0 35px rgba(0,0,0,0.5);
+      overflow: hidden;
+    }
+
+    .ribbon-corner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .ribbon-corner::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, var(--ruby-accent) 0%, #4D0E15 100%);
+      transform: rotate(45deg);
+      border-bottom: 2px solid var(--gold-primary);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+    }
+
+    
+    .ganesh-idol-wrapper {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      border: 3px solid var(--gold-primary);
+      box-shadow: 0 0 25px rgba(226, 185, 97, 0.8), 0 10px 30px rgba(0,0,0,0.7);
+      overflow: hidden;
+      background: radial-gradient(circle, #FFE58A 0%, #C8862A 100%);
+    }
+
+    .ganesh-idol-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .ganesh-idol-wrapper:hover .ganesh-idol-img {
+      transform: scale(1.08);
+    }
+
+    .ganesh-line-art {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 16px;
+      filter: drop-shadow(0 0 15px rgba(226, 185, 97, 0.8));
+    }
+
+    .blessings-eyebrow {
+      font-family: var(--font-serif);
+      font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+      font-style: italic;
+      color: var(--gold-light);
+      margin-bottom: 14px;
+    }
+
+    .owner-names {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4.8vw, 2.8rem);
       font-weight: 700;
-      border-radius: 4px;
-      cursor: default;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.6s ease;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      white-space: nowrap;
+      color: #FFFFFF;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
-    .video-fallback-btn.visible {
-      opacity: 1;
-      top: 78%;
+    .owner-badge {
+      display: inline-block;
+      font-family: var(--font-royal);
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      padding: 3px 14px;
+      border: 1px solid rgba(226, 185, 97, 0.4);
+      border-radius: 20px;
     }
 
-    .video-fallback-btn:hover {
-      background: var(--rg-gold2);
-      color: var(--rg-dark);
-      box-shadow: 0 0 20px var(--rg-gold2);
+    .big-invite-text {
+      font-family: var(--font-royal);
+      font-size: clamp(3rem, 10vw, 5.2rem);
+      font-weight: 900;
+      letter-spacing: 8px;
+      color: var(--gold-light);
+      margin: 15px 0;
+      line-height: 1;
+      text-shadow: 0 0 35px rgba(226, 185, 97, 0.7);
+    }
+
+    .invite-lead-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 3vw, 1.55rem);
+      font-style: italic;
+      color: var(--ivory-cream);
+      max-width: 600px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+
+    .with-love-box {
+      border-top: 1px solid rgba(226, 185, 97, 0.35);
+      padding-top: 25px;
+      margin-top: 25px;
+    }
+
+    .love-eyebrow {
+      font-family: var(--font-royal);
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .love-names {
+      font-size: clamp(1.2rem, 3vw, 1.65rem);
+      color: #FFFFFF;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════
+       SECTION 3: CEREMONIES TIMELINE
+    ══════════════════════════════════════ */
+    .ceremonies-section {
+      padding: 90px 20px;
+      background: linear-gradient(180deg, #0A3633 0%, #051F1D 100%);
+      text-align: center;
+    }
+
+    .sec-heading {
+      font-family: var(--font-royal);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--gold-light);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .sec-subheading {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--gold-primary);
+      margin-bottom: 45px;
+    }
+
+    .ceremony-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .ceremony-card {
+      background: rgba(19, 90, 85, 0.35);
+      border: 1.5px solid rgba(226, 185, 97, 0.45);
+      border-radius: 18px;
+      padding: 35px 25px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .ceremony-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold-primary);
+    }
+
+    .ceremony-icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 15px rgba(226, 185, 97, 0.7));
+    }
+
+    .ceremony-title {
+      font-family: var(--font-royal);
+      font-size: 1.35rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .ceremony-time {
+      font-size: 1.15rem;
+      color: #FFFFFF;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .ceremony-desc {
+      font-size: 0.95rem;
+      color: rgba(250, 247, 240, 0.85);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════
+       SECTION 4: BEST COMPLIMENTS & FAMILY (User Screenshot 1)
+    ══════════════════════════════════ */
+    .compliments-section {
+      padding: 80px 20px;
+      background: radial-gradient(circle at 50% 50%, #176B65 0%, #0D3E3A 60%, #072421 100%);
+      text-align: center;
+      border-top: 1.5px solid rgba(226, 185, 97, 0.3);
+      border-bottom: 1.5px solid rgba(226, 185, 97, 0.3);
+    }
+
+    .compliments-title {
+      font-family: var(--font-royal);
+      font-size: 0.85rem;
+      letter-spacing: 5px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    .compliments-group {
+      margin-bottom: 25px;
+    }
+
+    .compliments-name {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-style: italic;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+
+    .compliments-role {
+      font-family: var(--font-royal);
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: rgba(250, 247, 240, 0.7);
+      text-transform: uppercase;
+    }
+
+    .relatives-line {
+      font-family: var(--font-royal);
+      font-size: 0.95rem;
+      letter-spacing: 4px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-top: 35px;
+    }
+
+    /* ══════════════════════════════════════
+       SECTION 5: MOMENTS & SACRED STORY CARDS (User Screenshots 1, 2, 4)
+    ══════════════════════════════════ */
+    .moments-section {
+      padding: 90px 20px;
+      background: url('./Images/lavender_silk_texture.jpg') center/cover, #EAE0F0;
+      color: #2D1432;
+      text-align: center;
+    }
+
+    .moments-heading {
+      font-family: var(--font-royal);
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      color: #4A1D54;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .moments-subheading {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: #7E388D;
+      margin-bottom: 45px;
+    }
+
+    .moments-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .moment-art-card {
+      background: #FFFFFF;
+      border: 2.5px solid #D8BFE5;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(74, 29, 84, 0.18);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .moment-art-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .moment-img-wrap {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #F9F5FB;
+    }
+
+    .moment-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .moment-art-card:hover .moment-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .moment-card-caption {
+      padding: 16px 14px;
+      font-family: var(--font-royal);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #4A1D54;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════════
+       SECTION 6: SANSKRIT BLESSING BAR (User Screenshot 2)
+    ══════════════════════════════════ */
+    .blessing-bar-section {
+      padding: 45px 20px;
+      background: linear-gradient(135deg, #0A3633 0%, #051F1D 100%);
+      border-top: 2px solid var(--gold-primary);
+      border-bottom: 2px solid var(--gold-primary);
+      text-align: center;
+    }
+
+    .blessing-shloka-text {
+      font-size: clamp(1.3rem, 3.5vw, 1.85rem);
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .blessing-sub-text {
+      font-family: var(--font-royal);
+      font-size: clamp(0.72rem, 2vw, 0.88rem);
+      letter-spacing: 4px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ══════════════════════════════════════
+       SECTION 7: NIGHT SKY COUNTDOWN (Screenshot 5 Match)
+    ══════════════════════════════════ */
+    .night-countdown-section {
+      position: relative;
+      padding: 90px 20px 40px;
+      background: radial-gradient(ellipse at top, #112F41 0%, #071924 60%, #030B10 100%);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .night-sky-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+      font-style: italic;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+
+    .night-cd-boxes {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .night-cd-box {
+      flex: 1;
+      background: rgba(17, 47, 65, 0.6);
+      border: 1.5px solid rgba(226, 185, 97, 0.5);
+      border-radius: 12px;
+      padding: 16px 8px;
+      backdrop-filter: blur(8px);
+    }
+
+    .night-cd-num {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1;
+    }
+
+    .night-cd-lbl {
+      font-family: var(--font-royal);
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .night-sky-desc {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: rgba(250, 247, 240, 0.85);
+      max-width: 620px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .gopuram-bottom-tier {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 12px 12px 0 0;
+      border-top: 2px solid var(--gold-primary);
+      box-shadow: 0 -10px 40px rgba(226, 185, 97, 0.3);
+    }
+
+    /* ══════════════════════════════════════
+       SECTION 8: VENUE & 1-TAP GPS / RSVP
+    ══════════════════════════════════ */
+    .venue-section {
+      padding: 90px 20px;
+      background: url('./Images/teal_silk_damask.jpg') center/cover, #0F4A45;
+      text-align: center;
+    }
+
+    .venue-card {
+      max-width: 780px;
+      margin: 0 auto;
+      background: rgba(10, 54, 51, 0.92);
+      border: 2px solid var(--gold-primary);
+      border-radius: 20px;
+      padding: 50px 30px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+    }
+
+    .venue-name {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 15px 0 6px;
+    }
+
+    .venue-location {
+      font-size: 1.25rem;
+      color: var(--gold-light);
+      margin-bottom: 30px;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 350px;
+      border-radius: 12px;
+      border: 1.5px solid var(--gold-primary);
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .actions-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .action-btn {
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-family: var(--font-royal);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #FFE793 0%, #D8AD83 50%, #996F33 100%);
+      color: #240C04;
+      border: 1.5px solid #FFF3BE;
+      box-shadow: 0 0 20px rgba(226, 185, 97, 0.5);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 0 30px rgba(226, 185, 97, 0.8);
+    }
+
+    .btn-wa {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #FFFFFF;
+      border: 1.5px solid #5CFF95;
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 0 30px rgba(37, 211, 102, 0.7);
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 20px;
+      background: #051A18;
+      text-align: center;
+      border-top: 1px solid rgba(226, 185, 97, 0.3);
+      font-size: 0.95rem;
+      color: var(--gold-light);
     }
   </style>
 </head>
-
 <body>
 
-  <!-- Cursor -->
-  <div id="cur-dot"></div>
-  <div id="cur-ring"></div>
-
-  <!-- Canvas layers -->
-  <div id="threeCanvas"></div>
-  <canvas id="rippleCanvas"></canvas>
-  
-  <!-- Floating Marigold/Golden Particles -->
-  <canvas id="particlesCanvas"></canvas>
-
-  <!-- Bloom overlay -->
-  <div id="openBloom"></div>
-
-  <!-- Music Audio - Ekadantaya Vakratundaya MP3 -->
+  <!-- Background Music Audio -->
   <audio id="bgMusic" loop preload="auto" src="./Images/ekadantaya-vakratundaya.mp3"></audio>
 
-  <!-- Music Toggle Button -->
-  <button id="musicToggle" onclick="toggleMusic()" title="Toggle music" aria-label="Toggle background music">
+  <!-- Music Toggle Floating Button -->
+  <button id="musicToggle" onclick="toggleMusic()" title="Toggle Music">
     <i class="fas fa-music" id="musicIcon"></i>
   </button>
 
-  <!-- ══════════════════════════════════
-     ENVELOPE COVER
-══════════════════════════════════ -->
+  <!-- Language Switcher -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="te" onclick="setLanguage('te')">తెలుగు</button>
+    <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">English</button>
+    <button class="lang-btn" data-lang="ta" onclick="setLanguage('ta')">தமிழ்</button>
+    <button class="lang-btn" data-lang="hi" onclick="setLanguage('hi')">हिन्दी</button>
+  </div>
+
+  <!-- ══════════════════════════════════════
+     3D ROYAL VELVET/TEAL ENVELOPE COVER
+  ══════════════════════════════════════ -->
   <div id="envelopeCover">
-    <!-- CSS Wax Seal with Abburi's -->
-    <div class="css-wax-seal">
-      <div class="wax-seal-inner">
-        <div class="wax-seal-initial">A</div>
-        <div class="wax-seal-text">Abburi's Invitation</div>
+    <div class="envelope-container" id="envContainer" onclick="openEnvelope()">
+      
+      <!-- Inside Letter Card -->
+      <div class="letter-card">
+        <div class="letter-card-content">
+          <div style="font-family: var(--font-royal); font-size: 0.75rem; color: #7E1925; letter-spacing: 2px; font-weight: bold; margin-bottom: 2px;">HOUSEWARMING INVITATION</div>
+          <div style="font-family: var(--font-serif); font-size: 1.35rem; font-weight: 700; color: #0A3633; line-height: 1.1; margin-bottom: 3px;">Abburi's Family</div>
+          <div style="font-size: 0.72rem; color: #555; font-weight: 600;">5th &amp; 6th November 2026 • Kunduruvaripalem</div>
+        </div>
+      </div>
+
+      <!-- Envelope Flap -->
+      <div class="envelope-flap"></div>
+
+      <!-- Gold Monogram Wax Seal -->
+      <div class="wax-seal">
+        <span class="seal-monogram">A</span>
+        <span class="seal-text">ABBURI'S</span>
+      </div>
+
+      <!-- Pocket Fold -->
+      <div class="envelope-pocket">
+        <div class="envelope-pocket-fold"></div>
       </div>
     </div>
 
-    <video id="envVideo" class="env-video" src="./image/envelope_mobile.mp4" muted playsinline></video>
-
-    <!-- Invisible clickable circle over the wax seal -->
-    <div class="seal-zone" id="tapCue" onclick="openEnvelope(true)"></div>
-
-    <!-- Enter Invitation button below seal (visual only, no action) -->
-    <!-- <button id="videoFallbackBtn" class="video-fallback-btn" onclick="return false;" style="pointer-events: none; cursor: default;">Enter Invitation</button> -->
-
-    <!-- Mobile: hint below seal, above guest label, arrow ↑ -->
-    <div class="tap-hint mobile-hint" id="tapHint">
-      <span class="tap-hint-arrow">👆🏻</span>
-      <span class="tap-hint-label">Click the Seal to Unwrap</span>
+    <div class="tap-hint-wrap">
+      <button class="tap-envelope-btn" onclick="openEnvelope()">
+        <i class="fas fa-envelope-open" style="margin-right: 8px;"></i> Tap Seal to Open
+      </button>
     </div>
 
-    <!-- Desktop: hint on left side, arrow → toward seal -->
-    <div class="tap-hint desktop-hint" id="tapHintDesktop">
-      <span class="tap-hint-label">Click the Seal to Unwrap</span>
-      <span class="tap-hint-arrow">👉🏻</span>
-    </div>
-
-    <!-- Guest name on envelope (shown only when ?guest= param exists) -->
-    <div class="guest-env-label" id="guestEnvLabel">
+    <!-- Personalized Guest Label -->
+    <div class="guest-env-label" id="guestEnvLabel" style="display: none;">
       <div class="guest-env-eyebrow">Personal Invitation For</div>
       <div class="guest-env-name" id="guestEnvName"></div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════
-     INVITATION PAGE
-══════════════════════════════════ -->
+  <!-- ══════════════════════════════════════
+     MAIN INVITATION PAGE
+  ══════════════════════════════════ -->
   <div id="invitationPage">
 
-    <!-- Language Switcher -->
-    <div class="lang-switcher">
-      <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">English</button>
-      <button class="lang-btn" data-lang="ta" onclick="setLanguage('ta')">தமிழ்</button>
-      <button class="lang-btn" data-lang="te" onclick="setLanguage('te')">తెలుగు</button>
-      <button class="lang-btn" data-lang="hi" onclick="setLanguage('hi')">हिन्दी</button>
-    </div>
-
-    <!-- 1. HERO -->
-    <section class="hero" id="hero">
-      <!-- Decorative border -->
-      <div class="decorative-border"></div>
+    <!-- 1. HERO SECTION: TEMPLE GOPURAM & SKY LANTERNS (Screenshot 1) -->
+    <section class="hero-meenaya">
+      <canvas id="lanternCanvas"></canvas>
       
-      <!-- Mandala corner decorations -->
-      <div class="mandala-corner mandala-top-left">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45"/>
-          <circle cx="50" cy="50" r="35"/>
-          <circle cx="50" cy="50" r="25"/>
-          <circle cx="50" cy="50" r="15"/>
-          <path d="M50 5 L50 95 M5 50 L95 50 M15 15 L85 85 M15 85 L85 15"/>
-          <circle cx="50" cy="5" r="3"/><circle cx="50" cy="95" r="3"/>
-          <circle cx="5" cy="50" r="3"/><circle cx="95" cy="50" r="3"/>
-        </svg>
-      </div>
-      <div class="mandala-corner mandala-top-right">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45"/>
-          <circle cx="50" cy="50" r="35"/>
-          <circle cx="50" cy="50" r="25"/>
-          <circle cx="50" cy="50" r="15"/>
-          <path d="M50 5 L50 95 M5 50 L95 50 M15 15 L85 85 M15 85 L85 15"/>
-          <circle cx="50" cy="5" r="3"/><circle cx="50" cy="95" r="3"/>
-          <circle cx="5" cy="50" r="3"/><circle cx="95" cy="50" r="3"/>
-        </svg>
-      </div>
-      <div class="mandala-corner mandala-bottom-left">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45"/>
-          <circle cx="50" cy="50" r="35"/>
-          <circle cx="50" cy="50" r="25"/>
-          <circle cx="50" cy="50" r="15"/>
-          <path d="M50 5 L50 95 M5 50 L95 50 M15 15 L85 85 M15 85 L85 15"/>
-          <circle cx="50" cy="5" r="3"/><circle cx="50" cy="95" r="3"/>
-          <circle cx="5" cy="50" r="3"/><circle cx="95" cy="50" r="3"/>
-        </svg>
-      </div>
-      <div class="mandala-corner mandala-bottom-right">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45"/>
-          <circle cx="50" cy="50" r="35"/>
-          <circle cx="50" cy="50" r="25"/>
-          <circle cx="50" cy="50" r="15"/>
-          <path d="M50 5 L50 95 M5 50 L95 50 M15 15 L85 85 M15 85 L85 15"/>
-          <circle cx="50" cy="5" r="3"/><circle cx="50" cy="95" r="3"/>
-          <circle cx="5" cy="50" r="3"/><circle cx="95" cy="50" r="3"/>
-        </svg>
-      </div>
-      
-      <!-- Center rotating mandala -->
-      <div class="mandala-center">
-        <svg viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="90"/>
-          <circle cx="100" cy="100" r="75"/>
-          <circle cx="100" cy="100" r="60"/>
-          <circle cx="100" cy="100" r="45"/>
-          <circle cx="100" cy="100" r="30"/>
-          <circle cx="100" cy="100" r="15"/>
-          <g stroke-linecap="round">
-            <path d="M100 10 L100 40 M100 160 L100 190 M10 100 L40 100 M160 100 L190 100"/>
-            <path d="M100 40 L100 60 M100 140 L100 160 M40 100 L60 100 M140 100 L160 100"/>
-            <path d="M36 36 L57 57 M143 143 L164 164 M36 164 L57 143 M143 57 L164 36"/>
-          </g>
-          <!-- Petal shapes -->
-          <g fill="none">
-            <path d="M100 10 Q130 50 100 100 Q70 50 100 10"/>
-            <path d="M190 100 Q150 130 100 100 Q150 70 190 100"/>
-            <path d="M100 190 Q70 150 100 100 Q130 150 100 190"/>
-            <path d="M10 100 Q50 70 100 100 Q50 130 10 100"/>
-          </g>
-        </svg>
-      </div>
-      
-      <div id="hero-bg" style="background-image:url('./image/home.png');"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-arc">
-        <svg viewBox="0 0 700 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 120 Q175 0 350 40 Q525 80 700 0" stroke="rgba(216,173,131,0.45)" stroke-width="1.5" fill="none" />
-          <path d="M0 120 Q175 20 350 60 Q525 100 700 15" stroke="rgba(216,173,131,0.2)" stroke-width="1" fill="none" />
-          <circle cx="350" cy="40" r="5" fill="rgba(216,173,131,0.7)" />
-          <circle cx="175" cy="72" r="3" fill="rgba(216,173,131,0.5)" />
-          <circle cx="525" cy="57" r="3" fill="rgba(216,173,131,0.5)" />
-        </svg>
-      </div>
       <div class="hero-content">
-        <!-- OM Symbol - Sanskrit Blessing -->
-        <div class="om-symbol-main reveal reveal-scale reveal-delay-0">
-          <div class="om-text">ॐ</div>
-          <div class="om-subtext">श्री गणेशाय नमः</div>
-        </div>
+        <div class="hero-om">ॐ</div>
+        <div class="hero-shloka">॥ శ్రీ విఘ్నేశ్వర ప్రసన్నః ॥</div>
         
-        <!-- Lord Ganesh Art Section -->
-        <div class="ganesh-art-section reveal reveal-scale reveal-delay-1">
-          <div class="ganesh-image">
-            <img src="./Images/Ganesh_img.jpeg" alt="Lord Ganesh" />
+        <div class="hero-title-group">
+          <div class="hero-subtitle t" data-key="hero_sub">Auspicious Housewarming Celebration</div>
+          <div class="hero-family-name">Abburi's</div>
+          <div class="hero-date-badge t" data-key="hero_dates">5th &amp; 6th November 2026</div>
+        </div>
+      </div>
+
+      <div class="hero-scroll-cue">
+        <span>Scroll to Explore</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- 2. SILK INVITATION SECTION (Screenshot 2 Inspiration) -->
+    <section class="silk-invite-section">
+      <div class="silk-card-container">
+        <div class="ribbon-corner"></div>
+
+        <!-- Lord Ganesh Sacred Idol (Golden Framed) -->
+        <div class="ganesh-idol-wrapper">
+          <img src="./Images/Ganesh_img.jpeg" alt="Lord Ganesh" class="ganesh-idol-img">
+        </div>
+
+        <div class="blessings-eyebrow t" data-key="blessings_title">With the divine blessings of God &amp; Elders</div>
+        
+        <!-- Home Owner Names -->
+        <div class="owner-names">Abburi Veerabhadra Rao &amp; Venkataratnam</div>
+        <div class="owner-badge t" data-key="home_owner_tag">Home Owners</div>
+
+        <!-- Big Royal INVITE Text -->
+        <div class="big-invite-text t" data-key="big_invite">INVITE</div>
+
+        <!-- Lead Text -->
+        <div class="invite-lead-text t" data-key="invite_body">
+          You to join us in the auspicious Gruhapravesam ceremony of our new home and grace this special occasion with your presence and blessings.
+        </div>
+
+        <!-- With Love From Hierarchy -->
+        <div class="with-love-box">
+          <div class="love-eyebrow t" data-key="love_title">With Love From</div>
+          <div class="love-names">
+            Abburi Venkatarao &amp; Umadevi<br>
+            Abburi Bharath Sai Kumar &amp; Sunil Kumar
           </div>
         </div>
-        
-        <!-- Housewarming Invitation Text -->
-        <div class="invitation-text reveal reveal-up reveal-delay-2">
-          <h1 class="housewarming-title">Housewarming Invitation</h1>
-        </div>
-        
-        <p class="sub-tag reveal reveal-up reveal-delay-3"><span class="t" data-key="blessing_sub">With the blessings of
-            Lord Ganesh, the remover of obstacles and
-            the harbinger of success</span></p>
-        <div class="host-names">
-          <span class="n-host-primary reveal reveal-left reveal-delay-4">Abburi's<span class="degrees">Family</span></span>
-          <span class="n-joiner reveal reveal-delay-5">&amp;</span>
-          <span class="n-host-secondary reveal reveal-right reveal-delay-4">Housewarming<span
-              class="degrees">Celebration</span></span>
-        </div>
-        <div class="gold-rule reveal reveal-scale reveal-delay-5"></div>
-        <p class="hero-date reveal reveal-up reveal-delay-6">
-          <span class="t" data-key="hero_date_line1">With joy, on 22-09-2026</span><br>
-          <span class="t" data-key="hero_date_line2">(Time: 10:00 AM)</span>
-        </p>
-      </div>
-
-      <div class="scroll-cue">
-        <i class="fas fa-hand-pointer swipe-hand-indicator"></i>
       </div>
     </section>
 
-    <!-- 2. COUNTDOWN -->
-    <section class="countdown-section">
-      <div class="gold-separator reveal">
-        <div class="gold-separator-line"></div><span class="om-icon">ॐ</span>
-        <div class="gold-separator-line rev"></div>
-      </div>
-      <div class="sec-subtitle reveal reveal-delay-1"><span class="t" data-key="anticipation">Anticipation</span></div>
-      <div class="cd-grid">
-        <div class="cd-item reveal reveal-left reveal-delay-1"><span class="cd-num" id="cdDays">00</span><span
-            class="cd-lbl t" data-key="days">Days</span></div>
-        <div class="cd-item reveal reveal-delay-2"><span class="cd-num" id="cdHours">00</span><span class="cd-lbl t"
-            data-key="hours">Hours</span></div>
-        <div class="cd-item reveal reveal-delay-3"><span class="cd-num" id="cdMins">00</span><span class="cd-lbl t"
-            data-key="minutes">Minutes</span></div>
-        <div class="cd-item reveal reveal-right reveal-delay-4"><span class="cd-num" id="cdSecs">00</span><span
-            class="cd-lbl t" data-key="seconds">Seconds</span></div>
+    <!-- 3. CEREMONIES TIMELINE -->
+    <section class="ceremonies-section">
+      <h2 class="sec-heading t" data-key="ceremonies_head">Ceremony Details</h2>
+      <div class="sec-subheading t" data-key="ceremonies_sub">Auspicious Muhurtham &amp; Events</div>
+
+      <div class="ceremony-grid">
+        <!-- Event 1: Muhurtham -->
+        <div class="ceremony-card">
+          <div class="ceremony-icon">🏠</div>
+          <div class="ceremony-title t" data-key="e1_title">Gruhapravesam Muhurtham</div>
+          <div class="ceremony-time t" data-key="e1_time">5th November 2026, 8:00 PM Night</div>
+          <div class="ceremony-desc t" data-key="e1_desc">Auspicious entrance into the new home amidst sacred mantras and Vedic rituals.</div>
+        </div>
+
+        <!-- Event 2: Vratham -->
+        <div class="ceremony-card">
+          <div class="ceremony-icon">🪔</div>
+          <div class="ceremony-title t" data-key="e2_title">Satyanarayana Vratham</div>
+          <div class="ceremony-time t" data-key="e2_time">6th November 2026, Morning</div>
+          <div class="ceremony-desc t" data-key="e2_desc">Sacred Sri Satyanarayana Swamy Pooja and holy Theertha Prasadam distribution.</div>
+        </div>
+
+        <!-- Event 3: Feast -->
+        <div class="ceremony-card">
+          <div class="ceremony-icon">🍛</div>
+          <div class="ceremony-title t" data-key="e3_title">విందు భోజనం</div>
+          <div class="ceremony-time t" data-key="e3_time">6th November 2026, 12:00 PM Onwards</div>
+          <div class="ceremony-desc t" data-key="e3_desc">Traditional celebration lunch and culinary delicacies with family and friends.</div>
+        </div>
       </div>
     </section>
 
-    <!-- 3. INVITATION DETAILS -->
-    <section class="details-section">
-      <div class="gold-separator reveal">
-        <div class="gold-separator-line"></div><i class="fas fa-home"></i>
-        <div class="gold-separator-line rev"></div>
-      </div>
-      <h2 class="sec-title reveal reveal-delay-1"><span class="t" data-key="event_title">Housewarming</span></h2>
-      <div class="sec-subtitle reveal reveal-delay-2"><span class="t" data-key="event_sub">A Joyful Celebration</span>
-      </div>
-      <!-- Guest Greeting chip (conditional) -->
-      <div class="guest-greeting reveal reveal-delay-2" id="guestGreeting">
-        <div class="guest-greeting-inner">
-          <i class="fas fa-star"></i>
-          <span id="guestGreetingText"></span>
-        </div>
+    <!-- 4. WITH BEST COMPLIMENTS FROM (User Screenshot 1) -->
+    <section class="compliments-section">
+      <div class="compliments-title t" data-key="comp_title">With Best Compliments From</div>
+
+      <div class="compliments-group">
+        <div class="compliments-name t" data-key="family_name">Family Members</div>
+        <div class="compliments-role t" data-key="younger_gen">Younger Generation</div>
       </div>
 
-      <p class="details-text reveal reveal-delay-3">
-        <span class="t" data-key="event_body">With the blessings of
-          Lord Ganesh, we joyfully invite you to celebrate our new home and share our happiness in this housewarming
-          celebration.</span>
+      <div class="compliments-group">
+        <div class="compliments-name t" data-key="friends_name">Friends &amp; Well Wishers</div>
+        <div class="compliments-role t" data-key="supporters_tag">Supporters</div>
+      </div>
+
+      <div class="relatives-line t" data-key="relatives_tag">Relatives &amp; Friends</div>
+    </section>
+
+    <!-- 5. MOMENTS & HOUSEWARMING STORY ILLUSTRATIONS (User Screenshots 1, 2, 4) -->
+    <section class="moments-section">
+      <h2 class="moments-heading t" data-key="moments_head">Moments</h2>
+      <div class="moments-subheading t" data-key="moments_sub">A Sacred Celebration of Love &amp; Togetherness</div>
+
+      <div class="moments-gallery-grid">
+        <!-- Story Panel 1 -->
+        <div class="moment-art-card">
+          <div class="moment-img-wrap">
+            <img src="./Images/housewarming1.png" alt="Griha Pravesh Invitation" loading="lazy">
+          </div>
+          <div class="moment-card-caption t" data-key="m1_cap">Griha Pravesh Invitation</div>
+        </div>
+
+        <!-- Story Panel 2 -->
+        <div class="moment-art-card">
+          <div class="moment-img-wrap">
+            <img src="./Images/housewarming2.png" alt="Bhoj and Blessings" loading="lazy">
+          </div>
+          <div class="moment-card-caption t" data-key="m2_cap">Bhoj and Blessings</div>
+        </div>
+
+        <!-- Story Panel 3 -->
+        <div class="moment-art-card">
+          <div class="moment-img-wrap">
+            <img src="./Images/housewarming4.png" alt="Sharing Joy and Gifts" loading="lazy">
+          </div>
+          <div class="moment-card-caption t" data-key="m3_cap">Sharing Joy and Gifts</div>
+        </div>
+
+        <!-- Story Panel 4 -->
+        <div class="moment-art-card">
+          <div class="moment-img-wrap">
+            <img src="./Images/housewarming4.png" alt="A Sweet Toast to the Future" loading="lazy">
+          </div>
+          <div class="moment-card-caption t" data-key="m4_cap">A Sweet Toast to the Future</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SANSKRIT SHLOKA BLESSING BAR (User Screenshot 2) -->
+    <section class="blessing-bar-section">
+      <div class="blessing-shloka-text">🙏 వక్రతుండ మహాకాయ సూర్యకోటి సమప్రభ 🙏</div>
+      <div class="blessing-sub-text t" data-key="blessing_sub">MAY LORD GANESH BLESS YOUR HOME WITH PROSPERITY AND HAPPINESS</div>
+    </section>
+
+    <!-- 7. NIGHT SKY COUNTDOWN (Screenshot 5 Match) -->
+    <section class="night-countdown-section">
+      <h2 class="night-sky-title t" data-key="night_cd_title">The countdown begins</h2>
+      
+      <div class="night-cd-boxes">
+        <div class="night-cd-box"><div class="night-cd-num" id="cdDays">00</div><div class="night-cd-lbl t" data-key="cd_days">Days</div></div>
+        <div class="night-cd-box"><div class="night-cd-num" id="cdHours">00</div><div class="night-cd-lbl t" data-key="cd_hours">Hours</div></div>
+        <div class="night-cd-box"><div class="night-cd-num" id="cdMins">00</div><div class="night-cd-lbl t" data-key="cd_mins">Mins</div></div>
+        <div class="night-cd-box"><div class="night-cd-num" id="cdSecs">00</div><div class="night-cd-lbl t" data-key="cd_secs">Secs</div></div>
+      </div>
+
+      <p class="night-sky-desc t" data-key="night_cd_desc">
+        Our families are excited that you are able to join us in celebrating what we hope will be one of the happiest days of our lives.
       </p>
-      <br>
 
-      <div class="parents-grid" style="grid-template-columns: 1fr; max-width: 500px; margin: 0 auto;">
-
-        <!-- HOST FAMILY -->
-        <div class="parents-box reveal reveal-up reveal-delay-2">
-          <div class="parents-title" style="margin-bottom:15px;">Invitation From</div>
-
-          <div style="margin-bottom:10px;">
-            <strong style="color:var(--rg-gold2);">Abburi Veerabhadra Rao</strong><br>
-            <span style="font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:1px;color:var(--rg-gold);text-transform:uppercase;font-weight:600;">Home Owner</span>
-          </div>
-
-          <em style="color:var(--rg-gold);font-size:1.6rem;display:inline-block;margin-bottom:10px;">&amp;</em>
-
-          <div style="margin-bottom:10px;">
-            <strong style="color:var(--rg-gold2);">Abburi Venkataratnam</strong><br>
-            <span style="font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:1px;color:var(--rg-gold);text-transform:uppercase;font-weight:600;display:inline-block;margin-top:2px;">Home Owner</span>
-          </div>
-
-          <div style="margin:20px 0; padding-top:15px; border-top:1px solid rgba(216,173,131,0.2);">
-            <span style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:2px;color:var(--rg-gold);text-transform:uppercase;">With Love From</span><br>
-            <strong style="font-size:1.1rem;color:var(--rg-gold2);">Abburi Bharath Sai Kumar</strong> &amp; <strong style="font-size:1.1rem;color:var(--rg-gold2);">Abburi Sunil Kumar</strong>
-          </div>
-
-          <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--rg-light);">Kunduruvaripalem, Andhra Pradesh</span>
-        </div>
-
-      </div>
+      
     </section>
 
-    <!-- 4. TIMING & VENUE -->
-    <section class="timing-section">
-      <div class="gold-separator reveal">
-        <div class="gold-separator-line"></div><i class="fas fa-clock"></i>
-        <div class="gold-separator-line rev"></div>
-      </div>
-      <h2 class="sec-title reveal reveal-delay-1"><span class="t" data-key="celebration_title">Celebration
-          Details</span></h2>
-      <div class="sec-subtitle reveal reveal-delay-2"><span class="t" data-key="when_where">When &amp; Where</span>
-      </div>
-      <!-- 3D Flip Cards for Events -->
-      <div class="flip-cards-grid">
-        <div class="flip-card-container reveal reveal-left reveal-delay-2" onclick="this.classList.toggle('flipped')">
-          <div class="flip-card">
-            <div class="flip-card-front">
-              <div class="flip-card-icon">🏠</div>
-              <div class="flip-card-title t" data-key="event_title">House Warming</div>
-              <div class="flip-card-time t" data-key="event_time">10:00 AM</div>
-              <div class="flip-card-hint">Click to flip</div>
-            </div>
-            <div class="flip-card-back">
-              <div class="flip-card-back-title">Muhurtham Details</div>
-              <div class="flip-card-back-content">
-                <p>🕉️ Ganesh Puja</p>
-                <p>🙏 Traditional Rituals</p>
-                <p>🌸 Family Blessings</p>
-                <p class="flip-card-note">Join us for the sacred ceremony</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="flip-card-container reveal reveal-right reveal-delay-3" onclick="this.classList.toggle('flipped')">
-          <div class="flip-card">
-            <div class="flip-card-front">
-              <div class="flip-card-icon">🍽️</div>
-              <div class="flip-card-title t" data-key="feast_title">Lunch Timings</div>
-              <div class="flip-card-time t" data-key="feast_time">12:00 PM - 3:00 PM</div>
-              <div class="flip-card-hint">Click to flip</div>
-            </div>
-            <div class="flip-card-back">
-              <div class="flip-card-back-title">Feast Menu</div>
-              <div class="flip-card-back-content">
-                <p>🍛 Traditional Andhra Cuisine</p>
-                <p>🥘 Vegetarian & Non-veg</p>
-                <p>🍰 Sweets & Desserts</p>
-                <p class="flip-card-note">Delicious home-cooked meals</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="venue-details reveal reveal-delay-3">
-        <div class="venue-label t" data-key="at_esteemed">When & Where</div>
+    <!-- 8. VENUE & 1-TAP GPS / RSVP -->
+    <section class="venue-section">
+      <div class="venue-card">
+        <div style="font-family: var(--font-royal); font-size: 0.85rem; letter-spacing: 4px; color: var(--gold-primary); text-transform: uppercase;" class="t" data-key="venue_eyebrow">Venue &amp; Location</div>
         <div class="venue-name">"At Our Home Residency"</div>
-        <div>Kunduruvaripalem,<br>Andhra Pradesh, India.</div>
-        <div class="map-wrapper reveal reveal-scale reveal-delay-4">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122097.9710717571!2d79.9834741!3d16.503145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35ed0f7b5d0d4b%3A0x3f3e3e3e3e3e3e3e!2sKunduruvaripalem%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-            width="100%" height="450" style="border:0;display:block;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="venue-location">Kunduruvaripalem, Andhra Pradesh, India</div>
 
+        <!-- Embedded Google Maps -->
+        <div class="map-frame">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122097.9710717571!2d79.9834741!3d16.503145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35ed0f7b5d0d4b%3A0x3f3e3e3e3e3e3e3e!2sKunduruvaripalem%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
-        <div class="bus-info reveal reveal-delay-4">
-          <strong class="t" data-key="bus_from">Parking Available:</strong> Limited parking on-site<br>
-          <strong class="t" data-key="bus_stop">Nearby Parking:</strong> <span class="t" data-key="bus_stop_val">Street parking available on main road</span>
-        </div>
-        <!-- Add to Calendar -->
-        <div class="cal-buttons reveal reveal-delay-4">
-          <a class="cal-btn" id="btnGcal" href="#" target="_blank" rel="noopener">
-            <i class="fab fa-google"></i> Google Calendar
+
+        <!-- 1-Tap Action Buttons -->
+        <div class="actions-grid">
+          <a class="action-btn btn-gold" href="https://maps.google.com/?q=Kunduruvaripalem,+Andhra+Pradesh" target="_blank" rel="noopener">
+            <i class="fas fa-location-dot"></i> Google Maps
           </a>
-          <button class="cal-btn" onclick="downloadICS()">
-            <i class="fas fa-calendar-arrow-down"></i> Save .ics
-          </button>
+          <a class="action-btn btn-wa" id="btnWa" href="#" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> RSVP on WhatsApp
+          </a>
+          <a class="action-btn btn-gold" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Abburi's+Housewarming+Celebration&dates=20261105T143000Z/20261106T103000Z&details=Gruhapravesam+Muhurtham+5th+Nov+8:00+PM+%26+Satyanarayana+Vratham+6th+Nov+at+Kunduruvaripalem&location=Kunduruvaripalem,+Andhra+Pradesh" target="_blank" rel="noopener">
+            <i class="fas fa-calendar-check"></i> Add to Calendar
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- 5. GALLERY -->
-    <section class="gallery-section">
-      <div class="gallery-inner">
-        <div class="gold-separator reveal">
-          <div class="gold-separator-line"></div><i class="fas fa-star"></i>
-          <div class="gold-separator-line rev"></div>
-        </div>
-        <h2 class="sec-title reveal reveal-delay-1"><span class="t" data-key="moments_title">Moments</span></h2>
-        <div class="sec-subtitle reveal reveal-delay-2"><span class="t" data-key="moments_sub">A Sacred Glimpse</span>
-        </div>
-      </div>
-      <div class="gal-grid">
-        <div class="gal-item reveal reveal-left reveal-delay-1">
-          <div class="img-overlay"></div>
+    <!-- Footer -->
+    <footer>
+      <p>With Warm Regards &amp; Best Compliments From</p>
+      <p style="font-size: 1.15rem; font-weight: bold; margin-top: 6px; color: #FFFFFF;">Abburi Family, Relatives &amp; Friends</p>
+    </footer>
 
-          <img src="./Images/housewarming1.png" alt="Traditional Indian Decor" loading="lazy">
-          <div class="gal-item-overlay"></div>
-        </div>
+  </div>
 
-        <div class="gal-item reveal reveal-delay-2">
-          <div class="img-overlay"></div>
-
-          <img src="./Images/housewarming2.png" alt="Housewarming Ceremony" loading="lazy">
-          <div class="gal-item-overlay"></div>
-        </div>
-
-        <!-- Image 3 and 4 commented out
-        <div class="gal-item reveal reveal-right reveal-delay-3">
-          <div class="img-overlay"></div>
-          <img src="./Images/housewarming3.png" alt="New Home Celebration" loading="lazy">
-          <div class="gal-item-overlay"></div>
-        </div>
-        -->
-
-      </div>
-    </section>
-
-    <!-- 6. FOOTER -->
-    <section class="footer-img-section">
-      <div class="footer-compliments">
-        <div class="gold-separator reveal">
-          <div class="gold-separator-line"></div><i class="fas fa-heart"></i>
-          <div class="gold-separator-line rev"></div>
-        </div>
-        <div class="compliments reveal reveal-delay-2">
-          <span class="t" data-key="compliments_from">With best compliments from</span>
-          <strong style="color:var(--rg-light) !important;">Family Members</strong>
-          <span
-            style="font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:1px;color:var(--rg-gold);text-transform:uppercase;font-weight:600;">Younger Generation</span>
-
-          <strong style="color:var(--rg-gold2) !important;">Friends & Well Wishers</strong>
-          <span
-            style="font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:1px;color:var(--rg-gold);text-transform:uppercase;font-weight:600;">Supporters</span>
-
-          <br>
-          <span class="t" data-key="relatives">Relatives &amp; Friends</span>
-        </div>
-      </div>
-      <div class="footer-img-wrapper reveal">
-        <div class="hero-overlay"></div>
-      </div>
-    </section>
-
-    <!-- BLESSING BAR -->
-    <div class="blessing-bar reveal">
-      <p style="font-family:'Noto Sans Telugu',sans-serif;font-size:1.5rem;letter-spacing:1px;color:var(--rg-gold2);">🙏 వక్రతుండ మహాకాయ సూర్యకోటి సమప్రభ 🙏</p>
-      <small class="t" data-key="blessing_translation" style="font-style:italic;">Lord Ganesh, the remover of obstacles, bless this new home with peace, prosperity, and happiness</small>
-
-      <!-- Guest Farewell (conditional, shown only when ?guest= param exists) -->
-      <div class="guest-farewell reveal" id="guestFarewell">
-        <div class="guest-farewell-line"></div>
-        <span class="guest-farewell-name" id="guestFarewellName"></span>
-        <p class="guest-farewell-text" id="guestFarewellText">we look forward to your presence and blessings.</p>
-      </div>
-    </div>
-
-  </div><!-- end #invitationPage -->
-
-  <!-- ══════════════════════════════════
-     SCRIPTS
-══════════════════════════════════ -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- JavaScript for Languages, Audio, Lantern Particles, and Personalization -->
   <script>
-    /* ══════════════════════════════════════════════════
-       SERVICE WORKER REGISTRATION
-    ══════════════════════════════════════════════════ */
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(() => { });
-      });
-    }
-
-    /* ══════════════════════════════════════════════════
-       GUEST URL DECODER
-    ══════════════════════════════════════════════════ */
-    function b64decode(b64) {
-      try {
-        let s = b64.replace(/-/g, '+').replace(/_/g, '/');
-        while (s.length % 4) s += '=';
-        return decodeURIComponent(escape(atob(s)));
-      } catch (e) { return ''; }
-    }
-
-    window.GUEST = null;
-    (function initGuest() {
-      const params = new URLSearchParams(window.location.search);
-      const gRaw = params.get('guest');
-      const pRaw = params.get('prefix');
-      const rRaw = params.get('relation');
-      if (!gRaw) return;
-      const name = b64decode(gRaw);
-      const prefix = pRaw ? b64decode(pRaw) : '';
-      const relation = rRaw ? b64decode(rRaw) : '';
-      if (!name) return;
-      const fullLabel = prefix ? `${prefix} ${name}` : name;
-      const displayName = relation ? `${fullLabel} & ${relation}` : fullLabel;
-      window.GUEST = { prefix, name, relation, fullLabel, displayName };
-    })();
-
-    function applyGuestPersonalization() {
-      if (!window.GUEST) return;
-      const { fullLabel, relation } = window.GUEST;
-
-      /* 1. Envelope label — fade in smoothly, letter-by-letter name */
-      const envLabel = document.getElementById('guestEnvLabel');
-      const envName = document.getElementById('guestEnvName');
-      if (envLabel && envName && envLabel.style.opacity !== '1') {
-        envLabel.style.display = 'block';
-
-        let htmlContent = '';
-        let charIndex = 0;
-
-        htmlContent += [...fullLabel].map((ch) => {
-          let delay = charIndex * 60 + 800;
-          charIndex++;
-          return `<span class="letter" style="animation-delay:${delay}ms">${ch === ' ' ? '&nbsp;' : ch}</span>`;
-        }).join('');
-
-        if (relation) {
-          htmlContent += `<div style="font-size: 0.65em; margin-top: 4px; color: rgba(42, 15, 26, 0.85); font-weight: 600;">`;
-          const relStr = `& ${relation}`;
-          htmlContent += [...relStr].map((ch) => {
-            let delay = charIndex * 60 + 800;
-            charIndex++;
-            return `<span class="letter" style="animation-delay:${delay}ms">${ch === ' ' ? '&nbsp;' : ch}</span>`;
-          }).join('');
-          htmlContent += `</div>`;
-        }
-
-        envName.innerHTML = htmlContent;
-
-        // One tick later so CSS transition fires
-        requestAnimationFrame(() => requestAnimationFrame(() => {
-          envLabel.style.opacity = '1';
-        }));
-      }
-
-      /* 2. Greeting chip in Event section */
-      const greet = document.getElementById('guestGreeting');
-      const greetTxt = document.getElementById('guestGreetingText');
-      if (greet && greetTxt) {
-        if (relation) {
-          greetTxt.innerHTML = `${fullLabel} <br><span style="font-size:0.85em; opacity:0.9;">& ${relation}</span> <br>you are warmly invited`;
-        } else {
-          greetTxt.textContent = `${fullLabel}, you are warmly invited`;
-        }
-        greet.style.display = 'block';
-      }
-
-      /* 3. Farewell after Blessing bar */
-      const farewell = document.getElementById('guestFarewell');
-      const farewellName = document.getElementById('guestFarewellName');
-      if (farewell && farewellName) {
-        if (relation) {
-          farewellName.innerHTML = `${fullLabel} <br><span style="font-size:0.75em; opacity:0.8;">& ${relation}</span>`;
-        } else {
-          farewellName.textContent = fullLabel;
-        }
-        farewell.style.display = 'block';
-      }
-
-      /* 4. Lang param */
-      const lang = new URLSearchParams(window.location.search).get('lang');
-      if (lang && ['en', 'ta', 'te', 'hi'].includes(lang)) {
-        setTimeout(() => setLanguage(lang), 100);
-      }
-    }
-
-    /* ══════════════════════════════════════════════════
-       MUSIC TOGGLE
-    ══════════════════════════════════════════════════ */
-    let _musicStarted = false;
-
-    function initMusic() {
-      if (_musicStarted) return;
-      const audio = document.getElementById('bgMusic');
-      if (!audio) return;
-      audio.volume = 0.5;
-      const muted = sessionStorage.getItem('musicMuted') === 'true';
-      audio.muted = muted;
-      audio.play().catch(() => { /* autoplay blocked — user can unmute manually */ });
-      _musicStarted = true;
-      const btn = document.getElementById('musicToggle');
-      if (btn) { btn.style.display = 'flex'; if (muted) btn.classList.add('muted'); }
-      updateMusicIcon();
-    }
-
-    function toggleMusic() {
-      const audio = document.getElementById('bgMusic');
-      const btn = document.getElementById('musicToggle');
-      if (!audio || !btn) return;
-      audio.muted = !audio.muted;
-      if (audio.muted) {
-        audio.pause();
-      } else {
-        audio.play().catch(() => {});
-      }
-      sessionStorage.setItem('musicMuted', audio.muted);
-      btn.classList.toggle('muted', audio.muted);
-      updateMusicIcon();
-    }
-
-    function updateMusicIcon() {
-      const audio = document.getElementById('bgMusic');
-      const icon = document.getElementById('musicIcon');
-      if (!audio || !icon) return;
-      icon.className = audio.muted ? 'fas fa-volume-xmark' : 'fas fa-music';
-    }
-
-    /* ══════════════════════════════════════════════════
-       ADD TO CALENDAR
-    ══════════════════════════════════════════════════ */
-    const EVENT = {
-      title: "Abburi's Housewarming Celebration",
-      start: '20260922T043000Z',  /* 10:00 AM IST = 04:30 UTC */
-      end: '20260922T063000Z',  /* 12:00 PM IST = 06:30 UTC */
-      location: 'Kunduruvaripalem, Andhra Pradesh, India',
-      desc: 'You are cordially invited to celebrate our housewarming with Abburi\'s Family.'
-    };
-
-    (function setCalendarLinks() {
-      const gcal = document.getElementById('btnGcal');
-      if (!gcal) return;
-      const p = new URLSearchParams({
-        action: 'TEMPLATE',
-        text: EVENT.title,
-        dates: `${EVENT.start}/${EVENT.end}`,
-        location: EVENT.location,
-        details: EVENT.desc
-      });
-      gcal.href = `https://calendar.google.com/calendar/render?${p.toString()}`;
-    })();
-
-    function downloadICS() {
-      const ics = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0',
-        'PRODID:-//MofiWedding//EN',
-        'CALSCALE:GREGORIAN',
-        'METHOD:PUBLISH',
-        'BEGIN:VEVENT',
-        `DTSTART:${EVENT.start}`,
-        `DTEND:${EVENT.end}`,
-        `SUMMARY:${EVENT.title}`,
-        `LOCATION:${EVENT.location}`,
-        `DESCRIPTION:${EVENT.desc}`,
-        'STATUS:CONFIRMED',
-        'BEGIN:VALARM',
-        'TRIGGER:-P1D',
-        'ACTION:DISPLAY',
-        'DESCRIPTION:Reminder: Housewarming tomorrow!',
-        'END:VALARM',
-        'END:VEVENT',
-        'END:VCALENDAR'
-      ].join('\r\n');
-      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'Housewarming-2026.ics';
-      a.click();
-      URL.revokeObjectURL(a.href);
-    }
-
-    /* ══════════════════════════════════════════════════
-       TRANSLATION DATA — JSON
-    ══════════════════════════════════════════════════ */
+    // Multilingual Translations Dictionary
     const TRANSLATIONS = {
+      te: {
+        hero_sub: "నూతన గృహప్రవేశ ఆహ్వాన పత్రిక",
+        hero_dates: "నవంబర్ 5 & 6, 2026 • కుందురువారిపాలెం",
+        blessings_title: "శ్రీ లక్ష్మీ గణపతి మరియు పెద్దల ఆశీస్సులతో",
+        home_owner_tag: "గృహ యజమానులు",
+        big_invite: "ఆహ్వానం",
+        invite_body: "మా నూతన గృహప్రవేశ మహోత్సవ శుభ సందర్భమున తామందరూ విచ్చేసి, నూతన గృహాన్ని ఆశీర్వదించి మమ్మల్ని ఆనందింపజేయగలరని సవినయంగా ఆహ్వానిస్తున్నాము.",
+        love_title: "సస్నేహపూర్వక ఆహ్వానంతో",
+        ceremonies_head: "శుభ ముహూర్త వివరాలు",
+        ceremonies_sub: "వేదమంత్రోచ్ఛారణల నడుమ పవిత్ర పూజా కార్యక్రమాలు",
+        e1_title: "గృహప్రవేశ ముహూర్తం",
+        e1_time: "5 నవంబర్ 2026, రాత్రి 8:00 గంటలకు",
+        e1_desc: "శుభలగ్నమందు మా నూతన గృహప్రవేశం మరియు విఘ్నేశ్వర పూజ.",
+        e2_title: "శ్రీ సత్యనారాయణ స్వామి వ్రతం",
+        e2_time: "6 నవంబర్ 2026, ఉదయం",
+        e2_desc: "సకుటుంబ సపరివార సమేత శ్రీ సత్యనారాయణ స్వామి దివ్య వ్రతం మరియు తీర్థప్రసాదములు.",
+        e3_title: "విందు భోజనం",
+        e3_time: "6 నవంబర్ 2026, మధ్యాహ్నం 12:00 గంటల నుండి",
+        e3_desc: "ఆత్మీయులందరితో కలిసి సంప్రదాయ ఆంధ్రా విందు భోజనం.",
+        comp_title: "సహృదయ శుభాకాంక్షలతో",
+        family_name: "కుటుంబ సభ్యులు",
+        younger_gen: "యువతరం",
+        friends_name: "మిత్రులు & శ్రేయోభిలాషులు",
+        supporters_tag: "ఆత్మీయులు",
+        relatives_tag: "బంధుమిత్రులు & స్నేహితులు",
+        moments_head: "మధుర క్షణాలు",
+        moments_sub: "నూతన గృహప్రవేశ వేడుకల పవిత్ర దృశ్యాలు",
+        m1_cap: "గృహప్రవేశ ఆహ్వానం",
+        m2_cap: "పూజ మరియు ఆశీస్సులు",
+        m3_cap: "ఆనందం & కానుకల పంపిణీ",
+        m4_cap: "ఉజ్వల భవిష్యత్తుకు శుభారంభం",
+        blessing_sub: "శ్రీ లక్ష్మీ గణపతి స్వామి మీ గృహానికి సకల సంపదలు, ఆయురారోగ్యాలు ప్రసాదించుగాక",
+        night_cd_title: "శుభ ముహూర్త సమయానికి మిగిలిన సమయం",
+        night_cd_desc: "ఈ ఆనందకరమైన మహోత్సవంలో మీరందరూ పాల్గొని మమ్మల్ని ఆశీర్వదించాలని మా కుటుంబం కోరుకుంటోంది.",
+        cd_days: "రోజులు", cd_hours: "గంటలు", cd_mins: "నిమిషాలు", cd_secs: "సెకన్లు",
+        venue_eyebrow: "వేదిక & ప్రదేశం"
+      },
       en: {
-        blessing_sub: "With blessings of Lord Ganesh, the remover of obstacles and the harbinger of success",
-        hero_date_line1: "With joy, on 22-09-2026",
-        hero_date_line2: "(Muhurtham: 10:00 AM)",
-        scroll: "Scroll",
-        anticipation: "Anticipation",
-        days: "Days", hours: "Hours", minutes: "Minutes", seconds: "Seconds",
-        event_title: "House Warming",
-        event_sub: "A Joyful Celebration",
-        event_body: "With blessings of Lord Ganesh, we joyfully invite you to celebrate our new home and share our happiness in this housewarming celebration.",
-        host_family_primary: "Home Owner",
-        host_address_primary: "Kunduruvaripalem, Andhra Pradesh",
-        host_family_secondary: "Home Owner",
-        host_address_secondary: "Kunduruvaripalem, Andhra Pradesh",
-        celebration_title: "Celebration Details",
-        when_where: "When & Where",
-        event_time: "10:00 AM",
-        feast_title: "Lunch Timings",
-        feast_time: "12:00 PM - 3:00 PM",
-        at_esteemed: "At Our Home Residency",
-        bus_from: "Parking Available:",
-        bus_stop: "Nearby Parking:",
-        bus_stop_val: "Street parking available on main road",
-        moments_title: "Moments",
-        moments_sub: "A Joyful Glimpse",
-        compliments_from: "With best compliments from",
-        relatives: "Relatives & Friends",
-        blessing_translation: "May Lord Ganesh bless your home with prosperity and happiness"
+        hero_sub: "Auspicious Housewarming Celebration",
+        hero_dates: "5th & 6th November 2026 • Kunduruvaripalem",
+        blessings_title: "With the divine blessings of God & Elders",
+        home_owner_tag: "Home Owners",
+        big_invite: "INVITE",
+        invite_body: "You to join us in the auspicious Gruhapravesam ceremony of our new home and grace this special occasion with your presence and blessings.",
+        love_title: "With Love From",
+        ceremonies_head: "Ceremony Details",
+        ceremonies_sub: "Auspicious Muhurtham & Events",
+        e1_title: "Gruhapravesam Muhurtham",
+        e1_time: "5th November 2026, 8:00 PM Night",
+        e1_desc: "Auspicious entrance into the new home amidst sacred mantras and Vedic rituals.",
+        e2_title: "Satyanarayana Vratham",
+        e2_time: "6th November 2026, Morning",
+        e2_desc: "Sacred Sri Satyanarayana Swamy Pooja and holy Theertha Prasadam distribution.",
+        e3_title: "Grand Andhra Feast",
+        e3_time: "6th November 2026, 12:00 PM Onwards",
+        e3_desc: "Traditional celebration lunch and culinary delicacies with family and friends.",
+        comp_title: "With Best Compliments From",
+        family_name: "Family Members",
+        younger_gen: "Younger Generation",
+        friends_name: "Friends & Well Wishers",
+        supporters_tag: "Supporters",
+        relatives_tag: "Relatives & Friends",
+        moments_head: "Moments",
+        moments_sub: "A Sacred Celebration of Love & Togetherness",
+        m1_cap: "Griha Pravesh Invitation",
+        m2_cap: "Bhoj and Blessings",
+        m3_cap: "Sharing Joy and Gifts",
+        m4_cap: "A Sweet Toast to the Future",
+        blessing_sub: "MAY LORD GANESH BLESS YOUR HOME WITH PROSPERITY AND HAPPINESS",
+        night_cd_title: "The countdown begins",
+        night_cd_desc: "Our families are excited that you are able to join us in celebrating what we hope will be one of the happiest days of our lives.",
+        cd_days: "Days", cd_hours: "Hours", cd_mins: "Mins", cd_secs: "Secs",
+        venue_eyebrow: "Venue & Location"
       },
       ta: {
-        blessing_sub: "விக்னேஷின் ஆசிர்வாதத்தால், தடைகளை நீக்கி, வெற்றியை அருளிக்கும்",
-        hero_date_line1: "மகிழ்ச்சியுடன், 22-09-2026",
-        hero_date_line2: "(நேரம்: காலை 10:00)",
-        scroll: "சுருள்",
-        anticipation: "எதிர்பார்ப்பு",
-        days: "நாட்கள்", hours: "மணிநேரங்கள்", minutes: "நிமிடங்கள்", seconds: "வினாடிகள்",
-        event_title: "கிருகப்பிரவேசம்",
-        event_sub: "மகிழ்ச்சியான கொண்டாட்டம்",
-        event_body: "விக்னேஷின் ஆசிர்வாதத்தால், எங்கள் புதிய வீட்டைக் கொண்டாடுவதற்கும், இந்த கிருகப்பிரவேச விழாவில் எங்கள் மகிழ்ச்சியைப் பகிர்க்கிறோம்.",
-        host_family_primary: "வீட்டு உரிமையாளர்",
-        host_address_primary: "குந்துருவாரிபாளையம், ஆந்திரபிரதேசம்",
-        host_family_secondary: "வீட்டு உரிமையாளர்",
-        host_address_secondary: "குந்துருவாரிபாளையம், ஆந்திரபிரதேசம்",
-        celebration_title: "விழா விவரங்கள்",
-        when_where: "எப்போது & எங்கே",
-        event_time: "10:00 AM",
-        feast_title: "மதிய விருந்து",
-        feast_time: "மதியம் 12:00 — 3:00",
-        at_esteemed: "மரியாதைக்குரிய",
-        bus_from: "கோயம்பேடு பேருந்து நிலையம்",
-        bus_stop: "பேருந்து நிறுத்தம்:",
-        bus_stop_val: "மங்களாபுரம், பெரம்பூர் (ரயில் நிலையத்திற்கு பின்புறம்)",
-        moments_title: "தருணங்கள்",
-        moments_sub: "ஒரு புனித பார்வை",
-        compliments_from: "இனிய வாழ்த்துக்களுடன்",
-        relatives: "உறவினர்கள் & நண்பர்கள்",
-        blessing_translation: "விக்னேஷ் உங்கள் வீட்டிற்கு செழிப்பும் மற்றும் மகிழ்ச்சியை அருளிக்கட்டும்"
-      },
-      te: {
-        blessing_sub: "విఘ్నేశ్వరుడి ఆశీర్వాదంతో, అడ్డండలను తొలగించే విజయప్రదాతతో",
-        hero_date_line1: "ఆనందంగా, 22-09-2026",
-        hero_date_line2: "(సమయం: ఉదయం 10:00)",
-        scroll: "స్క్రోల్",
-        anticipation: "ఎదురుచూప",
-        days: "రోజులు", hours: "గంటలు", minutes: "నిమిషాలు", seconds: "సెకన్లు",
-        event_title: "ఇంటి ప్రవేశం",
-        event_sub: "ఆనంద వేడుక",
-        event_body: "విఘ్నేశ్వరుడి ఆశీర్వాదంతో, మా కొత్త ఇంటిని ప్రవేశించడాన్ని ఆనందంగా జరుపుకోవడానికి మీరందరినీ ఆహ్వానిస్తున్నాము.",
-        host_family_primary: "ఇంటి యజమాని",
-        host_address_primary: "కుందురువారిపాలెం, ఆంధ్రప్రదేశ్",
-        host_family_secondary: "ఇంటి యజమాని",
-        host_address_secondary: "కుందురువారిపాలెం, ఆంధ్రప్రదేశ్",
-        celebration_title: "వేడుక వివరాలు",
-        when_where: "ఎప్పుడు & ఎక్కడ",
-        event_time: "10:00 AM",
-        feast_title: "భోజన సమయాలు",
-        feast_time: "12:00 PM - 3:00 PM",
-        at_esteemed: "మా ఇంటి వద్ద",
-        bus_from: "పార్కింగ్ అందుబాటులో ఉంది:",
-        bus_stop: "దగ్గరలో పార్కింగ్:",
-        bus_stop_val: "ప్రధాన రోడ్డ్లో స్ట్రీట్ పార్కింగ్ అందుబాటులో ఉంది",
-        moments_title: "క్షణాలు",
-        moments_sub: "ఆనంద దృశ్యం",
-        compliments_from: "ఇనియ వార్తలతో",
-        relatives: "బంధువులు & స్నేహితులు",
-        blessing_translation: "విఘ్నేశ్వరుడు మీ ఇంటినికి సంపదతో ఆశీర్వదించాలని కోరుకుంటున్నాము"
+        hero_sub: "மங்கல புதுமனை புகுவிழா அழைப்பிதழ்",
+        hero_dates: "5 & 6 நவம்பர் 2026 • குந்துருவாரிபாலெம்",
+        blessings_title: "இறைவன் மற்றும் பெரியோர்களின் ஆசியுடன்",
+        home_owner_tag: "வீட்டு உரிமையாளர்கள்",
+        big_invite: "அழைப்பு",
+        invite_body: "எங்கள் புதிய இல்லத்தின் புதுமனை புகுவிழா விழாவிற்கு தாங்கள் அனைவரும் வருகை தந்து எங்களை ஆசீர்வதிக்குமாறு அன்புடன் அழைக்கின்றோம்.",
+        love_title: "அன்புடன் அழைப்பது",
+        ceremonies_head: "மங்கல நிகழ்வுகள்",
+        ceremonies_sub: "புனித முகூர்த்தம் மற்றும் பூஜைகள்",
+        e1_title: "புதுமனை புகுவிழா முகூர்த்தம்",
+        e1_time: "5 நவம்பர் 2026, இரவு 8:00 மணி",
+        e1_desc: "மங்கல முகூர்த்தத்தில் புதிய இல்ல பிரவேசம் மற்றும் விநாயகர் பூஜை.",
+        e2_title: "சத்யநாராயண விரதம்",
+        e2_time: "6 நவம்பர் 2026, காலை",
+        e2_desc: "ஸ்ரீ சத்யநாராயண சுவாமி பூஜை மற்றும் தீர்த்த பிரசாதம்.",
+        e3_title: "மகா விருந்து",
+        e3_time: "6 நவம்பர் 2026, மதியம் 12:00 மணி முதல்",
+        e3_desc: "அனைவருக்கும் சுவையான மதிய விருந்து உபசரிப்பு.",
+        comp_title: "நல்வாழ்த்துகளுடன்",
+        family_name: "குடும்பத்தினர்",
+        younger_gen: "இளைய தலைமுறை",
+        friends_name: "நண்பர்கள் & நலம் விரும்பிகள்",
+        supporters_tag: "ஆதரவாளர்கள்",
+        relatives_tag: "உறவினர்கள் & நண்பர்கள்",
+        moments_head: "நினைவுகள்",
+        moments_sub: "மகிழ்ச்சியான தருணங்கள்",
+        m1_cap: "புதுமனை புகுவிழா அழைப்பு",
+        m2_cap: "விருந்து மற்றும் ஆசிகள்",
+        m3_cap: "அன்புப் பரிசுகள்",
+        m4_cap: "இனிமையான எதிர்காலம்",
+        blessing_sub: "விநாயகர் உங்கள் இல்லத்தை நல்வாழ்வாலும் வளத்தாலும் நிரப்பட்டும்",
+        night_cd_title: "முகூர்த்த கவுண்டவுன்",
+        night_cd_desc: "எங்கள் வாழ்வின் மிக மகிழ்ச்சியான நாளில் நீங்கள் அனைவரும் கலந்து கொண்டு எங்களை ஆசீர்வதிக்குமாறு கேட்டுக்கொள்கிறோம்.",
+        cd_days: "நாட்கள்", cd_hours: "மணி", cd_mins: "நிமிடம்", cd_secs: "விநாடி",
+        venue_eyebrow: "இடம் & முகவரி"
       },
       hi: {
-        blessing_sub: "भगवान गणेश के आशीर्वाद से, बाधाओं को दूर करने वाले और सफलता के हरinger",
-        hero_date_line1: "खुशी के साथ, 22-09-2026",
-        hero_date_line2: "(समय: सुबह 10:00)",
-        scroll: "स्क्रॉल",
-        anticipation: "प्रतीक्षा",
-        days: "दिन", hours: "घंटे", minutes: "मिनट", seconds: "सेकंड",
-        event_title: "गृह प्रवेश",
-        event_sub: "एक आनंदमय उत्सव",
-        event_body: "भगवान गणेश के आशीर्वाद से, हम आपको हमारे नए घर का उत्सव मनाने और इस गृह प्रवेश समारोह में हमारी खुशी साझा करने के लिए आमंत्रित करते हैं।",
-        host_family_primary: "घर का मालिक",
-        host_address_primary: "कुंदुरुवारिपालेम, आंध्र प्रदेश",
-        host_family_secondary: "घर का मालिक",
-        host_address_secondary: "कुंदुरुवारिपालेम, आंध्र प्रदेश",
-        celebration_title: "उत्सव विवरण",
-        when_where: "कब और कहां",
-        event_time: "10:00 AM",
-        feast_title: "भोजन का समय",
-        feast_time: "12:00 PM - 3:00 PM",
-        at_esteemed: "हमारे घर पर",
-        bus_from: "पार्किंग उपलब्ध:",
-        bus_stop: "पास की पार्किंग:",
-        bus_stop_val: "मुख्य सड़क पर स्ट्रीट पार्किंग उपलब्ध",
-        moments_title: "क्षण",
-        moments_sub: "एक आनंदमय झलक",
-        compliments_from: "शुभकामनाओं सहित",
-        relatives: "रिश्तेदार और दोस्त",
-        blessing_translation: "भगवान गणेश आपके घर को समृद्धि और खुशी से भरें"
+        hero_sub: "शुभ गृह प्रवेश निमंत्रण",
+        hero_dates: "5 और 6 नवंबर 2026 • कुंदुरुवारिपालेम",
+        blessings_title: "भगवान और बड़ों के मंगल आशीर्वाद से",
+        home_owner_tag: "गृह स्वामी",
+        big_invite: "सादर निमंत्रण",
+        invite_body: "हमारे नए घर के शुभ गृह प्रवेश समारोह में आप सादर आमंत्रित हैं। कृपया पधारकर हमें अपना आशीर्वाद प्रदान करें।",
+        love_title: "सस्नेह निमंत्रक",
+        ceremonies_head: "उत्सव एवं शुभ मुहूर्त",
+        ceremonies_sub: "वैदिक मंत्रोच्चार के साथ पावन पूजा अनुष्ठान",
+        e1_title: "गृह प्रवेश मुहूर्त",
+        e1_time: "5 नवंबर 2026, रात्रि 8:00 बजे",
+        e1_desc: "शुभ मुहूर्त में नए घर का गृह प्रवेश एवं गणपति पूजन।",
+        e2_title: "सत्यनारायण स्वामी व्रत",
+        e2_time: "6 नवंबर 2026, सुबह",
+        e2_desc: "श्री सत्यनारायण स्वामी की पावन कथा, पूजा एवं महाप्रसाद वितरण।",
+        e3_title: "महाप्रसाद एवं प्रीतिभोज",
+        e3_time: "6 नवंबर 2026, दोपहर 12:00 बजे से",
+        e3_desc: "सभी आत्मीय जनों के साथ पारंपरिक सुरुचिपूर्ण भोज।",
+        comp_title: "शुभकामनाओं सहित",
+        family_name: "परिवार के सदस्य",
+        younger_gen: "युवा पीढ़ी",
+        friends_name: "मित्र एवं शुभचिंतक",
+        supporters_tag: "स्नेहीजन",
+        relatives_tag: "रिश्तेदार एवं मित्र",
+        moments_head: "पावन क्षण",
+        moments_sub: "गृह प्रवेश के सुखद पल",
+        m1_cap: "गृह प्रवेश निमंत्रण",
+        m2_cap: "भोज एवं आशीर्वाद",
+        m3_cap: "खुशियाँ एवं उपहार",
+        m4_cap: "उज्ज्वल भविष्य की कामना",
+        blessing_sub: "भगवान श्री गणेश आपके जीवन को सुख और समृद्धि से परिपूर्ण करें",
+        night_cd_title: "शुभ मुहूर्त की उल्टी गिनती",
+        night_cd_desc: "हमारे जीवन के इस सबसे खुशी के अवसर पर आप सभी का स्वागत करने के लिए हम अत्यंत उत्सुक हैं।",
+        cd_days: "दिन", cd_hours: "घंटे", cd_mins: "मिनट", cd_secs: "सेकंड",
+        venue_eyebrow: "स्थान एवं पता"
       }
     };
 
+    let currentLang = 'te';
+
     function setLanguage(lang) {
-      if (!TRANSLATIONS[lang]) lang = 'en';
-      document.documentElement.setAttribute('data-lang', lang);
-      // Update URL param without reload (safe - may be blocked in sandboxed iframes)
-      try {
-        const url = new URL(window.location.href);
-        url.searchParams.set('lang', lang);
-        history.replaceState(null, '', url.toString());
-      } catch (e) { /* silently ignore in sandboxed/iframe contexts */ }
-      // Update buttons
+      if (!TRANSLATIONS[lang]) lang = 'te';
+      currentLang = lang;
+      
       document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
       });
-      // Translate all .t elements
-      const data = TRANSLATIONS[lang];
+
+      const dict = TRANSLATIONS[lang];
       document.querySelectorAll('.t[data-key]').forEach(el => {
-        const key = el.dataset.key;
-        if (data[key] !== undefined) el.textContent = data[key];
+        const key = el.getAttribute('data-key');
+        if (dict[key]) el.textContent = dict[key];
       });
     }
 
-    // Read lang from URL on load (safe in sandboxed contexts)
-    function getLangFromURL() {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        const langParam = params.get('lang') || '';
-        const map = { tamil: 'ta', telugu: 'te', hindi: 'hi', en: 'en', ta: 'ta', te: 'te', hi: 'hi' };
-        return map[langParam.toLowerCase()] || 'en';
-      } catch (e) { return 'en'; }
+    // Audio Music Control
+    let isPlaying = false;
+    const bgMusic = document.getElementById('bgMusic');
+    const musicIcon = document.getElementById('musicIcon');
+
+    function toggleMusic() {
+      if (!bgMusic) return;
+      if (isPlaying) {
+        bgMusic.pause();
+        isPlaying = false;
+        musicIcon.className = 'fas fa-volume-xmark';
+      } else {
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          musicIcon.className = 'fas fa-music';
+        }).catch(() => {});
+      }
     }
 
-    /* ══════════════════════════════════════════════════
-       SCROLL REVEAL
-    ══════════════════════════════════════════════════ */
-    function initScrollReveal() {
-      const elements = document.querySelectorAll('.reveal');
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      elements.forEach(el => io.observe(el));
-    }
+    // Open 3D Envelope
+    let isOpened = false;
+    function openEnvelope() {
+      if (isOpened) return;
+      isOpened = true;
 
-    /* ══════════════════════════════════════════════════
-       CUSTOM CURSOR
-    ══════════════════════════════════════════════════ */
-    (function () {
-      const dot = document.getElementById('cur-dot'), ring = document.getElementById('cur-ring');
-      let mx = 0, my = 0, rx = 0, ry = 0;
-      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
-      (function ar() { rx += (mx - rx) * .1; ry += (my - ry) * .1; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(ar); })();
-    })();
-
-    /* ══════════════════════════════════════════════════
-       THREE.JS — SPARKLING STAR FIELD
-    ══════════════════════════════════════════════════ */
-    (function initThreeStars() {
-      const container = document.getElementById('threeCanvas');
-
-      // Renderer
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setClearColor(0x000000, 0); // transparent
-      container.appendChild(renderer.domElement);
-
-      // Apply fixed positioning to the renderer canvas
-      const rc = renderer.domElement;
-      rc.style.position = 'fixed';
-      rc.style.inset = '0';
-      rc.style.width = '100%';
-      rc.style.height = '100%';
-      rc.style.pointerEvents = 'none';
-      rc.style.zIndex = '0';
-
-      // Scene & Camera
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
-      camera.position.z = 600;
-
-      // ── Circular sprite texture (drawn on a 2d canvas) ──
-      function makeStarTexture(size, inner, outer, color) {
-        const c = document.createElement('canvas');
-        c.width = c.height = size;
-        const ctx = c.getContext('2d');
-        const cx = size / 2, cy = size / 2;
-        // Radial gradient — bright core, soft halo
-        const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, outer);
-        g.addColorStop(0, color + 'ff');
-        g.addColorStop(inner / outer, color + 'cc');
-        g.addColorStop(1, color + '00');
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.arc(cx, cy, outer, 0, Math.PI * 2);
-        ctx.fill();
-        return new THREE.CanvasTexture(c);
-      }
-
-      // Three texture varieties: bright gold, pure gold, and warm amber gold
-      const texGoldBright = makeStarTexture(64, 4, 32, '#F2DCB8');
-      const texGoldPure = makeStarTexture(64, 4, 32, '#D8AD83');
-      const texGoldAmber = makeStarTexture(64, 3, 28, '#B8905A');
-
-      // ── Star particle system ──
-      const STAR_COUNT = 1000;
-      const SPREAD = 900;
-      const BATCH = Math.floor(STAR_COUNT / 3);
-
-      function makeStarPoints(count, texture, sizeRange, zRange) {
-        const geo = new THREE.BufferGeometry();
-        const pos = new Float32Array(count * 3);
-        const pha = new Float32Array(count);
-        const spd = new Float32Array(count);
-        const sz = new Float32Array(count);
-
-        for (let i = 0; i < count; i++) {
-          pos[i * 3] = (Math.random() - 0.5) * SPREAD * 2;
-          pos[i * 3 + 1] = (Math.random() - 0.5) * SPREAD;
-          pos[i * 3 + 2] = (Math.random() - 0.5) * zRange;
-          pha[i] = Math.random() * Math.PI * 2;
-          spd[i] = Math.random() * 0.025 + 0.008;
-          sz[i] = Math.random() * (sizeRange[1] - sizeRange[0]) + sizeRange[0];
-        }
-
-        geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-        geo.setAttribute('aPhase', new THREE.BufferAttribute(pha, 1));
-        geo.setAttribute('aSpeed', new THREE.BufferAttribute(spd, 1));
-        geo.setAttribute('aSize', new THREE.BufferAttribute(sz, 1));
-
-        const mat = new THREE.PointsMaterial({
-          size: sizeRange[1],
-          map: texture,
-          transparent: true,
-          depthWrite: false,
-          sizeAttenuation: true,
-          opacity: 0.9
-        });
-
-        const points = new THREE.Points(geo, mat);
-        return { points, pha, spd, sz, mat, geo };
-      }
-
-      const batchGoldBright = makeStarPoints(BATCH, texGoldBright, [2, 8], 600);
-      const batchGoldPure = makeStarPoints(BATCH, texGoldPure, [2, 9], 600);
-      const batchGoldAmber = makeStarPoints(STAR_COUNT - BATCH * 2, texGoldAmber, [1, 6], 800);
-
-      scene.add(batchGoldBright.points);
-      scene.add(batchGoldPure.points);
-      scene.add(batchGoldAmber.points);
-
-      // ── 4-pointed sparkle meshes for brightest stars ──
-      function makeSparkleGeom(r) {
-        const shape = new THREE.Shape();
-        shape.moveTo(0, r);
-        shape.bezierCurveTo(r * 0.12, r * 0.12, r * 0.12, r * 0.12, r, 0);
-        shape.bezierCurveTo(r * 0.12, -r * 0.12, r * 0.12, -r * 0.12, 0, -r);
-        shape.bezierCurveTo(-r * 0.12, -r * 0.12, -r * 0.12, -r * 0.12, -r, 0);
-        shape.bezierCurveTo(-r * 0.12, r * 0.12, -r * 0.12, r * 0.12, 0, r);
-        return new THREE.ShapeGeometry(shape);
-      }
-
-      const sparkleMat = new THREE.MeshBasicMaterial({
-        color: 0xD8AD83, transparent: true, opacity: 0,
-        depthWrite: false, side: THREE.DoubleSide
-      });
-
-      const SPARKLE_COUNT = 64;
-      const sparkles = [];
-      for (let i = 0; i < SPARKLE_COUNT; i++) {
-        const r = Math.random() * 5 + 3;
-        const geo = makeSparkleGeom(r);
-        const mat = sparkleMat.clone();
-        const mesh = new THREE.Mesh(geo, mat);
-        mesh.position.set(
-          (Math.random() - 0.5) * SPREAD * 2,
-          (Math.random() - 0.5) * SPREAD,
-          (Math.random() - 0.5) * 400
-        );
-        mesh.userData = {
-          phase: Math.random() * Math.PI * 2,
-          speed: Math.random() * 0.02 + 0.008,
-          rotSpeed: (Math.random() - 0.5) * 0.015
-        };
-        scene.add(mesh);
-        sparkles.push(mesh);
-      }
-
-      // ── Slow camera drift ──
-      let driftX = 0, driftY = 0, targetDriftX = 0, targetDriftY = 0;
-      window.addEventListener('mousemove', e => {
-        targetDriftX = (e.clientX / window.innerWidth - 0.5) * 30;
-        targetDriftY = (e.clientY / window.innerHeight - 0.5) * -20;
-      });
-
-      // ── Resize ──
-      window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-      });
-
-      // ── Animate ──
-      let t = 0;
-      function animate() {
-        requestAnimationFrame(animate);
-        t += 0.016;
-
-        // Independent twinkling for 4-point sparkles
-        sparkles.forEach(sp => {
-          sp.userData.phase += sp.userData.speed * 1.5; // Faster twinkle
-          const alpha = (Math.sin(sp.userData.phase) * 0.45 + 0.55);
-          sp.material.opacity = alpha * 0.95;
-          sp.rotation.z += sp.userData.rotSpeed * 1.2;
-          sp.position.y += Math.sin(t * 0.4 + sp.userData.phase) * 0.06;
-        });
-
-        // Batch twinkle logic (high frequency for "sparkle" feel)
-        batchGoldBright.mat.opacity = 0.55 + 0.45 * Math.abs(Math.sin(t * 2.1));
-        batchGoldPure.mat.opacity = 0.55 + 0.45 * Math.abs(Math.sin(t * 2.8 + 1));
-        batchGoldAmber.mat.opacity = 0.45 + 0.55 * Math.abs(Math.sin(t * 3.5 + 2));
-
-        // Camera gentle drift
-        driftX += (targetDriftX - driftX) * 0.025;
-        driftY += (targetDriftY - driftY) * 0.025;
-        camera.position.x = driftX;
-        camera.position.y = driftY;
-        camera.lookAt(scene.position);
-
-        // Field rotation for depth
-        batchGoldBright.points.rotation.y = t * 0.012;
-        batchGoldBright.points.rotation.x = t * 0.005;
-        batchGoldPure.points.rotation.y = -t * 0.009;
-        batchGoldAmber.points.rotation.y = t * 0.006;
-
-        renderer.render(scene, camera);
-      }
-      animate();
-    })();
-
-    /* ══════════════════════════════════════════════════
-       RIPPLE — Minimal single-ring cursor trail
-    ══════════════════════════════════════════════════ */
-    (function () {
-      const c = document.getElementById('rippleCanvas'), ctx = c.getContext('2d');
-      let W, H;
-      function rs() { W = c.width = window.innerWidth; H = c.height = window.innerHeight; }
-      rs(); window.addEventListener('resize', rs);
-
-      const rps = []; let lt = 0;
-      // Only add on click/tap — no mousemove trail, just a single crisp ring on click
-      function add(x, y) {
-        rps.push({ x, y, r: 0, a: 0.6 });
-      }
-      document.addEventListener('click', e => add(e.clientX, e.clientY));
-      document.addEventListener('touchstart', e => {
-        const t = e.touches[0]; add(t.clientX, t.clientY);
-      }, { passive: true });
-
-      function draw() {
-        ctx.clearRect(0, 0, W, H);
-        for (let i = rps.length - 1; i >= 0; i--) {
-          const p = rps[i];
-          p.r += 2.5;
-          p.a -= 0.018;
-          if (p.a <= 0) { rps.splice(i, 1); continue; }
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(216,173,131,${p.a})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-
-    /* ══════════════════════════════════════════════════
-       PARALLAX
-    ══════════════════════════════════════════════════ */
-    window.addEventListener('scroll', () => {
-      const sy = window.scrollY;
-      const heroBg = document.getElementById('hero-bg');
-      if (heroBg) heroBg.style.transform = `scale(1.08) translateY(${sy * .3}px)`;
-    }, { passive: true });
-
-    /* ══════════════════════════════════════════════════
-       ENHANCED 3D FLOATING DIYAS & GOLDEN PARTICLES
-    ══════════════════════════════════════════════════ */
-    (function initParticles() {
-      const canvas = document.getElementById('particlesCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      let W, H;
-      
-      function resize() {
-        W = canvas.width = window.innerWidth;
-        H = canvas.height = window.innerHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
-      
-      // Enhanced particle types: diya (lamp), sparkle, goldOrb, petal
-      class Particle {
-        constructor() {
-          this.reset();
-        }
-        
-        reset() {
-          this.x = Math.random() * W;
-          this.y = H + Math.random() * 150;
-          this.z = Math.random() * 0.5 + 0.5; // Depth factor for 3D effect
-          this.size = (Math.random() * 3 + 2) * this.z;
-          this.speedY = (Math.random() * 0.6 + 0.2) * this.z;
-          this.speedX = Math.random() * 0.3 - 0.15;
-          this.wobble = Math.random() * Math.PI * 2;
-          this.wobbleSpeed = Math.random() * 0.02 + 0.01;
-          this.opacity = Math.random() * 0.5 + 0.4;
-          this.pulsePhase = Math.random() * Math.PI * 2;
-          
-          // 3D rotation
-          this.rotationX = Math.random() * Math.PI * 2;
-          this.rotationY = Math.random() * Math.PI * 2;
-          this.rotationSpeedX = Math.random() * 0.01 - 0.005;
-          this.rotationSpeedY = Math.random() * 0.01 - 0.005;
-          
-          // Assign particle type with weighted distribution
-          const rand = Math.random();
-          if (rand < 0.25) {
-            this.type = 'diya'; // 25% floating diyas
-          } else if (rand < 0.55) {
-            this.type = 'sparkle'; // 30% sparkles
-          } else if (rand < 0.80) {
-            this.type = 'goldOrb'; // 25% golden orbs
-          } else {
-            this.type = 'petal'; // 20% floating petals
-          }
-          
-          // Color palette for housewarming theme
-          const colors = {
-            diya: ['rgba(255, 200, 100, ', 'rgba(255, 180, 80, ', 'rgba(255, 160, 60, '],
-            sparkle: ['rgba(255, 255, 200, ', 'rgba(255, 250, 150, ', 'rgba(255, 240, 100, '],
-            goldOrb: ['rgba(240, 198, 116, ', 'rgba(255, 215, 0, ', 'rgba(255, 195, 80, '],
-            petal: ['rgba(255, 183, 77, ', 'rgba(255, 160, 122, ', 'rgba(255, 140, 100, ']
-          };
-          const typeColors = colors[this.type];
-          this.colorBase = typeColors[Math.floor(Math.random() * typeColors.length)];
-        }
-        
-        update() {
-          this.y -= this.speedY;
-          this.wobble += this.wobbleSpeed;
-          this.x += Math.sin(this.wobble) * 0.8 + this.speedX;
-          this.pulsePhase += 0.03;
-          this.rotationX += this.rotationSpeedX;
-          this.rotationY += this.rotationSpeedY;
-          
-          // 3D perspective movement
-          this.z += Math.sin(this.pulsePhase * 0.5) * 0.002;
-          this.z = Math.max(0.3, Math.min(1, this.z));
-          
-          if (this.y < -50) {
-            this.reset();
-          }
-        }
-        
-        draw() {
-          ctx.save();
-          
-          // Apply 3D perspective
-          const scale = this.z;
-          const alpha = this.opacity * (0.5 + 0.5 * this.z);
-          const pulse = 1 + Math.sin(this.pulsePhase) * 0.15;
-          
-          ctx.translate(this.x, this.y);
-          ctx.scale(scale * pulse, scale * pulse);
-          ctx.globalAlpha = alpha;
-          
-          if (this.type === 'diya') {
-            this.drawDiya();
-          } else if (this.type === 'sparkle') {
-            this.drawSparkle();
-          } else if (this.type === 'goldOrb') {
-            this.drawGoldOrb();
-          } else {
-            this.drawPetal();
-          }
-          
-          ctx.restore();
-        }
-        
-        drawDiya() {
-          const w = this.size * 3;
-          const h = this.size * 2;
-          
-          // Outer glow (flame effect)
-          const outerGlow = ctx.createRadialGradient(0, -h*0.3, 0, 0, -h*0.3, w);
-          outerGlow.addColorStop(0, 'rgba(255, 220, 150, 0.8)');
-          outerGlow.addColorStop(0.4, 'rgba(255, 180, 80, 0.4)');
-          outerGlow.addColorStop(1, 'rgba(255, 140, 60, 0)');
-          
-          ctx.fillStyle = outerGlow;
-          ctx.beginPath();
-          ctx.ellipse(0, -h*0.3, w, h*0.8, 0, 0, Math.PI*2);
-          ctx.fill();
-          
-          // Diya body (clay bowl shape)
-          const bodyGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, w);
-          bodyGrad.addColorStop(0, 'rgba(160, 82, 45, 0.9)');
-          bodyGrad.addColorStop(0.6, 'rgba(139, 69, 19, 0.8)');
-          bodyGrad.addColorStop(1, 'rgba(100, 50, 20, 0.6)');
-          
-          ctx.fillStyle = bodyGrad;
-          ctx.beginPath();
-          ctx.ellipse(0, h*0.2, w*0.8, h*0.5, 0, 0, Math.PI*2);
-          ctx.fill();
-          
-          // Flame
-          const flameGrad = ctx.createRadialGradient(0, -h*0.5, 0, 0, -h*0.5, w*0.4);
-          flameGrad.addColorStop(0, 'rgba(255, 255, 220, 1)');
-          flameGrad.addColorStop(0.3, 'rgba(255, 220, 100, 0.9)');
-          flameGrad.addColorStop(0.7, 'rgba(255, 180, 60, 0.6)');
-          flameGrad.addColorStop(1, 'rgba(255, 100, 30, 0)');
-          
-          ctx.fillStyle = flameGrad;
-          ctx.beginPath();
-          ctx.moveTo(0, -h*0.3);
-          ctx.quadraticCurveTo(w*0.3, -h*0.6, 0, -h);
-          ctx.quadraticCurveTo(-w*0.3, -h*0.6, 0, -h*0.3);
-          ctx.fill();
-          
-          // Oil reflection
-          ctx.fillStyle = 'rgba(255, 200, 100, 0.4)';
-          ctx.beginPath();
-          ctx.ellipse(0, h*0.15, w*0.4, h*0.2, 0, 0, Math.PI*2);
-          ctx.fill();
-        }
-        
-        drawSparkle() {
-          const spikes = 4;
-          const outerRadius = this.size * 2;
-          const innerRadius = this.size * 0.5;
-          
-          ctx.fillStyle = this.colorBase + '1)';
-          ctx.shadowBlur = 15;
-          ctx.shadowColor = this.colorBase + '0.8)';
-          
-          ctx.beginPath();
-          for (let i = 0; i < spikes * 2; i++) {
-            const r = (i % 2 === 0) ? outerRadius : innerRadius;
-            const angle = (i / (spikes * 2)) * Math.PI * 2 + this.rotationX;
-            const x = Math.cos(angle) * r;
-            const y = Math.sin(angle) * r * 0.6; // Flattened for 3D effect
-            if (i === 0) ctx.moveTo(x, y);
-            else ctx.lineTo(x, y);
-          }
-          ctx.closePath();
-          ctx.fill();
-          
-          // Center glow
-          ctx.shadowBlur = 0;
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-          ctx.beginPath();
-          ctx.arc(0, 0, this.size * 0.4, 0, Math.PI * 2);
-          ctx.fill();
-        }
-        
-        drawGoldOrb() {
-          const r = this.size;
-          
-          // 3D sphere gradient
-          const grad = ctx.createRadialGradient(-r*0.3, -r*0.3, 0, 0, 0, r);
-          grad.addColorStop(0, 'rgba(255, 250, 200, 0.95)');
-          grad.addColorStop(0.3, 'rgba(255, 220, 120, 0.8)');
-          grad.addColorStop(0.7, 'rgba(240, 180, 80, 0.6)');
-          grad.addColorStop(1, 'rgba(200, 140, 60, 0.3)');
-          
-          ctx.fillStyle = grad;
-          ctx.beginPath();
-          ctx.arc(0, 0, r, 0, Math.PI * 2);
-          ctx.fill();
-          
-          // Highlight
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-          ctx.beginPath();
-          ctx.ellipse(-r*0.3, -r*0.3, r*0.25, r*0.15, Math.PI/4, 0, Math.PI*2);
-          ctx.fill();
-          
-          // Glow
-          ctx.shadowBlur = 20;
-          ctx.shadowColor = 'rgba(255, 200, 100, 0.6)';
-          ctx.strokeStyle = 'rgba(255, 220, 150, 0.4)';
-          ctx.lineWidth = 2;
-          ctx.beginPath();
-          ctx.arc(0, 0, r * 1.2, 0, Math.PI * 2);
-          ctx.stroke();
-          ctx.shadowBlur = 0;
-        }
-        
-        drawPetal() {
-          const w = this.size * 2;
-          const h = this.size;
-          
-          ctx.fillStyle = this.colorBase + '0.7)';
-          
-          ctx.beginPath();
-          ctx.moveTo(0, -h);
-          ctx.bezierCurveTo(w, -h*0.5, w, h*0.5, 0, h);
-          ctx.bezierCurveTo(-w, h*0.5, -w, -h*0.5, 0, -h);
-          ctx.closePath();
-          ctx.fill();
-          
-          // Petal vein
-          ctx.strokeStyle = this.colorBase + '0.4)';
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(0, -h*0.8);
-          ctx.lineTo(0, h*0.8);
-          ctx.stroke();
-        }
-      }
-      
-      // Create particle system
-      const particles = [];
-      const baseCount = Math.min(40, Math.floor((W * H) / 35000));
-      
-      for (let i = 0; i < baseCount; i++) {
-        const p = new Particle();
-        p.y = Math.random() * H;
-        particles.push(p);
-      }
-      
-      // Animation with frame skipping for performance
-      let frameCount = 0;
-      function animate() {
-        frameCount++;
-        
-        // Render at 30fps for performance
-        if (frameCount % 2 === 0) {
-          ctx.clearRect(0, 0, W, H);
-          
-          // Sort by z-index for proper depth
-          particles.sort((a, b) => a.z - b.z);
-          
-          particles.forEach(p => {
-            p.update();
-            p.draw();
-          });
-        }
-        
-        requestAnimationFrame(animate);
-      }
-      
-      animate();
-    })();
-
-    /* ══════════════════════════════════════════════════
-       ENVELOPE OPEN
-    ══════════════════════════════════════════════════ */
-    let opened = false;
-    // Show envelope guest label immediately (before opening) — will fade in via CSS
-    applyGuestPersonalization();
-
-    let fallbackVisible = false;
-
-    function showVideoFallback() {
-      if (opened || fallbackVisible) return;
-      fallbackVisible = true;
-      const btn = document.getElementById('videoFallbackBtn');
-      if (btn) btn.classList.add('visible');
-    }
-
-    // Show Enter Invitation button immediately (visual only, positioned below seal)
-    setTimeout(() => {
-      if (!opened) showVideoFallback();
-    }, 500);
-
-    // Monitor for video load issues (poor network)
-    const envVideo = document.getElementById('envVideo');
-    if (envVideo) {
-      envVideo.onerror = showVideoFallback;
-      envVideo.onstalled = showVideoFallback;
-      // If video hasn't reached readyState 3 (can play) in 7 seconds, show fallback
-      setTimeout(() => {
-        if (envVideo.readyState < 3 && !opened) showVideoFallback();
-      }, 7000);
-    }
-
-    function skipToInvite() {
-      if (opened) return;
-      // Proceed directly to reveal
-      openEnvelope(true);
-    }
-
-    function openEnvelope(forceSkip = false) {
-      if (opened) return; opened = true;
-      const envVideo = document.getElementById('envVideo');
+      const env = document.getElementById('envContainer');
       const cover = document.getElementById('envelopeCover');
       const page = document.getElementById('invitationPage');
-      const cue = document.getElementById('tapCue');
-      const hintM = document.getElementById('tapHint');
-      const hintD = document.getElementById('tapHintDesktop');
-      const bloom = document.getElementById('openBloom');
-      const fallbackBtn = document.getElementById('videoFallbackBtn');
 
-      // Hide everything on envelope immediately
-      const toHide = [cue, hintM, hintD, fallbackBtn].filter(Boolean);
-      gsap.to(toHide, {
-        duration: 0.4, opacity: 0, ease: 'power2.out', onComplete: () => {
-          toHide.forEach(el => { el.style.pointerEvents = 'none'; el.style.display = 'none'; });
+      if (bgMusic && !isPlaying) {
+        bgMusic.play().then(() => { isPlaying = true; }).catch(() => {});
+      }
+
+      if (env) env.classList.add('opened');
+
+      setTimeout(() => {
+        cover.style.transition = 'opacity 0.8s ease';
+        cover.style.opacity = '0';
+        setTimeout(() => { cover.style.display = 'none'; }, 800);
+
+        page.classList.add('visible');
+      }, 1500);
+    }
+
+    // URL Personalization Parser
+    function b64decode(str) {
+      try {
+        return decodeURIComponent(escape(atob(str.replace(/-/g, '+').replace(/_/g, '/'))));
+      } catch (e) {
+        try { return atob(str); } catch (e2) { return str; }
+      }
+    }
+
+    function initGuestFromURL() {
+      const p = new URLSearchParams(window.location.search);
+      const rawGuest = p.get('guest');
+      const lang = p.get('lang');
+      if (lang) setLanguage(lang);
+
+      let guestName = '';
+      if (rawGuest) {
+        guestName = b64decode(rawGuest);
+      }
+
+      if (guestName) {
+        const gLabel = document.getElementById('guestEnvLabel');
+        const gNameEl = document.getElementById('guestEnvName');
+        if (gLabel && gNameEl) {
+          gNameEl.textContent = guestName;
+          gLabel.style.display = 'block';
         }
+
+        const btnWa = document.getElementById('btnWa');
+        if (btnWa) {
+          const msg = encodeURIComponent(`Namaste Sunil & Bharath, I/We (${guestName}) received your Gruhapravesam invitation. Congratulations and we will be attending on 5th & 6th Nov!`);
+          btnWa.href = `https://wa.me/918142654776?text=${msg}`;
+        }
+      } else {
+        const btnWa = document.getElementById('btnWa');
+        if (btnWa) {
+          const msg = encodeURIComponent(`Namaste Sunil & Bharath, I received your Gruhapravesam invitation. Congratulations and we will be attending on 5th & 6th Nov!`);
+          btnWa.href = `https://wa.me/918142654776?text=${msg}`;
+        }
+      }
+    }
+
+    // Countdown Timer (November 5, 2026 8:00 PM IST)
+    function updateCountdown() {
+      const target = new Date('2026-11-05T20:00:00+05:30').getTime();
+      const now = Date.now();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        ['cdDays', 'cdHours', 'cdMins', 'cdSecs'].forEach(id => document.getElementById(id).textContent = '00');
+        return;
+      }
+
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins = Math.floor((diff % 3600000) / 60000);
+      const secs = Math.floor((diff % 60000) / 1000);
+
+      document.getElementById('cdDays').textContent = String(days).padStart(2, '0');
+      document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cdMins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cdSecs').textContent = String(secs).padStart(2, '0');
+    }
+
+    // Floating Sky Lanterns Particle Animation Canvas
+    function initLanternsCanvas() {
+      const canvas = document.getElementById('lanternCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
       });
 
-      // Start music on user interaction
-      initMusic();
-
-      const doReveal = () => {
-        if (doReveal.done) return;
-        doReveal.done = true;
-
-        // Step 1 — apply language & personalisation into invisible page
-        const lang = getLangFromURL();
-        setLanguage(lang);
-        applyGuestPersonalization();
-
-        // Step 2 — bloom wipes screen
-        bloom.style.opacity = '1';
-
-        setTimeout(() => {
-          // Step 3 — crossfade cover out while page is still under bloom
-          cover.style.transition = 'opacity 0.6s ease';
-          cover.style.opacity = '0';
-          setTimeout(() => { cover.style.display = 'none'; }, 700);
-
-          // Step 4 — init scroll reveal (safe to call while invisible)
-          initScrollReveal();
-
-          // Step 5 — dissolve bloom → reveal page
-          setTimeout(() => {
-            bloom.style.transition = 'opacity 2s ease';
-            bloom.style.opacity = '0';
-            // Reveal page as bloom fades
-            page.classList.add('visible');
-
-            // Start the smart auto-scroll after the page is visible and user might just be staring
-            setTimeout(startAutoScroll, 2000);
-          }, 300);
-        }, 250);
-      };
-
-      if (forceSkip) {
-        doReveal();
-      } else {
-        // Play video then reveal
-        envVideo.play().catch(() => { });
-        envVideo.onended = doReveal;
-        // Absolute safety fallback
-        setTimeout(() => { if (!page.classList.contains('visible')) doReveal(); }, 8000);
-      }
-    }
-
-    /* ══════════════════════════════════════════════════
-       SMART AUTO SCROLL
-    ══════════════════════════════════════════════════ */
-    let autoScrollInterval = null;
-    let autoScrollActive = false;
-    let interruptionEnabled = false;
-    let idleTimeout = null;
-
-    function getNextScrollTarget() {
-      const targets = Array.from(document.querySelectorAll(`
-        #hero, .countdown-section, .details-section, .parents-grid, 
-        .timing-section, .map-wrapper, .gallery-section, .gal-grid, 
-        .footer-img-section, .blessing-bar
-      `));
-      for (let i = 0; i < targets.length; i++) {
-        // Find the first target that is well below the top of the viewport
-        if (targets[i].getBoundingClientRect().top > (window.innerHeight * 0.15)) {
-          return targets[i];
-        }
-      }
-      return null;
-    }
-
-    function startAutoScroll() {
-      if (autoScrollActive) return;
-      autoScrollActive = true;
-      interruptionEnabled = true;
-
-      // Show cue
-      const sc = document.querySelector('.scroll-cue');
-      if (sc) {
-        sc.style.display = 'flex';
-        void sc.offsetWidth;
-        sc.style.opacity = '1';
+      const lanterns = [];
+      for (let i = 0; i < 22; i++) {
+        lanterns.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: Math.random() * 18 + 12,
+          speedY: Math.random() * 0.7 + 0.3,
+          speedX: (Math.random() - 0.5) * 0.4,
+          glow: Math.random() * 0.4 + 0.6
+        });
       }
 
-      autoScrollInterval = setInterval(() => {
-        const nextEl = getNextScrollTarget();
-        if (nextEl) {
-          const alignMode = (nextEl.tagName === 'SECTION' || nextEl.classList.contains('blessing-bar')) ? 'start' : 'center';
-          nextEl.scrollIntoView({ behavior: 'smooth', block: alignMode });
-        } else {
-          stopAutoScroll(true); // Reached the end, stop permanently
-        }
-      }, 6000);
-    }
+      function drawLantern(l) {
+        ctx.save();
+        ctx.translate(l.x, l.y);
 
-    function stopAutoScroll(reachedEnd = false) {
-      if (!interruptionEnabled) return;
+        const grad = ctx.createRadialGradient(0, 0, 2, 0, 0, l.size * 1.5);
+        grad.addColorStop(0, 'rgba(255, 225, 125, ' + (0.8 * l.glow) + ')');
+        grad.addColorStop(0.5, 'rgba(255, 150, 50, ' + (0.4 * l.glow) + ')');
+        grad.addColorStop(1, 'rgba(255, 100, 0, 0)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(0, 0, l.size * 1.5, 0, Math.PI * 2);
+        ctx.fill();
 
-      clearInterval(autoScrollInterval);
-      autoScrollActive = false;
+        ctx.fillStyle = '#FFE28A';
+        ctx.beginPath();
+        ctx.roundRect(-l.size / 2, -l.size * 0.7, l.size, l.size * 1.4, 4);
+        ctx.fill();
 
-      const sc = document.querySelector('.scroll-cue');
-      if (sc) {
-        sc.style.opacity = '0';
-        setTimeout(() => { if (!autoScrollActive && sc) sc.style.display = 'none'; }, 400);
+        ctx.fillStyle = '#FF5722';
+        ctx.beginPath();
+        ctx.arc(0, l.size * 0.2, l.size * 0.25, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
       }
 
-      if (!reachedEnd) {
-        resetIdleTimer();
-      } else {
-        clearTimeout(idleTimeout); // Never resume if we hit the bottom
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        lanterns.forEach(l => {
+          l.y -= l.speedY;
+          l.x += l.speedX;
+          if (l.y < -50) {
+            l.y = height + 50;
+            l.x = Math.random() * width;
+          }
+          drawLantern(l);
+        });
+        requestAnimationFrame(animate);
       }
+
+      animate();
     }
 
-    function resetIdleTimer() {
-      clearTimeout(idleTimeout);
-      // Wait 10 seconds before resuming auto-scroll
-      idleTimeout = setTimeout(() => {
-        const nextEl = getNextScrollTarget();
-        if (nextEl) {
-          startAutoScroll();
-        }
-      }, 10000);
-    }
-
-    function handleUserInteraction() {
-      if (!interruptionEnabled) return;
-      if (autoScrollActive) {
-        stopAutoScroll();
-      } else {
-        resetIdleTimer();
-      }
-    }
-
-    // Stop auto-scroll on manual touch/mouse interaction (good UX)
-    window.addEventListener('touchstart', handleUserInteraction, { passive: true });
-    window.addEventListener('wheel', handleUserInteraction, { passive: true });
-    window.addEventListener('mousedown', handleUserInteraction, { passive: true });
-
-
-    /* ══════════════════════════════════════════════════
-       COUNTDOWN
-    ══════════════════════════════════════════════════ */
-    function updateCd() {
-      const t = new Date('2026-09-22T10:00:00').getTime(), n = Date.now(), d = t - n;
-      if (d <= 0) { ['cdDays', 'cdHours', 'cdMins', 'cdSecs'].forEach(id => document.getElementById(id).textContent = '00'); return; }
-      document.getElementById('cdDays').textContent = String(Math.floor(d / 86400000)).padStart(2, '0');
-      document.getElementById('cdHours').textContent = String(Math.floor(d % 86400000 / 3600000)).padStart(2, '0');
-      document.getElementById('cdMins').textContent = String(Math.floor(d % 3600000 / 60000)).padStart(2, '0');
-      document.getElementById('cdSecs').textContent = String(Math.floor(d % 60000 / 1000)).padStart(2, '0');
-    }
-    updateCd(); setInterval(updateCd, 1000);
+    // Initialize Everything
+    window.addEventListener('DOMContentLoaded', () => {
+      initGuestFromURL();
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+      initLanternsCanvas();
+    });
   </script>
 </body>
-
 </html>

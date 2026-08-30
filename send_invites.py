@@ -53,20 +53,22 @@ def send_whatsapp_message(phone, message):
 def create_invitation_message(name, url):
     """Create personalized invitation message"""
     message = f"""
-Dear {name},
+Namaste!
 
-You're cordially invited to our Housewarming Celebration! 
+Dear *{name}*,
 
-Join us for a joyous celebration as we welcome you to our new home.
+You are warmly invited to
+*Abburi's Housewarming Celebration*
 
-Date: December 25, 2024
-Time: 6:00 PM - 10:00 PM
+• Muhurtham: 5th November 2026 (Thursday Night at 8:00 PM)
+• Satyanarayana Vratham & Feast: 6th November 2026 (Friday)
+• Venue: Kunduruvaripalem, Andhra Pradesh
 
-Click here for your personal invitation:
+✨ View your personal digital invitation here:
 {url}
 
-Looking forward to celebrating with you!
-- Abburi's Family
+With Best Compliments & Love,
+Abburi Family
 """
     return message.strip()
 
