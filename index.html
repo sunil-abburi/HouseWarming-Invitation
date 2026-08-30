@@ -340,6 +340,144 @@
       color: var(--teal-dark);
     }
 
+    
+    /* ══════════════════════════════════════════════
+       3D ANIMATED MOTION BACKGROUND LAYERS (MEENAYA STYLE)
+    ══════════════════════════════════════════════ */
+
+    /* 1. Rotating Sacred Gold Mandala behind Invite Card */
+    .mandala-bg-orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(350px, 80vw, 650px);
+      height: clamp(350px, 80vw, 650px);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.28;
+      background: radial-gradient(circle, rgba(226, 185, 97, 0.4) 0%, rgba(226, 185, 97, 0.05) 55%, transparent 70%);
+      border-radius: 50%;
+      animation: rotateMandala 40s linear infinite;
+    }
+
+    .mandala-bg-orbit::before {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border: 2px dashed rgba(226, 185, 97, 0.6);
+      border-radius: 50%;
+      animation: rotateMandalaReverse 25s linear infinite;
+    }
+
+    .mandala-bg-orbit::after {
+      content: '';
+      position: absolute;
+      inset: 60px;
+      border: 1.5px solid rgba(226, 185, 97, 0.4);
+      border-radius: 50%;
+      box-shadow: 0 0 40px rgba(226, 185, 97, 0.4);
+    }
+
+    @keyframes rotateMandala {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes rotateMandalaReverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    /* 2. 3D Swaying Temple Brass Bells in Ceremonies Section */
+    .temple-bells-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 160px;
+      pointer-events: none;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 5%;
+      overflow: hidden;
+    }
+
+    .temple-bell-chain {
+      width: 4px;
+      height: 70px;
+      background: linear-gradient(180deg, #5C3D11 0%, #D8AD83 70%, #FFE57F 100%);
+      margin: 0 auto;
+      box-shadow: 0 0 8px rgba(226, 185, 97, 0.6);
+    }
+
+    .temple-bell {
+      position: relative;
+      transform-origin: top center;
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.7));
+    }
+
+    .bell-left {
+      animation: swingBellLeft 3.5s ease-in-out infinite alternate;
+    }
+
+    .bell-right {
+      animation: swingBellRight 3.8s ease-in-out infinite alternate 0.5s;
+    }
+
+    .bell-icon {
+      font-size: 2.8rem;
+      color: #FFE57F;
+      text-shadow: 0 0 20px rgba(226, 185, 97, 0.9), 0 4px 10px rgba(0,0,0,0.8);
+      transform: translateY(-5px);
+    }
+
+    @keyframes swingBellLeft {
+      0% { transform: rotate(12deg); }
+      100% { transform: rotate(-12deg); }
+    }
+
+    @keyframes swingBellRight {
+      0% { transform: rotate(-14deg); }
+      100% { transform: rotate(14deg); }
+    }
+
+    /* 3. Golden Light Ray Sweeps across Moments Section */
+    .sunbeam-sweep {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background: linear-gradient(115deg, transparent 0%, rgba(255, 235, 170, 0.08) 45%, rgba(255, 255, 255, 0.18) 50%, rgba(255, 235, 170, 0.08) 55%, transparent 100%);
+      background-size: 250% 250%;
+      animation: sweepLight 8s ease-in-out infinite;
+    }
+
+    @keyframes sweepLight {
+      0% { background-position: -150% 0%; }
+      50% { background-position: 150% 100%; }
+      100% { background-position: -150% 0%; }
+    }
+
+    /* 4. Drifting Night Clouds in Countdown Section */
+    .night-clouds-layer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 180px;
+      pointer-events: none;
+      z-index: 1;
+      background: radial-gradient(ellipse at 50% 100%, rgba(19, 90, 85, 0.4) 0%, transparent 70%);
+      animation: pulseClouds 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseClouds {
+      0% { opacity: 0.3; transform: scaleY(1); }
+      100% { opacity: 0.7; transform: scaleY(1.2); }
+    }
+
     /* ══════════════════════════════════════
        SECTION 1: HERO (TEMPLE GOPURAM & SKY LANTERNS - Screenshot 1)
     ══════════════════════════════════ */
@@ -1220,6 +1358,7 @@
     <!-- 2. SILK INVITATION SECTION (Screenshot 2 Inspiration) -->
     <section class="silk-invite-section">
       <canvas id="petalCanvas"></canvas>
+      <div class="mandala-bg-orbit"></div>
       <div class="silk-card-container">
         <div class="ribbon-corner"></div>
 
@@ -1256,6 +1395,16 @@
     <!-- 3. CEREMONIES TIMELINE -->
     <section class="ceremonies-section">
       <canvas id="ceremoniesCanvas" class="bg-section-canvas"></canvas>
+      <div class="temple-bells-container">
+        <div class="temple-bell bell-left">
+          <div class="temple-bell-chain"></div>
+          <div class="bell-icon">🔔</div>
+        </div>
+        <div class="temple-bell bell-right">
+          <div class="temple-bell-chain"></div>
+          <div class="bell-icon">🔔</div>
+        </div>
+      </div>
       <h2 class="sec-heading t" data-key="ceremonies_head">Ceremony Details</h2>
       <div class="sec-subheading t" data-key="ceremonies_sub">Auspicious Muhurtham &amp; Events</div>
 
@@ -1307,6 +1456,7 @@
     <!-- 5. MOMENTS & HOUSEWARMING STORY ILLUSTRATIONS (User Screenshots 1, 2, 4) -->
     <section class="moments-section">
       <canvas id="momentsCanvas" class="bg-section-canvas"></canvas>
+      <div class="sunbeam-sweep"></div>
       <h2 class="moments-heading t" data-key="moments_head">Moments</h2>
       <div class="moments-subheading t" data-key="moments_sub">A Sacred Celebration of Love &amp; Togetherness</div>
 
@@ -1354,6 +1504,7 @@
     <!-- 7. NIGHT SKY COUNTDOWN (Screenshot 5 Match) -->
     <section class="night-countdown-section">
       <canvas id="starsCanvas"></canvas>
+      <div class="night-clouds-layer"></div>
       <h2 class="night-sky-title t" data-key="night_cd_title">The countdown begins</h2>
       
       <div class="night-cd-boxes">
