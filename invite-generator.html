@@ -647,8 +647,8 @@
       const encodedName = encodeBase64(name);
       
       let link = `${baseUrl}?guest=${encodedName}&lang=${lang}`;
-      if (prefix) link += `&prefix=${encodeBase64(prefix)}`;
-      if (relation) link += `&relation=${encodeBase64(relation)}`;
+      if (prefix && prefix !== 'ఆత్మీయులైన') link += `&prefix=${encodeBase64(prefix)}`;
+      if (relation) link += `&rel=${encodeBase64(relation)}`;
 
       _currentUrl = link;
 
