@@ -64,11 +64,20 @@
     html, body {
       width: 100%;
       min-height: 100%;
-      background-color: var(--teal-dark);
+      background: url('./Images/temple_gopuram_hero.jpg') center top / cover fixed, #071924;
       color: var(--ivory-cream);
       font-family: var(--font-serif);
       overflow-x: hidden;
       scroll-behavior: smooth;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 20%, rgba(7, 25, 36, 0.4) 0%, rgba(5, 20, 29, 0.75) 60%, rgba(3, 11, 16, 0.9) 100%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     /* ══════════════════════════════════════
@@ -489,17 +498,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 90px 20px 40px 20px;
-      background: url('./Images/temple_gopuram_hero.jpg') center top / cover no-repeat;
+      padding: 60px 20px 40px 20px;
+      background: transparent;
       overflow: hidden;
+      z-index: 2;
     }
 
     .hero-meenaya::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(10, 54, 51, 0.6) 0%, rgba(10, 54, 51, 0.15) 50%, rgba(10, 54, 51, 0.95) 100%);
-      z-index: 1;
+      display: none;
     }
 
     #lanternCanvas {
@@ -596,11 +602,12 @@
     .silk-invite-section {
       position: relative;
       width: 100%;
-      padding: 90px 20px;
-      background: url('./Images/teal_silk_damask.jpg') center/cover, #0F4A45;
+      padding: 80px 20px;
+      background: transparent;
       display: flex;
       justify-content: center;
       align-items: center;
+      z-index: 2;
     }
 
     .silk-card-container {
@@ -749,9 +756,11 @@
        SECTION 3: CEREMONIES TIMELINE
     ══════════════════════════════════════ */
     .ceremonies-section {
-      padding: 90px 20px;
-      background: linear-gradient(180deg, #0A3633 0%, #051F1D 100%);
+      padding: 80px 20px;
+      background: transparent;
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     .sec-heading {
@@ -825,11 +834,13 @@
        SECTION 4: BEST COMPLIMENTS & FAMILY (User Screenshot 1)
     ══════════════════════════════════ */
     .compliments-section {
-      padding: 80px 20px;
-      background: radial-gradient(circle at 50% 50%, #176B65 0%, #0D3E3A 60%, #072421 100%);
+      padding: 70px 20px;
+      background: transparent;
       text-align: center;
-      border-top: 1.5px solid rgba(226, 185, 97, 0.3);
-      border-bottom: 1.5px solid rgba(226, 185, 97, 0.3);
+      border-top: 1.5px solid rgba(226, 185, 97, 0.35);
+      border-bottom: 1.5px solid rgba(226, 185, 97, 0.35);
+      position: relative;
+      z-index: 2;
     }
 
     .compliments-title {
@@ -877,10 +888,11 @@
        SECTION 5: MOMENTS & SACRED STORY CARDS (User Screenshots 1, 2, 4)
     ══════════════════════════════════ */
     .moments-section {
-      padding: 90px 20px;
-      background: url('./Images/lavender_silk_texture.jpg') center/cover, #EAE0F0;
-      color: #2D1432;
+      padding: 80px 20px;
+      background: transparent;
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     .moments-heading {
@@ -983,10 +995,11 @@
     ══════════════════════════════════ */
     .night-countdown-section {
       position: relative;
-      padding: 90px 20px 40px;
-      background: radial-gradient(ellipse at top, #112F41 0%, #071924 60%, #030B10 100%);
+      padding: 80px 20px 40px;
+      background: transparent;
       text-align: center;
       overflow: hidden;
+      z-index: 2;
     }
 
     .night-sky-title {
@@ -1090,13 +1103,14 @@
        SECTION: PERSONALIZED CLOSING NOTE
     ══════════════════════════════════════ */
     .personal-note-section {
-      padding: 80px 20px 60px;
-      background: radial-gradient(circle at 50% 50%, #176B65 0%, #0D3E3A 60%, #051A18 100%);
+      padding: 70px 20px 50px;
+      background: transparent;
       text-align: center;
       position: relative;
       overflow: hidden;
-      border-top: 2px solid var(--gold-primary);
-      border-bottom: 2px solid var(--gold-primary);
+      border-top: 1.5px solid rgba(226, 185, 97, 0.35);
+      border-bottom: 1.5px solid rgba(226, 185, 97, 0.35);
+      z-index: 2;
     }
 
     .personal-note-card {
@@ -1172,9 +1186,11 @@
        SECTION 8: VENUE & 1-TAP GPS / RSVP
     ══════════════════════════════════ */
     .venue-section {
-      padding: 90px 20px;
-      background: url('./Images/teal_silk_damask.jpg') center/cover, #0F4A45;
+      padding: 80px 20px;
+      background: transparent;
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     .venue-card {
