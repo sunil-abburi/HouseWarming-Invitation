@@ -591,6 +591,101 @@
       100% { opacity: 0.7; transform: scaleY(1.2); }
     }
 
+    
+    /* ══════════════════════════════════════════════
+       LUXURY ENCLOSED GLASS CARDS FOR MOBILE EXCELLENCE
+    ══════════════════════════════════════════════ */
+
+    .ceremonies-section, .compliments-section, .moments-section, .night-countdown-section, .personal-note-section, .venue-section {
+      padding: 45px 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Wrap contents in high-contrast Royal Glass Panels */
+    .ceremonies-container-box, .compliments-container-box, .moments-container-box {
+      max-width: 820px;
+      margin: 0 auto;
+      background: rgba(10, 48, 45, 0.88);
+      border: 2px solid var(--gold-primary);
+      border-radius: 22px;
+      padding: 35px 20px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.85), inset 0 0 25px rgba(226, 185, 97, 0.15);
+      position: relative;
+    }
+
+    .sec-heading, .compliments-title, .moments-heading, .night-sky-title {
+      font-family: var(--font-serif) !important;
+      font-size: clamp(2rem, 6vw, 3rem) !important;
+      font-weight: 700 !important;
+      color: #FFFFFF !important;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9), 0 0 20px rgba(226, 185, 97, 0.6) !important;
+      margin-bottom: 8px !important;
+      line-height: 1.25 !important;
+    }
+
+    .sec-subheading, .moments-subheading {
+      font-family: var(--font-royal) !important;
+      font-size: clamp(0.8rem, 2.8vw, 1.05rem) !important;
+      letter-spacing: 3px !important;
+      color: #FFE57F !important;
+      text-transform: uppercase !important;
+      margin-bottom: 28px !important;
+      font-weight: 600 !important;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8) !important;
+    }
+
+    .compliments-name {
+      font-family: var(--font-serif) !important;
+      font-size: clamp(1.7rem, 5vw, 2.5rem) !important;
+      font-weight: 700 !important;
+      color: #FFFFFF !important;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.9) !important;
+      margin-bottom: 4px !important;
+    }
+
+    .compliments-role {
+      font-family: var(--font-royal) !important;
+      font-size: clamp(0.75rem, 2.5vw, 0.95rem) !important;
+      letter-spacing: 2px !important;
+      color: #FFE57F !important;
+      text-transform: uppercase !important;
+      margin-bottom: 22px !important;
+    }
+
+    .relatives-line {
+      font-family: var(--font-royal) !important;
+      font-size: clamp(0.85rem, 3vw, 1.15rem) !important;
+      letter-spacing: 3px !important;
+      color: #FFE57F !important;
+      text-transform: uppercase !important;
+      font-weight: bold !important;
+      padding-top: 18px !important;
+      border-top: 1px solid rgba(226, 185, 97, 0.4) !important;
+      margin-top: 10px !important;
+    }
+
+    .moment-card-caption {
+      font-family: var(--font-royal) !important;
+      font-size: clamp(0.78rem, 2.4vw, 0.95rem) !important;
+      letter-spacing: 2px !important;
+      color: #240C04 !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      padding: 12px 8px !important;
+      background: #FFFFFF !important;
+    }
+
+    /* Fixed Dark Backdrop Gradient for optimal Mobile Readability */
+    #fixedBgLayer::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 25%, rgba(4, 18, 26, 0.7) 0%, rgba(3, 12, 18, 0.88) 60%, rgba(2, 6, 10, 0.96) 100%) !important;
+    }
+
     /* ══════════════════════════════════════
        SECTION 1: HERO (TEMPLE GOPURAM & SKY LANTERNS - Screenshot 1)
     ══════════════════════════════════ */
@@ -1521,103 +1616,103 @@
 
     <!-- 3. CEREMONIES TIMELINE -->
     <section class="ceremonies-section">
-      <canvas id="ceremoniesCanvas" class="bg-section-canvas"></canvas>
-      <div class="temple-bells-container">
-        <div class="temple-bell bell-left">
-          <div class="temple-bell-chain"></div>
-          <div class="bell-icon">🔔</div>
+      <div class="ceremonies-container-box">
+        <div class="temple-bells-container" style="position:relative; height:60px; margin-bottom:10px;">
+          <div class="temple-bell bell-left" style="position:absolute; left:15px; top:0;">
+            <div class="bell-icon" style="font-size:2.2rem;">🔔</div>
+          </div>
+          <div class="temple-bell bell-right" style="position:absolute; right:15px; top:0;">
+            <div class="bell-icon" style="font-size:2.2rem;">🔔</div>
+          </div>
         </div>
-        <div class="temple-bell bell-right">
-          <div class="temple-bell-chain"></div>
-          <div class="bell-icon">🔔</div>
-        </div>
-      </div>
-      <h2 class="sec-heading t" data-key="ceremonies_head">Ceremony Details</h2>
-      <div class="sec-subheading t" data-key="ceremonies_sub">Auspicious Muhurtham &amp; Events</div>
+        <h2 class="sec-heading t" data-key="ceremonies_head">Ceremony Details</h2>
+        <div class="sec-subheading t" data-key="ceremonies_sub">Auspicious Muhurtham &amp; Events</div>
 
-      <div class="ceremony-grid">
-        <!-- Event 1: Muhurtham -->
-        <div class="ceremony-card">
-          <div class="ceremony-icon">🏠</div>
-          <div class="ceremony-title t" data-key="e1_title">Gruhapravesam Muhurtham</div>
-          <div class="ceremony-time t" data-key="e1_time">5th November 2026, 8:00 PM Night</div>
-          <div class="ceremony-desc t" data-key="e1_desc">Auspicious entrance into the new home amidst sacred mantras and Vedic rituals.</div>
-        </div>
+        <div class="ceremony-grid">
+          <!-- Event 1: Muhurtham -->
+          <div class="ceremony-card">
+            <div class="ceremony-icon">🏠</div>
+            <div class="ceremony-title t" data-key="e1_title">Gruhapravesam Muhurtham</div>
+            <div class="ceremony-time t" data-key="e1_time">5th November 2026, 8:00 PM Night</div>
+            <div class="ceremony-desc t" data-key="e1_desc">Auspicious entrance into the new home amidst sacred mantras and Vedic rituals.</div>
+          </div>
 
-        <!-- Event 2: Vratham -->
-        <div class="ceremony-card">
-          <div class="ceremony-icon">🪔</div>
-          <div class="ceremony-title t" data-key="e2_title">Satyanarayana Vratham</div>
-          <div class="ceremony-time t" data-key="e2_time">6th November 2026, Morning</div>
-          <div class="ceremony-desc t" data-key="e2_desc">Sacred Sri Satyanarayana Swamy Pooja and holy Theertha Prasadam distribution.</div>
-        </div>
+          <!-- Event 2: Vratham -->
+          <div class="ceremony-card">
+            <div class="ceremony-icon">🪔</div>
+            <div class="ceremony-title t" data-key="e2_title">Satyanarayana Vratham</div>
+            <div class="ceremony-time t" data-key="e2_time">6th November 2026, Morning</div>
+            <div class="ceremony-desc t" data-key="e2_desc">Sacred Sri Satyanarayana Swamy Pooja and holy Theertha Prasadam distribution.</div>
+          </div>
 
-        <!-- Event 3: Feast -->
-        <div class="ceremony-card">
-          <div class="ceremony-icon">🍛</div>
-          <div class="ceremony-title t" data-key="e3_title">విందు భోజనం</div>
-          <div class="ceremony-time t" data-key="e3_time">6th November 2026, 12:00 PM Onwards</div>
-          <div class="ceremony-desc t" data-key="e3_desc">Traditional celebration lunch and culinary delicacies with family and friends.</div>
+          <!-- Event 3: Feast -->
+          <div class="ceremony-card">
+            <div class="ceremony-icon">🍛</div>
+            <div class="ceremony-title t" data-key="e3_title">విందు భోజనం</div>
+            <div class="ceremony-time t" data-key="e3_time">6th November 2026, 12:00 PM Onwards</div>
+            <div class="ceremony-desc t" data-key="e3_desc">Traditional celebration lunch and culinary delicacies with family and friends.</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. WITH BEST COMPLIMENTS FROM (User Screenshot 1) -->
+    <!-- 4. WITH BEST COMPLIMENTS FROM -->
     <section class="compliments-section">
-      <canvas id="complimentsCanvas" class="bg-section-canvas"></canvas>
-      <div class="compliments-title t" data-key="comp_title">With Best Compliments From</div>
+      <div class="compliments-container-box">
+        <div class="compliments-title t" data-key="comp_title">With Best Compliments From</div>
 
-      <div class="compliments-group">
-        <div class="compliments-name t" data-key="family_name">Family Members</div>
-        <div class="compliments-role t" data-key="younger_gen">Younger Generation</div>
+        <div class="compliments-group">
+          <div class="compliments-name t" data-key="family_name">Family Members</div>
+          <div class="compliments-role t" data-key="younger_gen">Younger Generation</div>
+        </div>
+
+        <div class="compliments-group">
+          <div class="compliments-name t" data-key="friends_name">Friends &amp; Well Wishers</div>
+          <div class="compliments-role t" data-key="supporters_tag">Supporters</div>
+        </div>
+
+        <div class="relatives-line t" data-key="relatives_tag">Relatives &amp; Friends</div>
       </div>
-
-      <div class="compliments-group">
-        <div class="compliments-name t" data-key="friends_name">Friends &amp; Well Wishers</div>
-        <div class="compliments-role t" data-key="supporters_tag">Supporters</div>
-      </div>
-
-      <div class="relatives-line t" data-key="relatives_tag">Relatives &amp; Friends</div>
     </section>
 
-    <!-- 5. MOMENTS & HOUSEWARMING STORY ILLUSTRATIONS (User Screenshots 1, 2, 4) -->
+    <!-- 5. MOMENTS & HOUSEWARMING STORY ILLUSTRATIONS -->
     <section class="moments-section">
-      <canvas id="momentsCanvas" class="bg-section-canvas"></canvas>
-      <div class="sunbeam-sweep"></div>
-      <h2 class="moments-heading t" data-key="moments_head">Moments</h2>
-      <div class="moments-subheading t" data-key="moments_sub">A Sacred Celebration of Love &amp; Togetherness</div>
+      <div class="moments-container-box">
+        <h2 class="moments-heading t" data-key="moments_head">Moments</h2>
+        <div class="moments-subheading t" data-key="moments_sub">A Sacred Celebration of Love &amp; Togetherness</div>
 
-      <div class="moments-gallery-grid">
-        <!-- Story Panel 1 (Griha Pravesh Entry with Cow & Brothers) -->
-        <div class="moment-art-card">
-          <div class="moment-img-wrap">
-            <img src="./Images/housewarming_entry.jpg" alt="Griha Pravesh Invitation" loading="lazy">
+        <div class="moments-gallery-grid">
+          <!-- Story Panel 1 (Griha Pravesh Entry with Cow & Brothers) -->
+          <div class="moment-art-card">
+            <div class="moment-img-wrap">
+              <img src="./Images/housewarming_entry.jpg" alt="Griha Pravesh Invitation" loading="lazy">
+            </div>
+            <div class="moment-card-caption t" data-key="m1_cap">Griha Pravesh Invitation</div>
           </div>
-          <div class="moment-card-caption t" data-key="m1_cap">Griha Pravesh Invitation</div>
-        </div>
 
-        <!-- Story Panel 2 (Bhoj & Blessings Andhra Feast with Brothers) -->
-        <div class="moment-art-card">
-          <div class="moment-img-wrap">
-            <img src="./Images/housewarming_bhoj.jpg" alt="Bhoj and Blessings" loading="lazy">
+          <!-- Story Panel 2 (Bhoj & Blessings Andhra Feast with Brothers) -->
+          <div class="moment-art-card">
+            <div class="moment-img-wrap">
+              <img src="./Images/housewarming_bhoj.jpg" alt="Bhoj and Blessings" loading="lazy">
+            </div>
+            <div class="moment-card-caption t" data-key="m2_cap">Bhoj and Blessings</div>
           </div>
-          <div class="moment-card-caption t" data-key="m2_cap">Bhoj and Blessings</div>
-        </div>
 
-        <!-- Story Panel 3 (Dedicated Gifts & Sweets Art) -->
-        <div class="moment-art-card">
-          <div class="moment-img-wrap">
-            <img src="./Images/housewarming_gifts.jpg" alt="Sharing Joy and Gifts" loading="lazy">
+          <!-- Story Panel 3 (Dedicated Gifts & Sweets Art) -->
+          <div class="moment-art-card">
+            <div class="moment-img-wrap">
+              <img src="./Images/housewarming_gifts.jpg" alt="Sharing Joy and Gifts" loading="lazy">
+            </div>
+            <div class="moment-card-caption t" data-key="m3_cap">Sharing Joy and Gifts</div>
           </div>
-          <div class="moment-card-caption t" data-key="m3_cap">Sharing Joy and Gifts</div>
-        </div>
 
-        <!-- Story Panel 4 (Unique Toast & Celebration Art) -->
-        <div class="moment-art-card">
-          <div class="moment-img-wrap">
-            <img src="./Images/housewarming_toast.jpg" alt="A Sweet Toast to the Future" loading="lazy">
+          <!-- Story Panel 4 (Unique Toast & Celebration Art) -->
+          <div class="moment-art-card">
+            <div class="moment-img-wrap">
+              <img src="./Images/housewarming_toast.jpg" alt="A Sweet Toast to the Future" loading="lazy">
+            </div>
+            <div class="moment-card-caption t" data-key="m4_cap">A Sweet Toast to the Future</div>
           </div>
-          <div class="moment-card-caption t" data-key="m4_cap">A Sweet Toast to the Future</div>
         </div>
       </div>
     </section>
@@ -2034,7 +2129,7 @@
       });
 
       const lanterns = [];
-      const count = Math.min(Math.floor(window.innerWidth / 30), 36);
+      const count = window.innerWidth < 600 ? 15 : Math.min(Math.floor(window.innerWidth / 35), 32);
       for (let i = 0; i < count; i++) {
         lanterns.push({
           x: Math.random() * width,
