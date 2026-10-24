@@ -14,8 +14,8 @@ scenes = [
         "id": "scene1_ganesha",
         "bg": os.path.join(assets_dir, "scene1_ganesha.jpg"),
         "html": """
-        <div class="scene-overlay top-only">
-          <div class="glass-card">
+        <div class="scene-overlay lower-layout">
+          <div class="glass-card full-card">
             <div class="header-badge">॥ శ్రీ విఘ్నేశ్వర ప్రసన్నః ॥</div>
             <div class="title-sub">అబ్బూరి వారి నూతన</div>
             <div class="title-main">గృహప్రవేశ ఆహ్వానము</div>
@@ -26,7 +26,7 @@ scenes = [
             </div>
             <div class="sub-text">
               మా నూతన గృహ ప్రవేశ శుభ తరుణాన<br>
-              తామందరూ సకుటుంబంగా విచ్చేసి ఆశీర్వదించగలరు
+              తామందరూ సకుటుంబంగా విచ్చేసి ఆశీర్వదించగలరు 🙏
             </div>
           </div>
         </div>
@@ -36,15 +36,17 @@ scenes = [
         "id": "scene2_muhurtham",
         "bg": os.path.join(assets_dir, "scene2_gomatha.jpg"),
         "html": """
-        <div class="scene-overlay split-layout">
-          <div class="glass-card top-compact">
+        <div class="scene-overlay lower-layout">
+          <div class="glass-card full-card">
             <div class="header-badge">॥ శ్రీరస్తు • శుభమస్తు ॥</div>
             <div class="badge-pill">మొదటి రోజు (Day 1) - సుముహూర్తం</div>
             <div class="date-highlight">05 నవంబర్ 2026</div>
             <div class="day-time">గురువారం రాత్రి గం॥ 9:54 నిమిషాలకు</div>
-          </div>
-          
-          <div class="glass-card bottom-compact">
+            <div class="flourish">
+              <div class="f-line"></div>
+              <div class="f-symbol">🪔 ❖ 🪔</div>
+              <div class="f-line"></div>
+            </div>
             <div class="sub-text-bold">
               ఉత్తరఫల్గుణీ నక్షత్రయుక్త మిధునలగ్న శుభపుష్కరాంశమునందు<br>
               <span class="gold-highlight">నూతన గృహప్రవేశం మరియు గోపూజ</span>
@@ -57,15 +59,17 @@ scenes = [
         "id": "scene3_vratam",
         "bg": os.path.join(assets_dir, "scene3_vratam.jpg"),
         "html": """
-        <div class="scene-overlay split-layout">
-          <div class="glass-card top-compact">
+        <div class="scene-overlay lower-layout">
+          <div class="glass-card full-card">
             <div class="header-badge">॥ శ్రీ సత్యనారాయణ స్వామి ప్రసన్నః ॥</div>
             <div class="badge-pill">రెండవ రోజు (Day 2) - వ్రతం & విందు</div>
             <div class="date-highlight">06 నవంబర్ 2026</div>
             <div class="day-time">శుక్రవారం ఉదయం & మధ్యాహ్నం</div>
-          </div>
-          
-          <div class="glass-card bottom-compact">
+            <div class="flourish">
+              <div class="f-line"></div>
+              <div class="f-symbol">🌸 ❖ 🌸</div>
+              <div class="f-line"></div>
+            </div>
             <div class="event-line">
               <span class="gold-bullet">✦</span>
               <span><strong>ఉదయం 8:00 AM:</strong> శ్రీ సత్యనారాయణ స్వామి వారి వ్రతం</span>
@@ -74,8 +78,8 @@ scenes = [
               <span class="gold-bullet">✦</span>
               <span><strong>విందు (Lunch):</strong> మధ్యాహ్నం 12:00 గంటలకు</span>
             </div>
-            <div class="sub-text-sm">
-              సకుటుంబంగా స్వామివారి తీర్థప్రసాదములు స్వీకరించి ఆశీర్వదించగలరు
+            <div class="sub-text-sm" style="margin-top: 10px;">
+              సకుటుంబంగా స్వామివారి తీర్థప్రసాదములు స్వీకరించి ఆశీర్వదించగలరు 🙏
             </div>
           </div>
         </div>
@@ -207,6 +211,12 @@ html_template = """<!DOCTYPE html>
     justify-content: center;
     align-items: center;
     padding: 50px 40px;
+  }
+
+  .lower-layout {
+    justify-content: flex-end;
+    align-items: center;
+    padding: 60px 40px 100px 40px;
   }
 
   .glass-card {
