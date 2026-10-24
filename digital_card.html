@@ -66,33 +66,120 @@
       z-index: 1;
     }
 
-    /* Floating Audio Player Control */
+    /* Compact Floating Audio Player Control */
     .audio-control {
       position: fixed;
-      top: 16px;
-      right: 16px;
+      top: 12px;
+      right: 12px;
       z-index: 100;
-      background: rgba(40, 5, 12, 0.85);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--gold-primary);
-      border-radius: 30px;
-      padding: 8px 16px;
+      width: 36px;
+      height: 36px;
+      background: rgba(35, 4, 10, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
       cursor: pointer;
       color: var(--gold-light);
-      font-size: 14px;
-      font-weight: 700;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), var(--shadow-gold);
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7), 0 0 10px rgba(255, 215, 0, 0.35);
       transition: all 0.3s ease;
     }
     .audio-control:hover {
-      transform: scale(1.05);
-      background: rgba(60, 8, 18, 0.95);
+      transform: scale(1.1);
+      background: rgba(55, 7, 16, 0.95);
     }
-    .audio-icon {
-      font-size: 18px;
+    .audio-control.playing {
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+      animation: audioPulse 2s infinite alternate;
+    }
+    @keyframes audioPulse {
+      0% { transform: scale(1); filter: brightness(1); }
+      100% { transform: scale(1.08); filter: brightness(1.25); }
+    }
+
+    /* Auspicious Welcome Entrance Overlay for Immediate Audio Playback */
+    .welcome-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 30%, #3d0510 0%, #1a0206 70%, #080002 100%);
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: pointer;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    .welcome-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .welcome-box {
+      background: rgba(35, 5, 12, 0.95);
+      border: 2px solid var(--gold-primary);
+      border-radius: 20px;
+      padding: 35px 24px;
+      text-align: center;
+      max-width: 380px;
+      width: 100%;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 215, 0, 0.35);
+      animation: floatWelcome 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes floatWelcome {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-6px); }
+    }
+    .welcome-om {
+      font-size: 42px;
+      color: var(--gold-primary);
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+      margin-bottom: 6px;
+    }
+    .welcome-shloka {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .welcome-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 24px;
+      background: linear-gradient(180deg, #FFFFFF 20%, #FFE699 60%, #FFB300 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .welcome-btn {
+      background: linear-gradient(135deg, #b8860b, #ffd700);
+      color: #2b040c;
+      font-size: 17px;
+      font-weight: 800;
+      border: 1px solid #fff;
+      border-radius: 30px;
+      padding: 14px 28px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6), 0 0 15px rgba(255, 215, 0, 0.5);
+      transition: transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .welcome-btn:active {
+      transform: scale(0.96);
+    }
+    .welcome-hint {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--gold-light);
+      opacity: 0.85;
+    }
       animation: pulse 1.8s infinite;
     }
     @keyframes pulse {
@@ -413,13 +500,25 @@
   <!-- Floating Falling Flowers Canvas -->
   <canvas id="petalsCanvas"></canvas>
 
+  <!-- Auspicious Tap-to-Enter Overlay for Guaranteed Instant Music on All Phones -->
+  <div id="welcomeOverlay" class="welcome-overlay" onclick="startExperience()">
+    <div class="welcome-box">
+      <div class="welcome-om">ॐ</div>
+      <div class="welcome-shloka">॥ శ్రీ విఘ్నేశ్వర ప్రసన్నః ॥</div>
+      <div class="welcome-title">అబ్బూరి వారి నూతన గృహప్రవేశ ఆహ్వానము</div>
+      <button class="welcome-btn" onclick="startExperience(event)">
+        <span>🪔 ఆహ్వానాన్ని తెరవండి</span>
+      </button>
+      <div class="welcome-hint">సంగీతంతో ప్రారంభించడానికి తాకండి (Tap to Open)</div>
+    </div>
+  </div>
+
   <!-- Background Music Audio Element -->
   <audio id="bgMusic" src="background_shehnai.mp3" loop preload="auto"></audio>
 
-  <!-- Audio Toggle Button -->
-  <div class="audio-control" id="audioToggle" onclick="toggleAudio()">
+  <!-- Compact Audio Toggle Button -->
+  <div class="audio-control" id="audioToggle" onclick="toggleAudio()" title="సంగీతం ఆన్/ఆఫ్ (Audio Mute/Unmute)">
     <span class="audio-icon" id="audioIcon">🎵</span>
-    <span id="audioText">సంగీతం (Music)</span>
   </div>
 
   <!-- Header Banner -->
@@ -571,36 +670,65 @@
 
   <!-- Interactive JavaScript: Audio, Petals, Countdown, Lightbox -->
   <script>
-    // 1. Audio Toggle
+    // 1. Audio Playback & Auto-Unlock Handler
     const audio = document.getElementById('bgMusic');
+    const audioToggle = document.getElementById('audioToggle');
     const audioIcon = document.getElementById('audioIcon');
     let isPlaying = false;
+
+    function startExperience(e) {
+      if (e) e.stopPropagation();
+      const overlay = document.getElementById('welcomeOverlay');
+      if (overlay) overlay.classList.add('hidden');
+
+      if (!isPlaying) {
+        audio.play().then(() => {
+          isPlaying = true;
+          audioIcon.textContent = '🔊';
+          audioToggle.classList.add('playing');
+        }).catch(err => {
+          console.log("Audio deferred", err);
+        });
+      }
+    }
 
     function toggleAudio() {
       if (isPlaying) {
         audio.pause();
         audioIcon.textContent = '🔇';
+        audioToggle.classList.remove('playing');
         isPlaying = false;
       } else {
         audio.play().then(() => {
           audioIcon.textContent = '🔊';
-          isPlaying = true;
-        }).catch(() => {
-          // Fallback if blocked
-        });
-      }
-    }
-
-    // Auto-unlock audio on first touch
-    document.addEventListener('click', function unlockAudio() {
-      if (!isPlaying) {
-        audio.play().then(() => {
-          audioIcon.textContent = '🔊';
+          audioToggle.classList.add('playing');
           isPlaying = true;
         }).catch(() => {});
       }
-      document.removeEventListener('click', unlockAudio);
-    }, { once: true });
+    }
+
+    // Try auto-play immediately on load if browser allows
+    window.addEventListener('DOMContentLoaded', () => {
+      audio.play().then(() => {
+        isPlaying = true;
+        audioIcon.textContent = '🔊';
+        audioToggle.classList.add('playing');
+        const overlay = document.getElementById('welcomeOverlay');
+        if (overlay) overlay.classList.add('hidden');
+      }).catch(() => {
+        // Autoplay policy prevented it - welcome screen will smoothly trigger on tap
+      });
+    });
+
+    // Auto-unlock on any screen touch/interaction
+    ['touchstart', 'pointerdown', 'click'].forEach(evt => {
+      document.addEventListener(evt, function autoPlayOnTouch() {
+        if (!isPlaying) {
+          startExperience();
+        }
+        document.removeEventListener(evt, autoPlayOnTouch);
+      }, { once: true, passive: true });
+    });
 
     // 2. Lightbox Modal
     function openModal() {
