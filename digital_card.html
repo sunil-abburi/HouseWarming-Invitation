@@ -7,8 +7,11 @@
   
   <!-- Open Graph Meta for Instant WhatsApp Link Previews -->
   <meta property="og:title" content="అబ్బూరి వారి నూతన గృహప్రవేశ ఆహ్వానము 🪔">
-  <meta property="og:description" content="స్వస్తిశ్రీ చాంద్రమానేన శ్రీ పరాభవనామ సంవత్సర... ది. 05-11-2026 రాత్రి 9:54 నిమిషాలకు కుందురువారిపాలెంలో మా నూతన గృహప్రవేశ ఆహ్వానం.">
-  <meta property="og:image" content="Abburi_Housewarming_WhatsApp_Card.jpg">
+  <meta property="og:description" content="ది. 05 & 06 నవంబర్ 2026 • కుందురువారిపాలెం, పల్నాడు జిల్లా • ఆహ్వానించువారు: అబ్బూరి వీరభద్రరావు - వెంకటరత్నం & కుటుంబ సభ్యులు">
+  <meta property="og:image" content="https://sunil-abburi.github.io/HouseWarming-Invitation/og_preview_card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://sunil-abburi.github.io/HouseWarming-Invitation/digital_card.html">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#3a040d">
 
@@ -611,21 +614,28 @@
       document.getElementById('imageModal').classList.remove('active');
     }
 
-    // 2b. WhatsApp Share Handler with Active URL & Google Maps Doorstep Link
+    // 2b. WhatsApp Share Handler with Active Highlighted Link & Both Dates
     function shareOnWhatsApp() {
       const currentUrl = (window.location.protocol === 'file:' || !window.location.href.startsWith('http'))
         ? 'https://sunil-abburi.github.io/HouseWarming-Invitation/digital_card.html'
         : window.location.href;
 
-      const mapsNavUrl = 'https://www.google.com/maps/dir/?api=1&destination=832Q%2BMMX,+Kunduruvaripalem,+Andhra+Pradesh+522408';
-
       const shareText = 
-        `అబ్బూరి వారి నూతన గృహప్రవేశ ఆహ్వానము 🪔\n` +
-        `ది. 05-11-2026 గురువారం రాత్రి గం॥ 9-54 ని॥లకు కుందురువారిపాలెంలో.\n\n` +
-        `📍 గూగుల్ మ్యాప్స్ డోర్‌స్టెప్ నావిగేషన్:\n${mapsNavUrl}\n\n` +
-        `✨ పూర్తి ఆహ్వాన పత్రిక, వివరాలు & సంగీతం కోసం లింక్:\n${currentUrl}\n\n` +
-        `📞 ఫోన్ నంబర్లు: 9492902838, 8142659479\n\n` +
-        `సస్నేహపూర్వక ఆహ్వానంతో:\nఅబ్బూరి వీరభద్రరావు - వెంకటరత్నం కుటుంబ సభ్యులు`;
+        `శ్రీరస్తు • శుభమస్తు • అవిఘ్నమస్తు 🪔\n\n` +
+        `*అబ్బూరి వారి నూతన గృహప్రవేశ ఆహ్వానము*\n\n` +
+        `మా నూతన గృహప్రవేశ మహోత్సవ శుభ సందర్భమున తామందరూ సకుటుంబ సపరివార సమేతంగా విచ్చేసి ఆశీర్వదించవలసిందిగా కోరుచున్నాము.\n\n` +
+        `🗓️ *శుభ ముహూర్త వివరాలు (2-Day Schedule):*\n` +
+        `• *మొదటి రోజు (05-11-2026, గురువారం):*\n` +
+        `  రాత్రి గం॥ 9-54 ని॥లకు నూతన గృహప్రవేశం, గోపూజ & వాస్తు పూజలు\n` +
+        `• *రెండవ రోజు (06-11-2026, శుక్రవారం):*\n` +
+        `  ఉదయం 8:00 గంటలకు శ్రీ సత్యనారాయణ స్వామి వారి వ్రతం\n` +
+        `  (విందు భోజనం: మధ్యాహ్నం 12:00 గంటలకు)\n\n` +
+        `📍 *వేదిక:* కుందురువారిపాలెం గ్రామం, ముప్పాళ్ళ మండలం, పల్నాడు జిల్లా\n\n` +
+        `✨ *ఆహ్వాన పత్రికను వీక్షించడానికి క్రింది లింక్ ఓపెన్ చేయండి:* 👇\n` +
+        `${currentUrl}\n\n` +
+        `📞 *సంప్రదించవలసిన నంబర్లు:* 9492902838, 8142659479\n\n` +
+        `సస్నేహపూర్వక ఆహ్వానంతో:\n` +
+        `*అబ్బూరి వీరభద్రరావు - వెంకటరత్నం & కుటుంబ సభ్యులు*`;
 
       const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
       window.open(whatsappUrl, '_blank');
