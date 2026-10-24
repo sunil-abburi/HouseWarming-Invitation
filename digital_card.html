@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>అబ్బూరి వారి నూతన గృహప్రవేశ ఆహ్వానము | Abburi Housewarming Digital Invitation</title>
+  
+  <!-- Open Graph Meta for Instant WhatsApp Link Previews -->
+  <meta property="og:title" content="అబ్బూరి వారి నూతన గృహప్రవేశ ఆహ్వానము 🪔">
+  <meta property="og:description" content="స్వస్తిశ్రీ చాంద్రమానేన శ్రీ పరాభవనామ సంవత్సర... ది. 05-11-2026 రాత్రి 9:54 నిమిషాలకు కుందురువారిపాలెంలో మా నూతన గృహప్రవేశ ఆహ్వానం.">
+  <meta property="og:image" content="Abburi_Housewarming_WhatsApp_Card.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#3a040d">
+
+  <!-- Google Fonts: Telugu & Classical Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700;800;900&family=Peddana&family=Ramabhadra&family=Cinzel:wght@600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #120205;
+      --bg-crimson: #2b040c;
+      --gold-primary: #ffd700;
+      --gold-light: #ffe599;
+      --gold-dark: #b8860b;
+      --text-gold: #fff1c4;
+      --card-bg: rgba(35, 5, 12, 0.85);
+      --border-gold: rgba(255, 215, 0, 0.4);
+      --shadow-gold: 0 0 25px rgba(255, 215, 0, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 15%, #3d0510 0%, #1e0207 50%, #0b0103 100%);
+      color: #fff;
+      font-family: 'Noto Sans Telugu', 'Ramabhadra', -apple-system, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 70px;
+    }
+
+    /* Ambient Festive Flower Petals Canvas */
+    #petalsCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Floating Audio Player Control */
+    .audio-control {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 100;
+      background: rgba(40, 5, 12, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--gold-primary);
+      border-radius: 30px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      color: var(--gold-light);
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), var(--shadow-gold);
+      transition: all 0.3s ease;
+    }
+    .audio-control:hover {
+      transform: scale(1.05);
+      background: rgba(60, 8, 18, 0.95);
+    }
+    .audio-icon {
+      font-size: 18px;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* Header Section */
+    .header-banner {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 30px 16px 15px;
+      max-width: 680px;
+      width: 100%;
+    }
+    .sacred-om {
+      font-size: 34px;
+      color: var(--gold-primary);
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 180, 0, 0.5);
+      margin-bottom: 6px;
+    }
+    .header-shloka {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 12px rgba(255, 215, 0, 0.5);
+      margin-bottom: 6px;
+    }
+    .header-title {
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+      background: linear-gradient(180deg, #FFFFFF 20%, #FFE699 60%, #FFB300 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+    .header-sub {
+      font-size: 15px;
+      color: var(--text-gold);
+      opacity: 0.95;
+    }
+
+    /* Card Wrapper & Zoom Hint */
+    .card-section {
+      position: relative;
+      z-index: 5;
+      max-width: 620px;
+      width: calc(100% - 32px);
+      margin: 10px auto 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .invitation-frame {
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.9),
+        0 0 35px rgba(255, 215, 0, 0.3),
+        0 0 0 2px rgba(255, 215, 0, 0.7),
+        0 0 0 6px rgba(184, 134, 11, 0.35);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+    .invitation-frame:hover {
+      transform: translateY(-2px);
+    }
+    .invitation-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .zoom-hint {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--gold-light);
+      opacity: 0.85;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Countdown Ribbon */
+    .countdown-card {
+      position: relative;
+      z-index: 5;
+      max-width: 620px;
+      width: calc(100% - 32px);
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 18px 12px;
+      margin-bottom: 25px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+    }
+    .countdown-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold-primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .timer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .timer-box {
+      background: rgba(15, 2, 5, 0.75);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 10px;
+      padding: 8px 4px;
+    }
+    .timer-num {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      font-family: 'Cinzel', serif;
+    }
+    .timer-label {
+      font-size: 12px;
+      color: var(--gold-light);
+      margin-top: 2px;
+    }
+
+    /* Action Grid */
+    .action-section {
+      position: relative;
+      z-index: 5;
+      max-width: 620px;
+      width: calc(100% - 32px);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .btn-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 15px 20px;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-maps {
+      background: linear-gradient(135deg, #1b5e20, #2e7d32);
+      color: #fff;
+      border: 1px solid #81c784;
+    }
+    .btn-maps:hover {
+      background: linear-gradient(135deg, #2e7d32, #388e3c);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #075e54, #25d366);
+      color: #fff;
+      border: 1px solid #69f0ae;
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-download-gold {
+      background: linear-gradient(135deg, #b8860b, #ffd700);
+      color: #2b040c;
+      border: 1px solid #fff;
+      font-weight: 800;
+    }
+    .btn-download-gold:hover {
+      background: linear-gradient(135deg, #ffd700, #ffea70);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-sub {
+      background: rgba(35, 5, 12, 0.9);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      padding: 13px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-sub:hover {
+      background: rgba(60, 8, 18, 0.95);
+      border-color: var(--gold-primary);
+    }
+
+    /* Key Details Accordion Cards */
+    .details-section {
+      position: relative;
+      z-index: 5;
+      max-width: 620px;
+      width: calc(100% - 32px);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      padding: 16px 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .info-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--gold-primary);
+      margin-bottom: 8px;
+    }
+    .info-body {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #f5eedc;
+    }
+    .info-body strong {
+      color: var(--gold-light);
+    }
+
+    /* Modal Lightbox for Pinch/Zoom */
+    #imageModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 200;
+      overflow: auto;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    #imageModal.active {
+      display: flex;
+    }
+    #modalImg {
+      max-width: 98vw;
+      max-height: 96vh;
+      border-radius: 8px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.9);
+    }
+    .modal-close {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: rgba(255, 215, 0, 0.85);
+      color: #000;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 24px;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 210;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      font-size: 14px;
+      color: #d1c4b2;
+      opacity: 0.85;
+      padding: 20px 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Falling Flowers Canvas -->
+  <canvas id="petalsCanvas"></canvas>
+
+  <!-- Background Music Audio Element -->
+  <audio id="bgMusic" src="background_shehnai.mp3" loop preload="auto"></audio>
+
+  <!-- Audio Toggle Button -->
+  <div class="audio-control" id="audioToggle" onclick="toggleAudio()">
+    <span class="audio-icon" id="audioIcon">🎵</span>
+    <span id="audioText">సంగీతం (Music)</span>
+  </div>
+
+  <!-- Header Banner -->
+  <header class="header-banner">
+    <div class="sacred-om">ॐ</div>
+    <div class="header-shloka">॥ శ్రీరస్తు • శుభమస్తు • అవిఘ్నమస్తు ॥</div>
+    <h1 class="header-title">అబ్బూరి వారి నూతన గృహప్రవేశము</h1>
+    <div class="header-sub">కుందురువారిపాలెం గ్రామం • నవంబర్ 05 & 06, 2026</div>
+  </header>
+
+  <!-- Main Digital WhatsApp Card (Tappable to Zoom) -->
+  <main class="card-section">
+    <div class="invitation-frame" onclick="openModal()">
+      <img class="invitation-img" src="Abburi_Housewarming_WhatsApp_Card.jpg" alt="అబ్బూరి వారి నూతన గృహప్రవేశ ఆహ్వాన పత్రిక">
+    </div>
+    <div class="zoom-hint">
+      <span>🔍</span>
+      <span>కార్డును తాకి పెద్దదిగా చూడండి (Tap to enlarge)</span>
+    </div>
+  </main>
+
+  <!-- Live Countdown Timer -->
+  <section class="countdown-card">
+    <div class="countdown-title">
+      <span>⏳</span>
+      <span>శుభ ముహూర్తానికి సమయం (Countdown)</span>
+    </div>
+    <div class="timer-grid">
+      <div class="timer-box">
+        <div class="timer-num" id="cdDays">--</div>
+        <div class="timer-label">రోజులు</div>
+      </div>
+      <div class="timer-box">
+        <div class="timer-num" id="cdHours">--</div>
+        <div class="timer-label">గంటలు</div>
+      </div>
+      <div class="timer-box">
+        <div class="timer-num" id="cdMins">--</div>
+        <div class="timer-label">నిమిషాలు</div>
+      </div>
+      <div class="timer-box">
+        <div class="timer-num" id="cdSecs">--</div>
+        <div class="timer-label">సెకన్లు</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1-Tap Quick Action Buttons -->
+  <section class="action-section">
+    <!-- Google Maps Navigation -->
+    <a href="https://www.google.com/maps/dir/?api=1&destination=832Q%2BMMX,+Kunduruvaripalem,+Andhra+Pradesh+522408" target="_blank" rel="noopener noreferrer" class="btn-action btn-maps">
+      <span style="font-size: 22px;">📍</span>
+      <span>గూగుల్ మ్యాప్స్ లొకేషన్ (Doorstep GPS)</span>
+    </a>
+
+    <!-- Download Full HD Card -->
+    <a href="Abburi_Housewarming_WhatsApp_Card.jpg" download="Abburi_Housewarming_Invitation_Card.jpg" class="btn-action btn-download-gold">
+      <span style="font-size: 22px;">📥</span>
+      <span>ఫుల్ HD కార్డు డౌన్‌లోడ్ చేసుకోండి</span>
+    </a>
+
+    <!-- Forward on WhatsApp with Complete Details & Active Link -->
+    <button onclick="shareOnWhatsApp()" class="btn-action btn-whatsapp" style="width: 100%;">
+      <span style="font-size: 22px;">💬</span>
+      <span>వాట్సాప్‌లో షేర్ చేయండి (Share Invite)</span>
+    </button>
+
+    <!-- Secondary Quick Buttons: Call & Add to Calendar -->
+    <div class="btn-secondary-grid">
+      <a href="tel:9492902838" class="btn-sub">
+        <span>📞</span>
+        <span>వీరభద్రరావు గారు</span>
+      </a>
+      <a href="tel:8142659479" class="btn-sub">
+        <span>📞</span>
+        <span>భరత్ / సునీల్</span>
+      </a>
+    </div>
+
+    <div class="btn-secondary-grid">
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Abburi+Housewarming+Ceremony&dates=20261105T162400Z/20261105T190000Z&details=Abburi+Vari+Nuthana+Gruhapravesham+at+Kunduruvaripalem&location=Abburi+Veerabhadra+Rao+Home,+832Q%2BMMX,+Kunduruvaripalem,+Andhra+Pradesh" target="_blank" rel="noopener noreferrer" class="btn-sub">
+        <span>📅</span>
+        <span>క్యాలెండర్‌లో గుర్తుంచుకోండి</span>
+      </a>
+      <a href="Abburi_Housewarming_Status_Story_9x16.jpg" download="Abburi_WhatsApp_Status_9x16.jpg" class="btn-sub">
+        <span>📲</span>
+        <span>స్టేటస్ (9:16) కార్డ్</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Detailed Event Schedule -->
+  <section class="details-section">
+    <!-- Day 1 Schedule -->
+    <div class="info-card">
+      <div class="info-header">
+        <span>🪔</span>
+        <span>మొదటి రోజు కార్యక్రమం (Day 1)</span>
+      </div>
+      <div class="info-body">
+        <strong>ది. 05-11-2026 గురువారం రాత్రి గం. 9-54 నిమిషాలకు</strong><br>
+        ఉత్తరఫల్గుణీ నక్షత్రయుక్త మిధునలగ్న శుభపుష్కరాంశమునందు నూతన గృహప్రవేశం, గోపూజ మరియు వాస్తు సంబంధిత పూజా కార్యక్రమములు.
+      </div>
+    </div>
+
+    <!-- Day 2 Schedule -->
+    <div class="info-card">
+      <div class="info-header">
+        <span>🙏</span>
+        <span>రెండవ రోజు కార్యక్రమం (Day 2)</span>
+      </div>
+      <div class="info-body">
+        <strong>ది. 06-11-2026 శుక్రవారం ఉదయం 8:00 గంటల నుండి:</strong> శ్రీ సత్యనారాయణ స్వామి వారి వ్రత పూజా మహోత్సవం.<br>
+        <strong>విందు (Lunch / Annadanam):</strong> మధ్యాహ్నం 12:00 గంటలకు.
+      </div>
+    </div>
+
+    <!-- Hosts & Family -->
+    <div class="info-card">
+      <div class="info-header">
+        <span>👨‍👩‍👧‍👦</span>
+        <span>ఆహ్వానించువారు (Hosts)</span>
+      </div>
+      <div class="info-body">
+        <strong>అబ్బూరి వీరభద్రరావు - వెంకటరత్నం</strong><br>
+        కుమారులు: భరత్ సాయికుమార్, సునీల్ కుమార్<br>
+        మరియు అబ్బూరి కుటుంబ సభ్యులు.
+      </div>
+    </div>
+
+    <!-- Venue -->
+    <div class="info-card">
+      <div class="info-header">
+        <span>📍</span>
+        <span>వేదిక (Venue Address)</span>
+      </div>
+      <div class="info-body">
+        కుందురువారిపాలెం గ్రామం, ముప్పాళ్ళ మండలం, పల్నాడు జిల్లా, ఆంధ్రప్రదేశ్.<br>
+        <strong>ఫోన్:</strong> 9492902838, 8142659479
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="imageModal" onclick="closeModal()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <img id="modalImg" src="Abburi_Housewarming_WhatsApp_Card.jpg" alt="Enlarged Invitation Card">
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>✨ అబ్బూరి బ్రదర్స్ మరియు బంధుమిత్రుల అభినందనలతో... ✨</p>
+    <p style="margin-top: 6px; font-size: 12px; color: var(--gold-light);">మీ రాకే మాకు శుభారంభం</p>
+  </footer>
+
+  <!-- Interactive JavaScript: Audio, Petals, Countdown, Lightbox -->
+  <script>
+    // 1. Audio Toggle
+    const audio = document.getElementById('bgMusic');
+    const audioIcon = document.getElementById('audioIcon');
+    let isPlaying = false;
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        audioIcon.textContent = '🔇';
+        isPlaying = false;
+      } else {
+        audio.play().then(() => {
+          audioIcon.textContent = '🔊';
+          isPlaying = true;
+        }).catch(() => {
+          // Fallback if blocked
+        });
+      }
+    }
+
+    // Auto-unlock audio on first touch
+    document.addEventListener('click', function unlockAudio() {
+      if (!isPlaying) {
+        audio.play().then(() => {
+          audioIcon.textContent = '🔊';
+          isPlaying = true;
+        }).catch(() => {});
+      }
+      document.removeEventListener('click', unlockAudio);
+    }, { once: true });
+
+    // 2. Lightbox Modal
+    function openModal() {
+      document.getElementById('imageModal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('imageModal').classList.remove('active');
+    }
+
+    // 2b. WhatsApp Share Handler with Active URL & Google Maps Doorstep Link
+    function shareOnWhatsApp() {
+      const currentUrl = (window.location.protocol === 'file:' || !window.location.href.startsWith('http'))
+        ? 'https://sunil-abburi.github.io/HouseWarming-Invitation/digital_card.html'
+        : window.location.href;
+
+      const mapsNavUrl = 'https://www.google.com/maps/dir/?api=1&destination=832Q%2BMMX,+Kunduruvaripalem,+Andhra+Pradesh+522408';
+
+      const shareText = 
+        `అబ్బూరి వారి నూతన గృహప్రవేశ ఆహ్వానము 🪔\n` +
+        `ది. 05-11-2026 గురువారం రాత్రి గం॥ 9-54 ని॥లకు కుందురువారిపాలెంలో.\n\n` +
+        `📍 గూగుల్ మ్యాప్స్ డోర్‌స్టెప్ నావిగేషన్:\n${mapsNavUrl}\n\n` +
+        `✨ పూర్తి ఆహ్వాన పత్రిక, వివరాలు & సంగీతం కోసం లింక్:\n${currentUrl}\n\n` +
+        `📞 ఫోన్ నంబర్లు: 9492902838, 8142659479\n\n` +
+        `సస్నేహపూర్వక ఆహ్వానంతో:\nఅబ్బూరి వీరభద్రరావు - వెంకటరత్నం కుటుంబ సభ్యులు`;
+
+      const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // 3. Live Countdown Timer (Target: Nov 5, 2026 21:54 IST)
+    const targetDate = new Date('2026-11-05T21:54:00+05:30').getTime();
+    function updateTimer() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cdDays').textContent = days;
+        document.getElementById('cdHours').textContent = hours < 10 ? '0' + hours : hours;
+        document.getElementById('cdMins').textContent = mins < 10 ? '0' + mins : mins;
+        document.getElementById('cdSecs').textContent = secs < 10 ? '0' + secs : secs;
+      }
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // 4. Festive Flower Petal Shower Canvas Animation
+    const canvas = document.getElementById('petalsCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const petalCount = 28;
+    const petals = [];
+    const colors = [
+      'rgba(255, 179, 0, 0.75)',  // Marigold Orange
+      'rgba(255, 215, 0, 0.75)',  // Gold
+      'rgba(255, 235, 59, 0.75)',  // Yellow Jasmine
+      'rgba(255, 110, 64, 0.7)'   // Deep Saffron
+    ];
+
+    for (let i = 0; i < petalCount; i++) {
+      petals.push({
+        x: Math.random() * width,
+        y: Math.random() * height - height,
+        r: Math.random() * 6 + 4,
+        d: Math.random() * petalCount,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        tilt: Math.random() * 10 - 10,
+        tiltAngleInc: Math.random() * 0.07 + 0.03,
+        tiltAngle: 0
+      });
+    }
+
+    function drawPetals() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < petalCount; i++) {
+        const p = petals[i];
+        ctx.beginPath();
+        ctx.lineWidth = p.r / 2;
+        ctx.strokeStyle = p.color;
+        ctx.fillStyle = p.color;
+        ctx.moveTo(p.x + p.tilt + p.r, p.y);
+        ctx.bezierCurveTo(p.x + p.tilt, p.y + p.r * 2, p.x + p.tilt - p.r, p.y + p.r * 2, p.x + p.tilt, p.y);
+        ctx.fill();
+
+        p.tiltAngle += p.tiltAngleInc;
+        p.y += (Math.cos(p.d) + 1.2 + p.r / 5) * 0.7;
+        p.x += Math.sin(p.tiltAngle) * 1.1;
+        p.tilt = Math.sin(p.tiltAngle) * 8;
+
+        if (p.y > height) {
+          p.x = Math.random() * width;
+          p.y = -20;
+          p.tilt = Math.random() * 10 - 10;
+        }
+      }
+      requestAnimationFrame(drawPetals);
+    }
+    drawPetals();
+  </script>
+</body>
+</html>
